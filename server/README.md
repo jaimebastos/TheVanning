@@ -1,70 +1,30 @@
-# ExpressJS server boilerplate
 
-<img src="https://buttercms.com/static/images/tech_banners/webp/ExpressJS.b7bdb4190ea4.webp" alt="ExpressJS" width="500"/>
+| HTTP Method 	| URI path      	        | Description                                    	| JSON 	|
+|-------------	|---------------	        |------------------------------------------------	|---------	|
+| GET         	| `/`                   	| Portada de la web        	                            | |
+| GET         	| `/vans` 	            | Muestra las furgonetas	| |
+| GET         	| `/vans/details/:id` 	| Muestra los detalles de las furgonetas
+| GET        	| `/vans/create` 	| Le permite al admin acceder a la pantalla de crear las furgonetas	| |
+| POST         	| `/vans/create` 	| Enviar furgotetas a BBDD	| |
+| GET         	| `/vans/edit/:id`	    | Admin edita furgocampers|  |
+| POST         	| `/vans/edit/:id` 	    | Envía los cambios a la BBDD|  |
+| GET         	| `/vans/delete/:id`	    | Borrar furgoneta por diferentes causas |  |
+| GET         	| `/budget` 	    | Presupuesto a tiempo real |  |
+| POST         	| `/budget` 	    | Envia el presupuesto a la base de datos|  |
+| GET         	| `/facilities` 	    | Muestra todas las posibles instalaciones que pueden hacerse|  |
+| GET         	| `/facilities/:id` 	    | Detalles de la instalacion en concreto |  |
+| GET         	| `/facilities/create` 	    | Crear instalacion |  |
+| POST        	| `/facilities/create` 	    | Enviar las instalaciones a la BBDD|  |
+| GET         	| `/facilities/edit/:id` 	    | Editar las instalaciones|  |
+| POST         	| `/facilities/edit/:id` 	    | Enviar las instalaciones a la BBDD |  |
+| GET         	| `/facilities/delete/:id` 	    | Borrar instalacion |  |
+| GET         	| `/vans/payment`	    | Comprar la furgoneta a traves de una pasarela de pago?????? | |
+| GET         	| `/signup` 	    | Muestra el formulario para registrarse|  |
+| POST        	| `/signup` 	    | Envía los datos del nuevo usuario a la BBDD|  |
+| GET         	| `/login` 	    | Muestra el formulario para registrarse|  |
+| POST        	| `/login` 	    | Envía los datos del usuario a la BBDD|  |
+| GET         	| `/logout`	    | Cierra la sesión del usuario|  |
 
-<hr>
-
-ExpressJS backend boilerplate including:
-- **Views Template**: Handlebars
-- **CSS Engine**: SCSS - Node-sass-middleware
-- **ODM**: Mongoose
-- **UI Framework**: Bootstrap 
-
-
-Prepopulated with Express middlewares:
-- **Logger**: morgan
-- **HTTP POST Params**: body-parser
-- **Cookies**: cookie-parser
-
-Facilities:
-- Gitignore file
-- Seeds file
-- Error handling
-
-## Directory structure
-
-````
-
-express-generator/
-├── app.js
-├── package.json
-├── .gitignoe
-├── routes
-│   │── index.js
-│   └── base.routes.js
-├── models
-│   └── user.model.js
-├── utils
-│   └── index.js
-├── middlewares
-│   └── index.js
-├── views
-│   │── layout.hbs
-│   │── errors
-│   │   │── not-found.hbs
-│   │   └── server-error.hbs
-│   │── pages
-│   │   └── index.hbs
-│   └── partials
-├── public
-│   ├── img
-│   ├── js
-│   │   └── script.js
-│   └── css
-│       └── styles.sass
-├── config
-│   │── db.config.js
-│   │── debug.config.js
-│   │── hbs.config.js
-│   │── locals.config.js
-│   │── middleware.config.js
-│   │── sass.config.js
-│   └── views.config.js
-└── bin
-    ├── seeds.js
-    └── www
-
-````
 
 ## Install
 
