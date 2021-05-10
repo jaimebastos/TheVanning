@@ -1,13 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const extrasSchema = new Schema(
+const extraSchema = new Schema(
   {
-    extras: {
+    name: {
+      type: String,
+      required: [true, "El nombre es obligatiorio"],
       unique: true,
-      name: {
-        type: String,
-        required: [true, "El nombre es obligatiorio"],
       },
       price: {
         type: Number,
@@ -18,12 +17,11 @@ const extrasSchema = new Schema(
         required: [true, "La descripción es obligatioria"],
       },
     },
-  },
   {
     timestamps: true,
   }
 );
 
-const Extras = mongoose.model("Extras", extrasSchema);
+const Extra = mongoose.model("Extra", extraSchema);
 
-module.exports = Extras;
+module.exports = Extra;

@@ -4,9 +4,9 @@
 | GET         	| `/`                   	| Portada de la web        	                            | |
 | GET         	| `/vans` 	            | Muestra las furgonetas	| |
 | GET         	| `/vans/details/:id` 	| Muestra los detalles de las furgonetas
-| GET        	| `/vans/create` 	| Le permite al admin acceder a la pantalla de crear las furgonetas	| |
+| GET        	| `/vans/create` 	| Le permite al admin acceder a la pantalla de crear las furgonetas	???????| |
 | POST         	| `/vans/create` 	| Enviar furgotetas a BBDD	| |
-| GET         	| `/vans/edit/:id`	    | Admin edita furgocampers|  |
+| GET         	| `/vans/edit/:id`	    | Admin edita furgocampers ???????'|  |
 | POST         	| `/vans/edit/:id` 	    | Envía los cambios a la BBDD|  |
 | GET         	| `/vans/delete/:id`	    | Borrar furgoneta por diferentes causas |  |
 | GET         	| `/budget` 	    | Presupuesto a tiempo real |  |
@@ -22,8 +22,8 @@
 | GET         	| `/signup` 	    | Muestra el formulario para registrarse|  |
 | POST        	| `/signup` 	    | Envía los datos del nuevo usuario a la BBDD|  |
 | GET         	| `/login` 	    | Muestra el formulario para registrarse|  |
-| POST        	| `/login` 	    | Envía los datos del usuario a la BBDD|  |
-| GET         	| `/logout`	    | Cierra la sesión del usuario|  |
+| POST        	| `/login` 	    | Envía los datos del usuario a la BBDD
+| GET         	| `/logout`	    | Cierra la sesión del usuario
 
 
 ## Install

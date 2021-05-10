@@ -1,4 +1,4 @@
-require('dotenv/types').config()
+require('dotenv').config()
 
 // DB connection
 require('./config/db.config')
