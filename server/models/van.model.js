@@ -81,7 +81,9 @@ const vanSchema = new Schema(
       type: Number,
       //required: [true, "El precio es obligatorio"],
     },
-
+    isABudget: {
+      type: Boolean,
+    },
     extras: [
       {
         type: Schema.Types.ObjectId,
