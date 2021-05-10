@@ -8,7 +8,7 @@ router.get("/", (req, res) => res.json("message: inicio"));
 router.get("/list", (req, res) => {
 
   Van.find()
-    .select("image name caption price ")
+    .select("image name caption price")
     .then((response) => res.json(response))
     .catch((err) => res.status(500).json({ code: 500, message: "Error fetching vans", err }));
 });

@@ -12,8 +12,10 @@ const express = require('express')
 const app = express()
 
 // App settings
+require('./config/cors.config')(app)
 require('./config/middleware.config')(app)
 require('./config/locals.config')(app)
+require('./config/session.config')(app)
 
 // Routes index
 require('./routes')(app)
