@@ -11,13 +11,13 @@
 | GET         	| `/vans/delete/:id`	    | Borrar furgoneta por diferentes causas |  |
 | GET         	| `/budget` 	    | Presupuesto a tiempo real |  |
 | POST         	| `/budget` 	    | Envia el presupuesto a la base de datos|  |
-| GET         	| `/facilities` 	    | Muestra todas las posibles instalaciones que pueden hacerse|  |
-| GET         	| `/facilities/:id` 	    | Detalles de la instalacion en concreto |  |
-| GET         	| `/facilities/create` 	    | Crear instalacion |  |
-| POST        	| `/facilities/create` 	    | Enviar las instalaciones a la BBDD|  |
-| GET         	| `/facilities/edit/:id` 	    | Editar las instalaciones|  |
-| POST         	| `/facilities/edit/:id` 	    | Enviar las instalaciones a la BBDD |  |
-| GET         	| `/facilities/delete/:id` 	    | Borrar instalacion |  |
+| GET         	| `/extras` 	    | Muestra todas las posibles instalaciones que pueden hacerse|  |
+| GET         	| `/extras/:id` 	    | Detalles de la instalacion en concreto |  |
+| GET         	| `/extras/create` 	    | Crear instalacion |  |
+| POST        	| `/extras/create` 	    | Enviar las instalaciones a la BBDD|  |
+| GET         	| `/extras/edit/:id` 	    | Editar las instalaciones|  |
+| POST         	| `/extras/edit/:id` 	    | Enviar las instalaciones a la BBDD |  |
+| GET         	| `/extras/delete/:id` 	    | Borrar instalacion |  |
 | GET         	| `/vans/payment`	    | Comprar la furgoneta a traves de una pasarela de pago?????? | |
 | GET         	| `/signup` 	    | Muestra el formulario para registrarse|  |
 | POST        	| `/signup` 	    | Envía los datos del nuevo usuario a la BBDD|  |

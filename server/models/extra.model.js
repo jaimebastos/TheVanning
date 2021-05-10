@@ -16,6 +16,10 @@ const extraSchema = new Schema(
         type: String,
         required: [true, "La descripción es obligatioria"],
       },
+      image: {
+      type: String,
+      //required: [true, "La descripción es obligatioria"]
+    },
     },
   {
     timestamps: true,

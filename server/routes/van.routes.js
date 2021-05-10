@@ -5,7 +5,7 @@ const router = express.Router();
 // Endpoints
 router.get("/", (req, res) => res.json("message: inicio"));
 
-router.get("/vans", (req, res) => {
+router.get("/list", (req, res) => {
 
   Van.find()
     .select("image name caption price ")
@@ -13,14 +13,14 @@ router.get("/vans", (req, res) => {
     .catch((err) => res.status(500).json({ code: 500, message: "Error fetching vans", err }));
 });
 
-router.get("/vans/:van_id", (req, res) => {
+router.get("/:van_id", (req, res) => {
 
   Van.findById(req.params.van_id)
     .then((response) => res.json(response))
     .catch((err) => res.status(500).json({ code: 500, message: "Error fetching vans", err }));
 });
 
-router.post("/vans/create", (req, res) => {
+router.post("/create", (req, res) => {
 
   const van = req.body;
 
@@ -29,7 +29,7 @@ router.post("/vans/create", (req, res) => {
     .catch((err) => res.status(500).json({ code: 500, message: "Error saving vans", err }));
 });
 
-router.put("/vans/edit/:vans_id", (req, res) => {
+router.put("/edit/:vans_id", (req, res) => {
 
   Van.findByIdAndUpdate(req.params.vans_id, req.body)
     .then((response) => res.json(response))
@@ -40,7 +40,7 @@ router.get("/delete/:vans_id", (req, res) => {
     
   Van.findByIdAndRemove(req.params.vans_id)
     .then((response) => res.json(response))
-    .catch((err) => console.log("erororororororororoororororor", err));
+    .catch((err) => res.status(204).json({ code: 204, message: "Error deleting vans", err }));
 });
 
 module.exports = router;
