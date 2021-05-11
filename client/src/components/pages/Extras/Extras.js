@@ -1,14 +1,13 @@
 import { Container } from "react-bootstrap";
-
 import ExtrasList from "./Extras-list";
 
 import "./Extras.css";
 
 const Extras = () => {
   return (
-    <Container className="Extras-page">
+    <Container >
       <hr />
-      <ExtrasList />
+      <ExtrasList/>
     </Container>
   );
 };

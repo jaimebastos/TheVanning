@@ -7,20 +7,28 @@ const extraSchema = new Schema(
       type: String,
       required: [true, "El nombre es obligatiorio"],
       unique: true,
-      },
-      price: {
-        type: Number,
-        required: [true, "El precio es obligatiorio"],
-      },
-      description: {
-        type: String,
-        required: [true, "La descripción es obligatioria"],
-      },
-      image: {
+    },
+    price: {
+      type: Number,
+      required: [true, "El precio es obligatiorio"],
+    },
+    caption: {
+      type: String,
+      required: [true, "La descripción corta es obligatioria"],
+    },
+    description: {
+      type: String,
+      required: [true, "La descripción es obligatioria"],
+    },
+    category:{
+      type: String,
+      enum:['Entretenimiento', 'Revestimiento', 'Climatización', 'Electrodomesticos', 'Electrónica', 'Electricidad', 'Gas', 'Agua', 'Almacenamiento', 'Confort']
+    },
+    image: {
       type: String,
       //required: [true, "La descripción es obligatioria"]
     },
-    },
+  },
   {
     timestamps: true,
   }
