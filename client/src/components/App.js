@@ -1,24 +1,26 @@
+import './App.css';
+import { Component } from 'react'
 
+import Footer from './layout/Footer/Footer'
+import Navigation from './layout/Navigation/Navigation'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Routes from './routes/Routes'
+
+class App extends Component() {
+   render() {
+
+    return (
+      <>
+        <Navigation />
+
+        <main>
+          <Routes />
+        </main>
+
+        <Footer />
+      </>
+    )
+  }
 }
 
 export default App;
