@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import VansService from '../../../service/vans.service'
 import { Link } from 'react-router-dom'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 
 
 class VanDetails extends Component {
@@ -35,6 +35,8 @@ class VanDetails extends Component {
 
             <Container>
 
+                <Button></Button>
+
                 {
                     !this.state.van
                     ? 
@@ -46,7 +48,7 @@ class VanDetails extends Component {
                             <Row className="justify-content-between">
                                 <Col md={6}>
                                     <h3>Información</h3>
-                                    <p>{van.description}</p>
+                                    {/* <p>{van.description}</p>
                                     <hr />
                                     <h3>Especificaciones</h3>
                                     <p><strong>Diseñador:</strong> {van.designer.brand}, {van.designer.model}</p>
@@ -55,7 +57,7 @@ class VanDetails extends Component {
                                     <p><strong>Año:</strong> {van.year}</p>
                                     <p><strong>Kilometros:</strong> {van.kilometers}</p>
                                     <p><strong>CV:</strong> {van.cv}</p>
-                                    <p><strong>Precio:</strong> {van.price}</p>
+                                    <p><strong>Precio:</strong> {van.price}</p> */}
                                     <hr />
                                     <Link to="/vans" className="btn btn-dark">Volver al listado</Link>
                                 </Col>

@@ -1,12 +1,13 @@
 import { Component } from 'react'
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
 import VansService from '../../../service/vans.service'
-import './NewVan.css'
 
-class NewVan extends Component {
-    constructor() {
-        super()
+
+class EditVan extends Component {
+    constructor(props) {
+        super(props)
         this.state = {
+
             name: '',
             designer: {
                 brand: '',
@@ -32,19 +33,39 @@ class NewVan extends Component {
             price: 0,
         }
         this.VansService = new VansService()
+        console.log(this.props)
     }
-
     handleInputChange(e) {
-        const { name, value } = e.target
+        let { name, value } = e.target
         const designerCopy = {...this.state.designer}
         const dimensionCopy = {...this.state.dimension}
         const specificationsCopy = {...this.state.specifications}
         const specificationsFuelCopy = {...this.state.specifications.fuelSpecifications}
 
-        designerCopy[name] = value
-        dimensionCopy[name] = value
-        specificationsCopy[name] = value
-        specificationsFuelCopy[name] = value
+        switch(name) {
+            case "brand":
+            case "model":
+                designerCopy[name] = value
+                name = null
+                value = null
+                break
+            case "length":
+            case "weight":
+            case "height":
+                dimensionCopy[name] = value
+                break
+            case "fuelType":
+            case "fuelConsume":
+                specificationsFuelCopy[name] = value
+                break;
+            case "cv":
+            case "kilometers":
+            case "year":
+                specificationsCopy[name] = value
+                break;
+
+            default:    
+        }
 
         this.setState({ 
             [name]: value,
@@ -57,17 +78,30 @@ class NewVan extends Component {
         })
         
     }
-
     handleSubmit(e) {
 
-        e.preventDefault()
+            e.preventDefault()
 
-        this.VansService
-            .createVan(this.state)
-            .then(response => console.log('Crear nueva van', response.data))
-            .catch(err => console.log(err))
+            this.VansService
+                .updateVan(this.state)
+                .then(response => console.log('Editar una van', response.data))
+                .catch(err => console.log(err))  
     }
 
+    componentDidMount() {
+        this.loadVan()
+    }
+
+    loadVan(){
+        this.VansService
+            .getOneVan(this.props.match.params.vans_id)
+            .then(response => {
+                // const vans  = response.data
+                // this.setState({vans})
+                console.log('Estamos aquiiiiii', this.state)
+            })
+            .catch(err => console.log('ERROR, YA VEREMOS QUE HASCEMOS', err))
+        }
     render() {
         return(
             <Container>
@@ -152,7 +186,7 @@ class NewVan extends Component {
                             </Form.Group>
                         </Col>
 
-                        <Button variant="dark" style={{ width: '100%', margin: '50px auto'}} type="submit">Crear furgoneta</Button>
+                        <Button variant="dark" style={{ width: '100%', margin: '50px auto'}} type="submit">Editar furgoneta</Button>
                 </Form>
                 
             </Container>
@@ -160,5 +194,6 @@ class NewVan extends Component {
     }
 
 }
- 
-export default NewVan
+
+
+export default EditVan

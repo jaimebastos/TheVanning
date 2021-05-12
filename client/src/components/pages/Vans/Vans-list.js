@@ -3,6 +3,8 @@ import { Component } from 'react'
 import VansService from './../../../service/vans.service'
 import VanCard from './Van-card'
 
+import {Link} from 'react-router-dom'
+
 import { Row } from 'react-bootstrap'
 
 
@@ -41,9 +43,12 @@ class VansList extends Component {
                 <h1>CARGANDO</h1>
                 :
                 <>   
+                    <Link to="/vans/create" className="btn btn-dark"> Crear Van</Link>
+
                     <Row>
                         {vans.map(elm => <VanCard key={elm._id} {...elm} />)}
                     </Row>
+
                 </>         
         )
     }
