@@ -7,13 +7,12 @@ import NewExtra from '../pages/NewExtra/NewExtra';
 
 const Routes = () => {
 
-    return (
-      <Switch>
-        <Route path="/extras" exact render={() => <Extras />} />
-        <Route path="/extras/create" render={() => <NewExtra />} />
-        <Route path="/extras/details/:extras_id" render={props => <ExtrasDetails {...props}/>} />
-      </Switch>
-    );
+  return (
+    <Switch>
+      <Route path="/extras" exact render={() => <Extras />} />
+      <Route path="/extras/create" render={() => <NewExtra />} />
+    </Switch>
+  );
 }
 
 export default Routes

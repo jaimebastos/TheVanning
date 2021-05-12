@@ -3,38 +3,35 @@ import ExtrasService from "../../../service/extras.service";
 import { Container } from "react-bootstrap";
 
 
-class ExtrasDetails extends Component{
-    constructor(props){
+class ExtrasDetails extends Component {
+    constructor(props) {
         super(props)
-        this.state={
+        this.state = {
             extra: undefined
         }
         this.extrasService = new ExtrasService
     }
-    componentDidMount(){
+    componentDidMount() {
 
-        const {extras_id} = this.props.match.params
-        console.log(this.props.match.params);
+        const { id } = this.props
         this.extrasService
-            .getOneExtra(extras_id)
-            .then(response =>{
-                console.log(response.data)
-                this.setState({extra: response.data})
+            .getOneExtra(id)
+            .then(response => {
+                this.setState({ extra: response.data })
             })
     }
-    render(){
+    render() {
 
-        const {extra} = this.state
+        const { extra } = this.state
 
-        return(
+        return (
             <Container>
                 {
-                 !this.state.extra ? <h1>cargando...</h1>:
-                 <>
-                    <h1>{extra.name}</h1>
-                 </>
+                    !this.state.extra ? <h1>cargando...</h1> :
+                        <>
+                            <h1>{extra.name}</h1>
+                        </>
                 }
-
             </Container>
         )
     }
