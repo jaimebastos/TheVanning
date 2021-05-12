@@ -7,7 +7,6 @@ class EditVan extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
             name: '',
             designer: {
                 brand: '',
@@ -37,12 +36,12 @@ class EditVan extends Component {
     }
     handleInputChange(e) {
         let { name, value } = e.target
-        const designerCopy = {...this.state.designer}
-        const dimensionCopy = {...this.state.dimension}
-        const specificationsCopy = {...this.state.specifications}
-        const specificationsFuelCopy = {...this.state.specifications.fuelSpecifications}
+        const designerCopy = { ...this.state.designer }
+        const dimensionCopy = { ...this.state.dimension }
+        const specificationsCopy = { ...this.state.specifications }
+        const specificationsFuelCopy = { ...this.state.specifications.fuelSpecifications }
 
-        switch(name) {
+        switch (name) {
             case "brand":
             case "model":
                 designerCopy[name] = value
@@ -64,35 +63,35 @@ class EditVan extends Component {
                 specificationsCopy[name] = value
                 break;
 
-            default:    
+            default:
         }
 
-        this.setState({ 
+        this.setState({
             [name]: value,
             designer: designerCopy,
             dimension: dimensionCopy,
-            specifications:{
+            specifications: {
                 specificationsCopy,
                 fuelSpecifications: specificationsFuelCopy,
-            } 
+            }
         })
-        
+
     }
     handleSubmit(e) {
 
-            e.preventDefault()
+        e.preventDefault()
 
-            this.VansService
-                .updateVan(this.state)
-                .then(response => console.log('Editar una van', response.data))
-                .catch(err => console.log(err))  
+        this.VansService
+            .updateVan(this.state)
+            .then(response => console.log('Editar una van', response.data))
+            .catch(err => console.log(err))
     }
 
     componentDidMount() {
         this.loadVan()
     }
 
-    loadVan(){
+    loadVan() {
         this.VansService
             .getOneVan(this.props.match.params.vans_id)
             .then(response => {
@@ -101,9 +100,9 @@ class EditVan extends Component {
                 console.log('Estamos aquiiiiii', this.state)
             })
             .catch(err => console.log('ERROR, YA VEREMOS QUE HASCEMOS', err))
-        }
+    }
     render() {
-        return(
+        return (
             <Container>
 
                 <Form onSubmit={e => this.handleSubmit(e)}>
@@ -179,16 +178,16 @@ class EditVan extends Component {
                         </Col>
                     </Row>
 
-                        <Col lg={12}>
-                            <Form.Group controlId="description">
-                                    <Form.Label>Descripción</Form.Label>
-                                    <Form.Control type="text" value={this.state.description} onChange={e => this.handleInputChange(e)} name="description" />
-                            </Form.Group>
-                        </Col>
+                    <Col lg={12}>
+                        <Form.Group controlId="description">
+                            <Form.Label>Descripción</Form.Label>
+                            <Form.Control type="text" value={this.state.description} onChange={e => this.handleInputChange(e)} name="description" />
+                        </Form.Group>
+                    </Col>
 
-                        <Button variant="dark" style={{ width: '100%', margin: '50px auto'}} type="submit">Editar furgoneta</Button>
+                    <Button variant="dark" style={{ width: '100%', margin: '50px auto' }} type="submit">Editar furgoneta</Button>
                 </Form>
-                
+
             </Container>
         )
     }
