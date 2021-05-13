@@ -22,8 +22,14 @@ class DesignerVan extends Component {
         return (
             <>
                 <Form.Group controlId="brand">
-                    <Form.Label>Marca</Form.Label>
-                    <Form.Control type="text" value={this.state.brand} onChange={e => this.handleInputChange(e)} name="brand" />
+                    <Form.Label>Elige una marca</Form.Label>
+                    <Form.Control as="select" value={this.state.brand} onChange={(e) => this.handleInputChange(e)} name="brand">
+                        <option>Mercedes</option>
+                        <option>Citroen</option>
+                        <option>Peugot</option>
+                        <option>Renault</option>
+                        <option>Fiat</option>
+                    </Form.Control>
                 </Form.Group>
 
                 <Form.Group controlId="model">

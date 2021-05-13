@@ -24,16 +24,24 @@ class DimensionVan extends Component {
         return (
             <>
                 <Form.Group controlId="length">
-                    <Form.Label>Longitud</Form.Label>
-                    <Form.Control type="text" value={this.state.length} onChange={e => this.handleInputChange(e)} name="length" />
+                    <Form.Label>Elige la longitud</Form.Label>
+                    <Form.Control as="select" value={this.state.length} onChange={(e) => this.handleInputChange(e)} name="length">
+                        <option>L1</option>
+                        <option>L2</option>
+                        <option>L3</option>
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group controlId="height">
+                    <Form.Label>Elige la altura</Form.Label>
+                    <Form.Control as="select" value={this.state.height} onChange={(e) => this.handleInputChange(e)} name="height">
+                        <option>H1</option>
+                        <option>H2</option>
+                        <option>H3</option>
+                    </Form.Control>
                 </Form.Group>
                 <Form.Group controlId="weight">
                     <Form.Label>Peso</Form.Label>
                     <Form.Control type="number" value={this.state.weight} onChange={e => this.handleInputChange(e)} name="weight" />
-                </Form.Group>
-                <Form.Group controlId="height">
-                    <Form.Label>Altura</Form.Label>
-                    <Form.Control type="text" value={this.state.height} onChange={e => this.handleInputChange(e)} name="height" />
                 </Form.Group>
             </>
         )
