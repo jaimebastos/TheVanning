@@ -52,7 +52,7 @@ class EditVan extends Component {
 
         this.VansService
             .updateVan(vans_id, obj)
-            .then(() => console.log(obj))
+            .then(() => this.props.history.push('/vans'))
             .catch(err => console.log(err))
     }
 
@@ -70,8 +70,6 @@ class EditVan extends Component {
     }
 
     specificationsOnChange(specifications) {
-        console.log("GOLA")
-        console.log(specifications)
         this.setState({ specifications })
     }
 
@@ -86,7 +84,7 @@ class EditVan extends Component {
     }
 
     render() {
-
+        console.log(this.props)
         return (
             !this.copyVans
                 ?
