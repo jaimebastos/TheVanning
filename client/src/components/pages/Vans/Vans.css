@@ -1,0 +1,8 @@
+.vans-page .van-card {
+    margin-bottom: 50px;
+}
+
+.vans-page .van-card img {
+    height: 140px;
+    object-fit: cover;
+}
