@@ -7,6 +7,7 @@ class EditExtra extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      extras:undefined,
       extra: {
         name: "",
         description: "",
@@ -32,19 +33,19 @@ class EditExtra extends Component {
     extraCopy[name] = value;
     this.setState({ extra: extraCopy });
   }
-
   handleSubmit(e) {
     e.preventDefault();
-
+    
     this.extrasService
-      .editOneExtra(this.props.id, this.state.extra)
-      .then((response) => {
-        this.props.closeModal();
-        this.props.refresh();
-        console.log("SE HABRA EDITADOOO???", response.data);
-      })
-      .catch((err) => console.log(err));
+    .editOneExtra(this.props.id, this.state.extra)
+    .then((response) => {
+      this.props.refresh()
+      this.props.closeModal();
+    })
+    .catch((err) => console.log(err));
   }
+
+
   handleFileUpload(e) {
 
     const uploadData = new FormData();

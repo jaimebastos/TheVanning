@@ -40,7 +40,6 @@ class NewExtra extends Component {
       .createExtras(this.state.extra)
       .then(response =>{
         this.props.history.push('/extras')
-        console.log("SE HABRA CREADO???", response.data);
       })
       .catch(err => console.log('eeeeeeeerror', err))
   }

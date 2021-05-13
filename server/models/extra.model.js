@@ -22,7 +22,7 @@ const extraSchema = new Schema(
     },
     category:{
       type: String,
-      enum:['Entretenimiento', 'Revestimiento', 'Climatización', 'Electrodomesticos', 'Electrónica', 'Electricidad', 'Gas', 'Agua', 'Almacenamiento', 'Confort']
+      enum:['Entretenimiento', 'Revestimiento', 'Electrodomesticos', 'Electrónica', 'Electricidad', 'Gas', 'Agua', 'Almacenamiento', 'Confort']
     },
     image: {
       type: String,
