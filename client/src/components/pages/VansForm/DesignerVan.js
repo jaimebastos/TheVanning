@@ -6,22 +6,20 @@ class DesignerVan extends Component {
     constructor(props) {
         super(props)
         this.state = {
-                brand: this.props.info.brand,
-                model: this.props.info.model
+            brand: this.props.info.brand,
+            model: this.props.info.model
         }
     }
- 
+
     handleInputChange(e) {
         const { name, value } = e.target
-        this.setState({ [name]: value } , () => {
+        this.setState({ [name]: value }, () => {
             this.props.onInputChange(this.state)
         })
- }
+    }
 
     render() {
-        console.log(this.props)
-        console.log(this.state)
-        return(
+        return (
             <>
                 <Form.Group controlId="brand">
                     <Form.Label>Marca</Form.Label>

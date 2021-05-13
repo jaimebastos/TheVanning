@@ -36,26 +36,26 @@ class NewVan extends Component {
 
     handleInputChange(e) {
         const { name, value } = e.target
-        const designerCopy = {...this.state.designer}
-        const dimensionCopy = {...this.state.dimension}
-        const specificationsCopy = {...this.state.specifications}
-        const specificationsFuelCopy = {...this.state.specifications.fuelSpecifications}
+        const designerCopy = { ...this.state.designer }
+        const dimensionCopy = { ...this.state.dimension }
+        const specificationsCopy = { ...this.state.specifications }
+        const specificationsFuelCopy = { ...this.state.specifications.fuelSpecifications }
 
         designerCopy[name] = value
         dimensionCopy[name] = value
         specificationsCopy[name] = value
         specificationsFuelCopy[name] = value
 
-        this.setState({ 
+        this.setState({
             [name]: value,
             designer: designerCopy,
             dimension: dimensionCopy,
-            specifications:{
+            specifications: {
                 specificationsCopy,
                 fuelSpecifications: specificationsFuelCopy,
-            } 
+            }
         })
-        
+
     }
 
     handleSubmit(e) {
@@ -64,12 +64,12 @@ class NewVan extends Component {
 
         this.VansService
             .createVan(this.state)
-            .then(response => console.log('Crear nueva van', response.data))
+            .then(response => this.props.history.push('/vans'))
             .catch(err => console.log(err))
     }
 
     render() {
-        return(
+        return (
             <Container>
 
                 <Form onSubmit={e => this.handleSubmit(e)}>
@@ -145,20 +145,20 @@ class NewVan extends Component {
                         </Col>
                     </Row>
 
-                        <Col lg={12}>
-                            <Form.Group controlId="description">
-                                    <Form.Label>Descripción</Form.Label>
-                                    <Form.Control type="text" value={this.state.description} onChange={e => this.handleInputChange(e)} name="description" />
-                            </Form.Group>
-                        </Col>
+                    <Col lg={12}>
+                        <Form.Group controlId="description">
+                            <Form.Label>Descripción</Form.Label>
+                            <Form.Control type="text" value={this.state.description} onChange={e => this.handleInputChange(e)} name="description" />
+                        </Form.Group>
+                    </Col>
 
-                        <Button variant="dark" style={{ width: '100%', margin: '50px auto'}} type="submit">Crear furgoneta</Button>
+                    <Button variant="dark" style={{ width: '100%', margin: '50px auto' }} type="submit">Crear furgoneta</Button>
                 </Form>
-                
+
             </Container>
         )
     }
 
 }
- 
+
 export default NewVan

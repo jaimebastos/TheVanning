@@ -19,16 +19,18 @@ class SpecificationsVan extends Component {
     handleInputChange(e) {
         console.log(e.target.name)
         const { name, value } = e.target
-        this.setState({ [name]: value 
+        this.setState({
+            [name]: value
         })
- }
+    }
 
     fuelSpecificationsOnChange(fuelSpecifications) {
-        this.setState({fuelSpecifications})
+        this.setState({ fuelSpecifications })
     }
 
     render() {
-        return(
+        console.log(this.state)
+        return (
             <>
                 <Form.Group controlId="cv">
                     <Form.Label>CV</Form.Label>
@@ -45,7 +47,7 @@ class SpecificationsVan extends Component {
                     <Form.Control type="number" value={this.state.year} onChange={e => this.handleInputChange(e)} name="year" />
                 </Form.Group>
 
-                <FuelSpecificationsVan info={this.props.info.fuelSpecifications} onInputChange={(e) => this.fuelSpecificationsOnChange(e)}/>
+                <FuelSpecificationsVan info={this.props.info.fuelSpecifications} onInputChange={(e) => this.fuelSpecificationsOnChange(e)} />
 
 
             </>
@@ -54,4 +56,4 @@ class SpecificationsVan extends Component {
 
 }
 
-export default SpecificationsVan 
+export default SpecificationsVan
