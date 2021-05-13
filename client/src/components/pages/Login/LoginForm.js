@@ -25,8 +25,8 @@ class LoginForm extends Component {
         this.authService
             .login(this.state)
             .then(response => {
-                this.props.storeUser(response.data)
-                this.props.history.push('/montañas-rusas')          // redirigir en JS
+                this.props.history.push('/vans')
+
             })
             .catch(err => console.log(err))
     }

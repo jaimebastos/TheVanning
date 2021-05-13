@@ -1,24 +1,23 @@
+import React from 'react';
+import { Component } from 'react'
 
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Routes from './routes/Routes'
+
+class App extends Component {
+  render() {
+
+    return (
+      <>
+
+        <main>
+          <Routes />
+        </main>
+
+      </>
+    )
+  }
 }
 
 export default App;

@@ -14,3 +14,5 @@ class AuthService {
     isloggedin = () => this.app.post('/isloggedin')
     isAdmin = () => this.app.post('/isAdmin')
 }
+
+export default AuthService

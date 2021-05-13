@@ -27,7 +27,7 @@ class SignupForm extends Component {
         this.authService
             .signup(this.state)
             .then(response => {
-                this.props.history.push('/inicio-sesion')
+                this.props.history.push('/auth/login')
             })
             .catch(err => console.log(err))
     }
@@ -43,11 +43,11 @@ class SignupForm extends Component {
                 </Form.Group>
 
                 <Form.Group controlId="name">
-                    <Form.Label>Nombre de usuario</Form.Label>
+                    <Form.Label>Nombre y Apellido</Form.Label>
                     <Form.Control type="text" value={this.state.name} onChange={e => this.handleInputChange(e)} name="name" />
                 </Form.Group>
                 <Form.Group controlId="email">
-                    <Form.Label>Nombre de usuario</Form.Label>
+                    <Form.Label>E-Mail</Form.Label>
                     <Form.Control type="email" value={this.state.email} onChange={e => this.handleInputChange(e)} name="email" />
                 </Form.Group>
 

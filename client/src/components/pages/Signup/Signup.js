@@ -20,7 +20,7 @@ const Signup = ({ history }) => {
 
                     <hr />
 
-                    <Link to="/inicio-sesion" className="btn btn-dark">Iniciar sesión</Link>
+                    <Link to="/auth/login" className="btn btn-dark">Iniciar sesión</Link>
 
                 </Col>
 
