@@ -17,8 +17,8 @@ const Routes = () => {
             <Route path="/" exact render={() => <Vans />} />
             <Route path="/vans" exact render={() => <Vans />} />
             <Route path="/vans/details/:id" render={props => <VanDetails {...props} />} />
-            <Route path="/vans/create" render={() => <NewVan />} />
-            <Route path="/vans/edit/:vans_id" render={props => <EditVan {...props} />} />
+            <Route path="/vans/create" render={props => <NewVan history={props.history} />} />
+            <Route path="/vans/edit/:vans_id" render={props => <EditVan {...props} history={props.history} />} />
             <Route path="/extras" exact render={() => <Extras />} />
             <Route path="/extras/create" render={(props) => <NewExtra history={props.history} />} />
             <Route path="/auth/signup" render={props => <Signup history={props.history} />} />

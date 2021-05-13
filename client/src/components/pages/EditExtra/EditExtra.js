@@ -41,7 +41,7 @@ class EditExtra extends Component {
       .then((response) => {
         this.props.closeModal();
         this.props.refresh();
-        console.log("SE HABRA EDITADOOO???", response.data);
+
       })
       .catch((err) => console.log(err));
   }
@@ -50,7 +50,7 @@ class EditExtra extends Component {
     const uploadData = new FormData();
     uploadData.append("imageData", e.target.files[0]);
 
-    console.log(e.target.files[0], "lo que va al formulario");
+
     this.uploadsService
       .uploadimage(uploadData)
       .then((response) => {
