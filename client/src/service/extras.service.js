@@ -4,14 +4,16 @@ class ExtrasService {
   constructor() {
     this.app = axios.create({
       baseURL: "http://localhost:5000/api/extras",
-      withCredentials: true
+      withCredentials: true,
     });
   }
   getAllExtras = () => this.app.get("/list");
-  createExtras = extrasDetails => {
-    this.app.post('/create', extrasDetails)
-  }
-  getOneExtra = extras_id => this.app.get(`/${extras_id}`)
+  createExtras = (extrasDetails, imageForm) => {
+    return this.app.post("/create", extrasDetails, imageForm);
+  };
+  getOneExtra = (extras_id) => this.app.get(`/${extras_id}`);
+  editOneExtra = (extras_id, extrasDetails) => this.app.put(`/edit/${extras_id}`, extrasDetails);
+  deleteOneExtra = (extras_id) => this.app.get(`/delete/${extras_id}`)
 }
 
 export default ExtrasService;

@@ -6,7 +6,7 @@ const extraSchema = new Schema(
     name: {
       type: String,
       required: [true, "El nombre es obligatiorio"],
-      unique: true,
+      //unique: true,
     },
     price: {
       type: Number,

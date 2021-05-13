@@ -3,65 +3,72 @@ import { Form, Button, Container } from "react-bootstrap";
 import ExtrasService from "../../../service/extras.service";
 import UploadsService from "../../../service/upload.service";
 
-import './NewExtra.css'
-
-class NewExtra extends Component {
-  constructor() {
-    super();
+class EditExtra extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      extra:{
-        name: '',
-        description: '',
-        caption: '',
-        category: '',
+      extra: {
+        name: "",
+        description: "",
+        caption: "",
+        category: "",
         price: 0,
-        image: ''
-      }
-    }
+        image: "",
+        _id: "",
+      },
+    };
+    this.extrasService = new ExtrasService();
+    this.uploadsService = new UploadsService();
+  }
 
-    this.extrasService = new ExtrasService()
-    this.uploadsService = new UploadsService()
+  componentDidMount() {
+    this.loadOneExtra();
   }
 
   handleInputChange(e) {
     const { name, value } = e.target;
-    const extraCopy = {...this.state.extra}
+    const extraCopy = { ...this.state.extra };
 
-    extraCopy[name] = value
-    this.setState({extra: extraCopy});
+    extraCopy[name] = value;
+    this.setState({ extra: extraCopy });
   }
-
 
   handleSubmit(e) {
+    e.preventDefault();
 
-    e.preventDefault()
-   
     this.extrasService
-      .createExtras(this.state.extra)
-      .then(response =>{
-        this.props.history.push('/extras')
-        console.log("SE HABRA CREADO???", response.data);
+      .editOneExtra(this.props.id, this.state.extra)
+      .then((response) => {
+        this.props.closeModal();
+        this.props.refresh();
+        console.log("SE HABRA EDITADOOO???", response.data);
       })
-      .catch(err => console.log('eeeeeeeerror', err))
+      .catch((err) => console.log(err));
   }
+  handleFileUpload(e) {
 
-  handleFileUpload(e){
-    
     const uploadData = new FormData();
     uploadData.append("imageData", e.target.files[0]);
-    
-    console.log(e.target.files[0], "lo que va al formulario")
+
+    console.log(e.target.files[0], "lo que va al formulario");
     this.uploadsService
       .uploadimage(uploadData)
-      .then(response => {
+      .then((response) => {
         const extraCopy = { ...this.state.extra };
-        extraCopy.image = response.data.secure_url   
-
-        this.setState({extra: extraCopy})
+        extraCopy.image = response.data.secure_url;
+        this.setState({ extra: extraCopy });
       })
-      .catch(err => console.log('errooooor', err))
+      .catch((err) => console.log("errooooor", err));
+
   }
 
+  loadOneExtra() {
+    const { id } = this.props;
+
+    this.extrasService.getOneExtra(id).then((response) => {
+      this.setState({ extra: response.data });
+    });
+  }
   render() {
     return (
       <>
@@ -105,7 +112,6 @@ class NewExtra extends Component {
                   onChange={(e) => this.handleInputChange(e)}
                   name="category"
                 >
-                  <option>Selecciona Uno</option>
                   <option>Entretenimiento</option>
                   <option>Revestimiento</option>
                   <option>Climatización</option>
@@ -129,12 +135,12 @@ class NewExtra extends Component {
                 />
               </Form.Group>
 
-              <Form.Group controlId="imageUrl">
+              <Form.Group controlId="image">
                 <Form.Label>Imagen</Form.Label>
                 <Form.Control type="file" onChange={(e) => this.handleFileUpload(e)} />
               </Form.Group>
 
-              <Button variant="dark" style={{ width: "100%" }} type="submit">
+              <Button variant="dark" style={{ width: "100%" }} type="submit" onClick={() => this.props.closeModal()}>
                 crear extra
               </Button>
             </Form>
@@ -145,4 +151,4 @@ class NewExtra extends Component {
   }
 }
 
-export default NewExtra;
+export default EditExtra

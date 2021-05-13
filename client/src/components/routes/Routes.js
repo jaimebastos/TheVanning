@@ -10,7 +10,7 @@ const Routes = () => {
   return (
     <Switch>
       <Route path="/extras" exact render={() => <Extras />} />
-      <Route path="/extras/create" render={() => <NewExtra />} />
+      <Route path="/extras/create" render={(props) => <NewExtra history={props.history} />} />
     </Switch>
   );
 }
