@@ -9,7 +9,7 @@ import Navigation from './layout/Navigation/Navigation'
 import Routes from './routes/Routes'
 
 class App extends Component {
-   render() {
+  render() {
 
     return (
       <>

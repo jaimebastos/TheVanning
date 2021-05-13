@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import VansService from '../../../service/vans.service'
 import { Link } from 'react-router-dom'
-import { Container, Row, Col, Button } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 
 
 class VanDetails extends Component {
@@ -34,8 +34,6 @@ class VanDetails extends Component {
         return (
 
             <Container>
-
-                <Button></Button>
 
                 {
                     !this.state.van
