@@ -35,6 +35,7 @@ class EditVan extends Component {
         this.VansService = new VansService()
         console.log(this.props)
     }
+
     handleInputChange(e) {
         let { name, value } = e.target
         const designerCopy = {...this.state.designer}
@@ -63,10 +64,9 @@ class EditVan extends Component {
             case "year":
                 specificationsCopy[name] = value
                 break;
-
             default:    
         }
-
+        
         this.setState({ 
             [name]: value,
             designer: designerCopy,
@@ -92,12 +92,17 @@ class EditVan extends Component {
         this.loadVan()
     }
 
+    designerOnChange(e) {
+        const {name, value} = e.target
+        this.setState({designer: {[name]: value}})
+    }
+
     loadVan(){
         this.VansService
             .getOneVan(this.props.match.params.vans_id)
             .then(response => {
                 // const vans  = response.data
-                // this.setState({vans})
+                this.setState(response.data)
                 console.log('Estamos aquiiiiii', this.state)
             })
             .catch(err => console.log('ERROR, YA VEREMOS QUE HASCEMOS', err))
@@ -115,6 +120,8 @@ class EditVan extends Component {
                                 <Form.Control type="text" value={this.state.name} onChange={e => this.handleInputChange(e)} name="name" />
                             </Form.Group>
 
+
+                            {/* <DesignerGroup onChange={(e) => this.designerOnChange(e)}/> */}
                             <Form.Group controlId="brand">
                                 <Form.Label>Marca</Form.Label>
                                 <Form.Control type="text" value={this.state.designer.brand} onChange={e => this.handleInputChange(e)} name="brand" />
