@@ -4,7 +4,6 @@ import VanDetails from '../pages/VanDetails/VanDetails'
 import NewVan from '../pages/NewVan/NewVan'
 import EditVan from '../pages/EditVan/EditVan'
 import Extras from '../pages/Extras/Extras'
-import ExtrasDetails from '../pages/ExtrasDetails/ExtrasDetails';
 import NewExtra from '../pages/NewExtra/NewExtra';
 import Login from '../pages/Login/Login'
 import Signup from '../pages/Signup/Signup'
