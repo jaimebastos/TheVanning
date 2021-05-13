@@ -14,34 +14,33 @@ class VanDetails extends Component {
     }
 
     componentDidMount() {
-        
+
         const { id } = this.props.match.params
-        
+
         this.VansService
             .getOneVan(id)
             .then(response => {
-                console.log('hooooooolaaaa', response)
                 this.setState({ van: response.data })
             })
             .catch(err => console.log(err))
-      }
+    }
 
 
     render() {
 
         const { van } = this.state
-        
+
         return (
 
             <Container>
 
                 {
                     !this.state.van
-                    ? 
-                    <h1>Cargando...</h1>
-                    :
-                    <>
-                        <h1>{van.name}</h1>
+                        ?
+                        <h1>Cargando...</h1>
+                        :
+                        <>
+                            <h1>{van.name}</h1>
                             <hr />
                             <Row className="justify-content-between">
                                 <Col md={6}>

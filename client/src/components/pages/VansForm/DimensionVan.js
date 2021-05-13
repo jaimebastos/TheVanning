@@ -5,25 +5,25 @@ import { Form } from 'react-bootstrap'
 class DimensionVan extends Component {
     constructor(props) {
         super(props)
-        this.state = {  
-                length: this.props.info.length,
-                Weight: this.props.info.weight,
-                height: this.props.info.height,
+        this.state = {
+            length: this.props.info.length,
+            weight: this.props.info.weight,
+            height: this.props.info.height,
         }
     }
 
     handleInputChange(e) {
         const { name, value } = e.target
-        this.setState({ [name]: value } , () => {
+        this.setState({ [name]: value }, () => {
             this.props.onInputChange(this.state)
         })
- }
+    }
 
     render() {
 
-        return(
+        return (
             <>
-               <Form.Group controlId="length">
+                <Form.Group controlId="length">
                     <Form.Label>Longitud</Form.Label>
                     <Form.Control type="text" value={this.state.length} onChange={e => this.handleInputChange(e)} name="length" />
                 </Form.Group>

@@ -17,10 +17,11 @@ class SpecificationsVan extends Component {
     }
 
     handleInputChange(e) {
-        console.log(e.target.name)
         const { name, value } = e.target
         this.setState({
             [name]: value
+        }, () => {
+            this.props.onInputChange(this.state)
         })
     }
 
@@ -29,7 +30,6 @@ class SpecificationsVan extends Component {
     }
 
     render() {
-        console.log(this.state)
         return (
             <>
                 <Form.Group controlId="cv">

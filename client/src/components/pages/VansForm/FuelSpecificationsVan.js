@@ -6,22 +6,22 @@ class FuelSpecificationsVan extends Component {
     constructor(props) {
         super(props)
         this.state = {
-                fuelType: this.props.info.fuelType,
-                fuelConsume: this.props.info.fuelConsume
+            fuelType: this.props.info.fuelType,
+            fuelConsume: this.props.info.fuelConsume
         }
     }
 
     handleInputChange(e) {
         const { name, value } = e.target
-        this.setState({ [name]: value } , () => {
+        this.setState({ [name]: value }, () => {
             this.props.onInputChange(this.state)
         })
- }
+    }
 
     render() {
-        console.log(this.state)
 
-        return(
+
+        return (
             <>
                 <Form.Group controlId="fuelType">
                     <Form.Label>Combustible</Form.Label>

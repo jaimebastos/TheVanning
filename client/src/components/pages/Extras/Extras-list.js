@@ -21,11 +21,9 @@ class ExtrasList extends Component {
     this.loadExtras()
   }
   loadExtras() {
-    console.log(this.props)
     this.extrasService
       .getAllExtras()
       .then(response => {
-        console.log('vamossssss', response)
         this.setState({ extras: response.data })
       })
       .catch(err => console.log('ERROR, YA VEREMOS QUE HACEMOS', err))
@@ -35,8 +33,8 @@ class ExtrasList extends Component {
     this.setState({ showModal: boleean })
   }
 
-  editModal(boleean){
-    this.setState({showEditModal: boleean})
+  editModal(boleean) {
+    this.setState({ showEditModal: boleean })
   }
 
   setExtraID(id) {
@@ -45,8 +43,8 @@ class ExtrasList extends Component {
     })
   }
 
-  isEditingModal(boolean){
-    this.setState({isEditing: boolean})
+  isEditingModal(boolean) {
+    this.setState({ isEditing: boolean })
   }
 
   render() {

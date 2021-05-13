@@ -52,25 +52,25 @@ class EditVan extends Component {
 
         this.VansService
             .updateVan(vans_id, obj)
-            .then(response => this.props.history('/vans'))
+            .then(() => console.log(obj))
             .catch(err => console.log(err))
     }
 
     componentDidMount() {
         this.loadVan()
         this.copyVans = this.state
-        console.log(this.copyVans)
+
 
     }
 
     designerOnChange(designer) { this.setState({ designer }) }
 
     dimensionOnChange(dimension) {
-        console.log(dimension)
         this.setState({ dimension })
     }
 
     specificationsOnChange(specifications) {
+        console.log("GOLA")
         console.log(specifications)
         this.setState({ specifications })
     }
@@ -81,7 +81,6 @@ class EditVan extends Component {
             .then(response => {
                 // const vans  = response.data
                 this.setState(response.data)
-                console.log('Estamos aquiiiiii', this.state)
             })
             .catch(err => console.log('ERROR, YA VEREMOS QUE HASCEMOS', err))
     }
