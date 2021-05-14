@@ -11,15 +11,15 @@ class NewVan extends Component {
         this.state = {
             name: '',
             designer: {
-                brand: '',
+                brand: 'Mercedes',
                 model: ''
             },
             caption: '',
             description: '',
             dimension: {
-                length: '',
+                length: 'L1',
                 Weight: 0,
-                height: '',
+                height: 'H1',
             },
             specifications: {
                 fuelSpecifications: {
@@ -27,8 +27,8 @@ class NewVan extends Component {
                     fuelConsume: 0,
                 },
                 cv: 0,
-                kilometers: 0,
-                year: 0,
+                kilometers: 'Nueva',
+                year: 'Nueva',
             },
             image: '',
             price: 0,
@@ -53,13 +53,9 @@ class NewVan extends Component {
 
     designerOnChange(designer) { this.setState({ designer }) }
 
-    dimensionOnChange(dimension) {
-        this.setState({ dimension })
-    }
+    dimensionOnChange(dimension) { this.setState({ dimension })}
 
-    specificationsOnChange(specifications) {
-        this.setState({ specifications })
-    }
+    specificationsOnChange(specifications) { this.setState({ specifications })}
 
     render() {
         return (
