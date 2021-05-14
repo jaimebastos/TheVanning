@@ -80,7 +80,6 @@ class EditVan extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             !this.state._id
                 ?
