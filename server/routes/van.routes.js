@@ -30,11 +30,15 @@ router.post("/create", (req, res) => {
 });
 
 router.put("/edit/:vans_id", (req, res) => {
-
-  Van.findByIdAndUpdate(req.params.vans_id, req.body)
+  
+  const van = req.body
+  const {vans_id} = req.params
+  
+  Van
+    .findByIdAndUpdate(vans_id, van, {new: true})
     .then((response) => res.json(response))
-    .catch((err) => res.status(500).json({ code: 500, message: "Error editing vans", err }));
-});
+    .catch((err) => res.status(500).json({ code: 500, message: "Error editing vans", err }))
+})
 
 router.get("/delete/:vans_id", (req, res) => {
     
@@ -42,5 +46,7 @@ router.get("/delete/:vans_id", (req, res) => {
     .then((response) => res.json(response))
     .catch((err) => res.status(204).json({ code: 204, message: "Error deleting vans", err }));
 });
+
+
 
 module.exports = router;

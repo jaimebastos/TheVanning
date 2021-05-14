@@ -64,11 +64,11 @@ const vanSchema = new Schema(
         //required: [true, "Los caballos son obligatorios"],
       },
       kilometers: {
-        type: Number,
+        type: String,
         //required: [true, "Los kilometros que tiene la furgoneta son obligatorios"],
       },
       year: {
-        type: Number,
+        type: String,
         //required: [true, "El año de fabricacion es obligatorio"],
       },
     },
@@ -81,9 +81,11 @@ const vanSchema = new Schema(
       type: Number,
       //required: [true, "El precio es obligatorio"],
     },
-    isABudget: {
-      type: Boolean,
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
     },
+
     extras: [
       {
         type: Schema.Types.ObjectId,
