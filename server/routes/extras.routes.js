@@ -10,6 +10,16 @@ router.get("/list", (req, res) => {
     .catch((err) => res.status(500).json({ code: 500, message: "Error fetching extras", err }));
 });
 
+router.get("/list/:category", (req, res) =>{
+  const {category} = req.params
+    
+
+  Extra.find({ category: category })
+    .then((response) => res.json(response))
+    .catch((err) => res.status(500).json({ code: 500, message: "Error fetching extras filtered category", err }));
+
+})
+
 router.get("/:extras_id", (req, res) => {
 
   Extra.findById(req.params.extras_id)

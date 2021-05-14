@@ -2,32 +2,23 @@ import { Component } from "react";
 import { Row, Modal } from "react-bootstrap";
 import EditExtra from "../EditExtra/EditExtra";
 import ExtrasDetails from "../ExtrasDetails/ExtrasDetails";
-import ExtrasService from "./../../../service/extras.service";
+
 import ExtrasCard from "./Extras-card";
+import { Link } from "react-router-dom";
+import FilteredExtras from "../ExtrasFilter/ExtrasFilter";
 
 class ExtrasList extends Component {
   constructor(props) {
-    super()
+    super(props)
     this.state = {
-      extras: undefined,
+      extras: this.props.extras,
       extraID: undefined,
       showModal: false,
       showEditModal: false,
       isEditing: true,
     }
-    this.extrasService = new ExtrasService
   }
-  componentDidMount() {
-    this.loadExtras()
-  }
-  loadExtras() {
-    this.extrasService
-      .getAllExtras()
-      .then(response => {
-        this.setState({ extras: response.data })
-      })
-      .catch(err => console.log('ERROR, YA VEREMOS QUE HACEMOS', err))
-  }
+ 
 
   showModal(boleean) {
     this.setState({ showModal: boleean })
@@ -48,13 +39,18 @@ class ExtrasList extends Component {
   }
 
   render() {
-    const { extras } = this.state
+    const { extras } = this.props
     return !extras ? (
       <h1>CARGANDO</h1>
     ) : (
       <>
+        <Link to="/extras/create" className="btn btn-dark">
+          Crear Van
+        </Link>
+
         <Row>
-          {extras.map((elm) => (
+          {
+          extras.map((elm) => (
             <ExtrasCard
               key={elm._id}
               {...elm}
@@ -62,7 +58,8 @@ class ExtrasList extends Component {
               displayModal={(bool) => this.showModal(bool)}
               showEditModal={(bool) => this.isEditingModal(bool)}
             />
-          ))}
+          ))
+        }
         </Row>
 
         <Modal show={this.state.showModal} onHide={() => this.setState({ showModal: false })}>
@@ -74,13 +71,12 @@ class ExtrasList extends Component {
               <EditExtra
                 id={this.state.extraID}
                 closeModal={() => this.setState({ showModal: false })}
-                refresh={() => this.loadExtras()}
+                refresh={this.props.loadExtras}
               />
             ) : (
               <ExtrasDetails
                 id={this.state.extraID}
                 closeModal={() => this.setState({ showModal: false })}
-                refresh={() => this.loadExtras()}
               />
             )}
           </Modal.Body>
