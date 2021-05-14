@@ -35,7 +35,6 @@ class EditVan extends Component {
             price: 0,
         }
         this.VansService = new VansService()
-        this.copyVans = undefined
 
     }
 
@@ -58,9 +57,6 @@ class EditVan extends Component {
 
     componentDidMount() {
         this.loadVan()
-        this.copyVans = this.state
-
-
     }
 
     designerOnChange(designer) { this.setState({ designer }) }
@@ -86,7 +82,7 @@ class EditVan extends Component {
     render() {
         console.log(this.props)
         return (
-            !this.copyVans
+            !this.state._id
                 ?
                 <h1>CARGANDO</h1>
                 :

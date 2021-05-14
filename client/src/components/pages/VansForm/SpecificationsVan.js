@@ -7,7 +7,7 @@ class SpecificationsVan extends Component {
         super(props)
         this.state = {
             fuelSpecifications: {
-                fuelType: '',
+                fuelType: "",
                 fuelConsume: 0
             },
             cv: this.props.info.cv,

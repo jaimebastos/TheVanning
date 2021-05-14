@@ -47,7 +47,7 @@ class NewVan extends Component {
 
         this.VansService
             .createVan(this.state)
-            .then(() => this.props.history.push('/vans'))
+            .then(() => { this.props.history.push('/vans'); console.log(this.state) })
             .catch(err => console.log(err))
     }
 
