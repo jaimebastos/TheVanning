@@ -8,12 +8,15 @@ class QuoteExtras extends Component {
       extras: []
     };
   }
+  
 
 
   render() {
     return (
       <>
-      
+        <Form.Group controlId="formBasicCheckbox">
+          <Form.Check type="checkbox" label={this.props.name} />
+        </Form.Group>
       </>
     );
   }

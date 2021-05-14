@@ -58,8 +58,8 @@ class QuoteCard extends Component {
   }
 
   dimensionOnChange(dimension) {
-    const copySpec = { ...this.state.van.specifications }
-    this.setState({ vans: { dimension, specifications: copySpec } });
+    
+    this.setState({ vans: { dimension} });
   }
 
   specificationsOnChange(specifications) {
@@ -81,7 +81,7 @@ class QuoteCard extends Component {
 
             <Col md={6}>
               <SpecificationsVan onInputChange={(e) => this.specificationsOnChange(e)} />
-              {extras.map(elm => <QuoteExtras />)}
+              {extras.map(elm => <QuoteExtras key={elm.id} {...elm} />)}
             </Col>
           </Row>
 

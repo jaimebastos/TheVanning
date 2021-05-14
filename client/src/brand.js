@@ -1,0 +1,1 @@
+const data = {"Peugot": {model: "", price: 5000}}

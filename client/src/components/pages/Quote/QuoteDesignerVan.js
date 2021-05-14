@@ -16,12 +16,16 @@ class DesignerVan extends Component {
       this.props.onInputChange(this.state);
     });
   }
+  disableModels(){
+    
+
+  }
 
   render() {
     return (
       <>
         <Form.Group controlId="brand">
-          <Form.Label>Elige una marca</Form.Label>
+          <Form.Label>Elige una marca y un modelo</Form.Label>
           <Form.Control as="select" value={this.state.brand} onChange={(e) => this.handleInputChange(e)} name="brand">
             <option>Mercedes</option>
             <option>Citroen</option>
