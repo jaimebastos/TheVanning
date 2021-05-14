@@ -6,6 +6,7 @@ import DimensionVan from "./QuoteDimensionVan";
 import SpecificationsVan from "./QuoteSpecificationsVan";
 import ExtrasService from "../../../service/extras.service";
 import QuoteService from "../../../service/Quote.service";
+import QuoteExtras from "./QuoteExtrasCard"
 
 class QuoteCard extends Component {
   constructor() {
@@ -53,11 +54,11 @@ class QuoteCard extends Component {
   handleOnSubmit(e) {
     e.preventDefault();
     const obj = this.state.vans;
-    
+
   }
 
   dimensionOnChange(dimension) {
-    const copySpec = {...this.state.van.specifications}
+    const copySpec = { ...this.state.van.specifications }
     this.setState({ vans: { dimension, specifications: copySpec } });
   }
 
@@ -80,7 +81,7 @@ class QuoteCard extends Component {
 
             <Col md={6}>
               <SpecificationsVan onInputChange={(e) => this.specificationsOnChange(e)} />
-              {extras.map(elm => <QuoteExtras)}
+              {extras.map(elm => <QuoteExtras />)}
             </Col>
           </Row>
 

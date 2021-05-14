@@ -66,6 +66,7 @@ class EditVan extends Component {
     }
 
     specificationsOnChange(specifications) {
+        console.log(specifications)
         this.setState({ specifications })
     }
 
@@ -80,7 +81,6 @@ class EditVan extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             !this.state._id
                 ?
