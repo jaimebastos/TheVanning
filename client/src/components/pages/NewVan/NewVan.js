@@ -64,14 +64,15 @@ class NewVan extends Component {
     handleFileUpload(e) {
 
         const uploadData = new FormData();
+        //hacer append de varias images
         uploadData.append("imageData", e.target.files[0]);
 
+        //en el backend lo mismo, adaptar a varias
         this.uploadsService
             .uploadimage(uploadData)
             .then(response => {
-                const vanCopy = { ...this.state.van };
-                vanCopy.image = response.data.secure_url
-                this.setState({ van: vanCopy })
+                console.log(response.data.secure_url, "la iamgen para la van")
+                this.setState({ image: response.data.secure_url })
             })
             .catch(err => console.log('errooooor', err))
   }

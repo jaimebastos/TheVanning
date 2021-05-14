@@ -29,6 +29,7 @@ class DesignerVan extends Component {
                         <option>Peugot</option>
                         <option>Renault</option>
                         <option>Fiat</option>
+                        <option>Mitsubishi</option>
                     </Form.Control>
                 </Form.Group>
 
