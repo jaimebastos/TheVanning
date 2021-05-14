@@ -13,6 +13,7 @@ class VansService {
     getOneVan = van_id => this.app.get(`/${van_id}`)
     createVan = VansList => this.app.post(`/create`, VansList)
     updateVan = (van_id, VanList) => this.app.put(`/edit/${van_id}`, VanList)
+    deleteOneVan = (van_id) => this.app.get(`/delete/${van_id}`)
 }
 
 export default VansService
