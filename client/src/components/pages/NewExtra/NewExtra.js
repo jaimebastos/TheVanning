@@ -9,7 +9,7 @@ class NewExtra extends Component {
   constructor() {
     super();
     this.state = {
-      extra:{
+      extra: {
         name: '',
         description: '',
         caption: '',
@@ -25,39 +25,37 @@ class NewExtra extends Component {
 
   handleInputChange(e) {
     const { name, value } = e.target;
-    const extraCopy = {...this.state.extra}
+    const extraCopy = { ...this.state.extra }
 
     extraCopy[name] = value
-    this.setState({extra: extraCopy});
+    this.setState({ extra: extraCopy });
   }
 
 
   handleSubmit(e) {
 
     e.preventDefault()
-   
+
     this.extrasService
       .createExtras(this.state.extra)
-      .then(response =>{
+      .then(response => {
         this.props.history.push('/extras')
-        console.log("SE HABRA CREADO???", response.data);
       })
       .catch(err => console.log('eeeeeeeerror', err))
   }
 
-  handleFileUpload(e){
-    
+  handleFileUpload(e) {
+
     const uploadData = new FormData();
     uploadData.append("imageData", e.target.files[0]);
-    
-    console.log(e.target.files[0], "lo que va al formulario")
+
     this.uploadsService
       .uploadimage(uploadData)
       .then(response => {
         const extraCopy = { ...this.state.extra };
-        extraCopy.image = response.data.secure_url   
+        extraCopy.image = response.data.secure_url
 
-        this.setState({extra: extraCopy})
+        this.setState({ extra: extraCopy })
       })
       .catch(err => console.log('errooooor', err))
   }
