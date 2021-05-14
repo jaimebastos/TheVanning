@@ -26,7 +26,10 @@ class SpecificationsVan extends Component {
     }
 
     fuelSpecificationsOnChange(fuelSpecifications) {
-        this.setState({ fuelSpecifications })
+
+        this.setState({ fuelSpecifications }, () => {
+            this.props.onInputChange(this.state)
+        })
     }
 
     render() {
