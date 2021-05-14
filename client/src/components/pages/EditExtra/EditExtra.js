@@ -51,7 +51,7 @@ class EditExtra extends Component {
     const uploadData = new FormData();
     uploadData.append("imageData", e.target.files[0]);
 
-    console.log(e.target.files[0], "lo que va al formulario");
+
     this.uploadsService
       .uploadimage(uploadData)
       .then((response) => {

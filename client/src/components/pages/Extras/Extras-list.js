@@ -24,8 +24,8 @@ class ExtrasList extends Component {
     this.setState({ showModal: boleean })
   }
 
-  editModal(boleean){
-    this.setState({showEditModal: boleean})
+  editModal(boleean) {
+    this.setState({ showEditModal: boleean })
   }
 
   setExtraID(id) {
@@ -34,8 +34,8 @@ class ExtrasList extends Component {
     })
   }
 
-  isEditingModal(boolean){
-    this.setState({isEditing: boolean})
+  isEditingModal(boolean) {
+    this.setState({ isEditing: boolean })
   }
 
   render() {

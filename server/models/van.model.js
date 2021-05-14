@@ -64,11 +64,11 @@ const vanSchema = new Schema(
         //required: [true, "Los caballos son obligatorios"],
       },
       kilometers: {
-        type: Number,
+        type: String,
         //required: [true, "Los kilometros que tiene la furgoneta son obligatorios"],
       },
       year: {
-        type: Number,
+        type: String,
         //required: [true, "El año de fabricacion es obligatorio"],
       },
     },
