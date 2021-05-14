@@ -1,7 +1,9 @@
 import { Component } from 'react'
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
 import VansService from '../../../service/vans.service'
-import './NewVan.css'
+import DesignerVan from '../VansForm/DesignerVan'
+import DimensionVan from '../VansForm/DimensionVan'
+import SpecificationsVan from '../VansForm/SpecificationsVan'
 
 class NewVan extends Component {
     constructor() {
@@ -9,15 +11,15 @@ class NewVan extends Component {
         this.state = {
             name: '',
             designer: {
-                brand: '',
+                brand: 'Mercedes',
                 model: ''
             },
             caption: '',
             description: '',
             dimension: {
-                length: '',
+                length: 'L1',
                 Weight: 0,
-                height: '',
+                height: 'H1',
             },
             specifications: {
                 fuelSpecifications: {
@@ -25,8 +27,8 @@ class NewVan extends Component {
                     fuelConsume: 0,
                 },
                 cv: 0,
-                kilometers: 0,
-                year: 0,
+                kilometers: 'Nueva',
+                year: 'Nueva',
             },
             image: '',
             price: 0,
@@ -35,27 +37,8 @@ class NewVan extends Component {
     }
 
     handleInputChange(e) {
-        const { name, value } = e.target
-        const designerCopy = {...this.state.designer}
-        const dimensionCopy = {...this.state.dimension}
-        const specificationsCopy = {...this.state.specifications}
-        const specificationsFuelCopy = {...this.state.specifications.fuelSpecifications}
-
-        designerCopy[name] = value
-        dimensionCopy[name] = value
-        specificationsCopy[name] = value
-        specificationsFuelCopy[name] = value
-
-        this.setState({ 
-            [name]: value,
-            designer: designerCopy,
-            dimension: dimensionCopy,
-            specifications:{
-                specificationsCopy,
-                fuelSpecifications: specificationsFuelCopy,
-            } 
-        })
-        
+        let { name, value } = e.target
+        this.setState({ [name]: value, })
     }
 
     handleSubmit(e) {
@@ -64,13 +47,19 @@ class NewVan extends Component {
 
         this.VansService
             .createVan(this.state)
-            .then(response => console.log('Crear nueva van', response.data))
+            .then(() => { this.props.history.push('/vans'); console.log(this.state) })
             .catch(err => console.log(err))
     }
 
+    designerOnChange(designer) { this.setState({ designer }) }
+
+    dimensionOnChange(dimension) { this.setState({ dimension })}
+
+    specificationsOnChange(specifications) { this.setState({ specifications })}
+
     render() {
-        return(
-            <Container>
+        return (
+            < Container >
 
                 <Form onSubmit={e => this.handleSubmit(e)}>
 
@@ -81,57 +70,23 @@ class NewVan extends Component {
                                 <Form.Control type="text" value={this.state.name} onChange={e => this.handleInputChange(e)} name="name" />
                             </Form.Group>
 
-                            <Form.Group controlId="brand">
-                                <Form.Label>Marca</Form.Label>
-                                <Form.Control type="text" value={this.state.designer.brand} onChange={e => this.handleInputChange(e)} name="brand" />
-                            </Form.Group>
-                            <Form.Group controlId="model">
-                                <Form.Label>Modelo</Form.Label>
-                                <Form.Control type="text" value={this.state.designer.model} onChange={e => this.handleInputChange(e)} name="model" />
-                            </Form.Group>
+
+                            <DesignerVan info={this.state.designer} onInputChange={(e) => this.designerOnChange(e)} />
+
 
                             <Form.Group controlId="caption">
                                 <Form.Label>Caption</Form.Label>
                                 <Form.Control type="text" value={this.state.caption} onChange={e => this.handleInputChange(e)} name="caption" />
                             </Form.Group>
-                            <Form.Group controlId="length">
-                                <Form.Label>Longitud</Form.Label>
-                                <Form.Control type="text" value={this.state.dimension.length} onChange={e => this.handleInputChange(e)} name="length" />
-                            </Form.Group>
-                            <Form.Group controlId="weight">
-                                <Form.Label>Peso</Form.Label>
-                                <Form.Control type="number" value={this.state.dimension.weight} onChange={e => this.handleInputChange(e)} name="weight" />
-                            </Form.Group>
-                            <Form.Group controlId="height">
-                                <Form.Label>Altura</Form.Label>
-                                <Form.Control type="text" value={this.state.dimension.height} onChange={e => this.handleInputChange(e)} name="height" />
-                            </Form.Group>
+
+                            <DimensionVan info={this.state.dimension} onInputChange={(e) => this.dimensionOnChange(e)} />
+
                         </Col>
 
                         <Col md={6}>
-                            <Form.Group controlId="fuelType">
-                                <Form.Label>Combustible</Form.Label>
-                                <Form.Control type="text" value={this.state.specifications.fuelSpecifications.fuelType} onChange={e => this.handleInputChange(e)} name="fuelType" />
-                            </Form.Group>
-                            <Form.Group controlId="fuelConsume">
-                                <Form.Label>Consumo</Form.Label>
-                                <Form.Control type="number" value={this.state.specifications.fuelSpecifications.fuelConsume} onChange={e => this.handleInputChange(e)} name="fuelConsume" />
-                            </Form.Group>
 
-                            <Form.Group controlId="cv">
-                                <Form.Label>CV</Form.Label>
-                                <Form.Control type="number" value={this.state.specifications.cv} onChange={e => this.handleInputChange(e)} name="cv" />
-                            </Form.Group>
+                            <SpecificationsVan info={this.state.specifications} onInputChange={(e) => this.specificationsOnChange(e)} />
 
-                            <Form.Group controlId="kilometers">
-                                <Form.Label>Kilometros</Form.Label>
-                                <Form.Control type="number" value={this.state.specifications.kilometers} onChange={e => this.handleInputChange(e)} name="kilometers" />
-                            </Form.Group>
-
-                            <Form.Group controlId="year">
-                                <Form.Label>Año</Form.Label>
-                                <Form.Control type="number" value={this.state.specifications.year} onChange={e => this.handleInputChange(e)} name="year" />
-                            </Form.Group>
 
                             <Form.Group controlId="price">
                                 <Form.Label>Precio</Form.Label>
@@ -145,20 +100,20 @@ class NewVan extends Component {
                         </Col>
                     </Row>
 
-                        <Col lg={12}>
-                            <Form.Group controlId="description">
-                                    <Form.Label>Descripción</Form.Label>
-                                    <Form.Control type="text" value={this.state.description} onChange={e => this.handleInputChange(e)} name="description" />
-                            </Form.Group>
-                        </Col>
+                    <Col lg={12}>
+                        <Form.Group controlId="description">
+                            <Form.Label>Descripción</Form.Label>
+                            <Form.Control type="text" value={this.state.description} onChange={e => this.handleInputChange(e)} name="description" />
+                        </Form.Group>
+                    </Col>
 
-                        <Button variant="dark" style={{ width: '100%', margin: '50px auto'}} type="submit">Crear furgoneta</Button>
+                    <Button variant="dark" style={{ width: '100%', margin: '50px auto' }} type="submit">Crear furgoneta</Button>
                 </Form>
-                
-            </Container>
+
+            </Container >
         )
     }
 
 }
- 
+
 export default NewVan
