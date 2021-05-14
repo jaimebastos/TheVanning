@@ -80,7 +80,7 @@ class QuoteCard extends Component {
 
             <Col md={6}>
               <SpecificationsVan onInputChange={(e) => this.specificationsOnChange(e)} />
-              {extras.map(elm => <QuoteExtras)}
+              {extras.map(elm => <QuoteExtras />)}
             </Col>
           </Row>
 
