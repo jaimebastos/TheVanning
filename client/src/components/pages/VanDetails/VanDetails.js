@@ -67,13 +67,14 @@ class VanDetails extends Component {
                                     <p><strong>Precio:</strong> {van.price}</p> */}
                                     <hr />
                                     <Link to="/vans" className="btn btn-dark">Volver al listado</Link>
+                                    <Button className="btn btn-dark btn-block" style={{ width: '20%', height: '40px' }} onClick={() => {this.deleteVan() }}> Eliminar Van</Button>
+                                    
                                 </Col>
 
                                 <Col md={4}>
                                     <img src={van.image} alt={van.name} style={{ width: '100%' }} />
                                 </Col>
 
-                                <Button className="btn btn-dark btn-block" style={{ width: '12%', height: '40px' }} onClick={() => {this.deleteVan() }}> Eliminar Van</Button>
 
                             </Row>
                         </>
