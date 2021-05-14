@@ -1,12 +1,12 @@
 import { Component } from 'react'
 import VansService from '../../../service/vans.service'
 import { Link } from 'react-router-dom'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 
 
 class VanDetails extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             van: undefined
         }
@@ -24,6 +24,16 @@ class VanDetails extends Component {
             })
             .catch(err => console.log(err))
     }
+
+    deleteVan() {
+
+    const { id } = this.props.match.params
+
+    this.VansService
+      .deleteOneVan(id)
+      .then(() => this.props.history.push('/vans'))
+      .catch((err) => console.log("eeerrrroorrr", err));
+  }
 
 
     render() {
@@ -62,6 +72,9 @@ class VanDetails extends Component {
                                 <Col md={4}>
                                     <img src={van.image} alt={van.name} style={{ width: '100%' }} />
                                 </Col>
+
+                                <Button className="btn btn-dark btn-block" style={{ width: '12%', height: '40px' }} onClick={() => {this.deleteVan() }}> Eliminar Van</Button>
+
                             </Row>
                         </>
                 }
