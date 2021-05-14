@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Form } from "react-bootstrap";
 
-class DimensionVan extends Component {
+class QuoteExtras extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -9,12 +9,6 @@ class DimensionVan extends Component {
     };
   }
 
-  handleInputChange(e) {
-    const { name, value } = e.target;
-    this.setState({ [name]: value }, () => {
-      this.props.onInputChange(this.state);
-    });
-  }
 
   render() {
     return (
@@ -25,4 +19,4 @@ class DimensionVan extends Component {
   }
 }
 
-export default DimensionVan;
+export default QuoteExtras;

@@ -17,13 +17,20 @@ class ExtrasFilter extends Component {
     this.loadExtras();
   }
 
+  componentDidUpdate(previousProps, prevState) {
+   if(previousProps.match.params.category !== this.props.match.params.category){
+     this.loadExtras()
+   }
+  
+  }
+
   loadExtras() {
     const { category } = this.props.match.params;
 
     this.extrasService
       .filterByCategory(category)
       .then((response) => {
-        this.setState({ extras: response.data }, () => this.loadExtras());
+        this.setState({ extras: response.data })
       })
       .catch((err) => console.log("ERROR, YA VEREMOS QUE HACEMOS", err));
   }
