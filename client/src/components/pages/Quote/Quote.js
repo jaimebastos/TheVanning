@@ -1,17 +1,17 @@
 import { Component } from "react";
 import QuoteService from "../../../service/Quote.service";
-import QuoteCard from "./QuoteCard";
+import QuoteCard from "./QuoteBaseCard";
 
-class Quote extends Component{
-    constructor(){
+class Quote extends Component {
+    constructor() {
         super()
-        this.state ={
-           
+        this.state = {
+
         }
     }
-    render(){
+    render() {
         return (
-         <QuoteCard  />
+            <QuoteCard />
         );
     }
 }

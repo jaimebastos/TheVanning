@@ -13,6 +13,16 @@ router.get("/list", (req, res) => {
     .catch((err) => res.status(500).json({ code: 500, message: "Error fetching vans", err }));
 });
 
+
+router.get("/list/:boolean", (req, res) => {
+
+  const { boolean } = req.params
+
+  Van.find({ isCustomized: boolean })
+    .then((response) => res.json(response))
+    .catch((err) => res.status(500).json({ code: 500, message: "Error fetching vans", err }));
+});
+
 router.get("/:van_id", (req, res) => {
 
   Van.findById(req.params.van_id)
@@ -30,18 +40,18 @@ router.post("/create", (req, res) => {
 });
 
 router.put("/edit/:vans_id", (req, res) => {
-  
+
   const van = req.body
-  const {vans_id} = req.params
-  
+  const { vans_id } = req.params
+
   Van
-    .findByIdAndUpdate(vans_id, van, {new: true})
+    .findByIdAndUpdate(vans_id, van, { new: true })
     .then((response) => res.json(response))
     .catch((err) => res.status(500).json({ code: 500, message: "Error editing vans", err }))
 })
 
 router.get("/delete/:vans_id", (req, res) => {
-    
+
   Van.findByIdAndRemove(req.params.vans_id)
     .then((response) => res.json(response))
     .catch((err) => res.status(204).json({ code: 204, message: "Error deleting vans", err }));

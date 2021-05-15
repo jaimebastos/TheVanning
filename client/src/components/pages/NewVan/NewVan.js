@@ -57,9 +57,9 @@ class NewVan extends Component {
 
     designerOnChange(designer) { this.setState({ designer }) }
 
-    dimensionOnChange(dimension) { this.setState({ dimension })}
+    dimensionOnChange(dimension) { this.setState({ dimension }) }
 
-    specificationsOnChange(specifications) { this.setState({ specifications })}
+    specificationsOnChange(specifications) { this.setState({ specifications }) }
 
     handleFileUpload(e) {
 
@@ -74,7 +74,7 @@ class NewVan extends Component {
                 this.setState({ van: vanCopy })
             })
             .catch(err => console.log('errooooor', err))
-  }
+    }
 
     render() {
         return (
@@ -117,7 +117,7 @@ class NewVan extends Component {
                                 <Form.Control type="file" className="image-van" value={this.state.imageData} onChange={(e) => this.handleFileUpload(e)} name="image" />
                             </Form.Group>
                         </Col>
-                           
+
                     </Row>
 
                     <Col lg={12}>
