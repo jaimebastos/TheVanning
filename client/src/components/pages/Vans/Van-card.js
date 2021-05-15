@@ -3,12 +3,16 @@ import { Card, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './Vans.css'
 
+import { Glide } from 'react-glide'
+
 const VanCard = ({ name, caption, image, price, _id }) => {
 
     return (
         <Col md={4}>
             <Card className="van-card">
-                <Card.Img variant="top" src={image} />
+                <Glide height={'100%'} width={'100%'}>
+                    <Card.Img variant="top" src={image} />
+                </Glide>
                 <Card.Body>
                     <Card.Title className="card-name">{name}</Card.Title>
                     <Card.Title className="card-info">{caption}</Card.Title>

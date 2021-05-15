@@ -3,6 +3,7 @@ import VansService from '../../../service/vans.service'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import './VanDetails.css'
+import { Glide } from 'react-glide'
 
 
 class VanDetails extends Component {
@@ -73,7 +74,9 @@ class VanDetails extends Component {
                                 </Col>
 
                                 <Col md={4}>
-                                    <img src={van.image} alt={van.name} style={{ width: '100%' }} />
+                                    <Glide height={450} width={450}>
+                                        <img src={van.image} alt={van.name} style={{ width: '100%' }} />
+                                    </Glide>
                                 </Col>
 
 
@@ -89,3 +92,4 @@ class VanDetails extends Component {
 }
 
 export default VanDetails
+
