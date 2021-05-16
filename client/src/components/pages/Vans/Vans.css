@@ -9,6 +9,7 @@
 
 .boton {
     margin: 10px;
+    margin-bottom: 30px;
 }
 
 .card-info {
@@ -18,4 +19,7 @@
 .card-name {
     font-size: 2em;
     margin-bottom: 10px;
+}
+.van-list-title {
+    text-align: center;
 }

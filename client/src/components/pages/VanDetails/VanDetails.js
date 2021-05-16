@@ -1,9 +1,12 @@
 import { Component } from 'react'
+
 import VansService from '../../../service/vans.service'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import './VanDetails.css'
-import { Glide } from 'react-glide'
+import VanGallery from './VanGallery'
+
+
 
 
 class VanDetails extends Component {
@@ -69,14 +72,12 @@ class VanDetails extends Component {
                                     <p><strong>Precio: </strong>{van.price} $</p>
                                     <hr />
                                     <Link to="/vans" className="btn btn-dark boton">Volver al listado</Link>
-                                    <Button className="btn btn-dark btn-block boton" style={{ width: '20%', height: '40px' }} onClick={() => {this.deleteVan() }}> Eliminar Van</Button>
+                                    <Button className="btn btn-dark btn-block boton " style={{ width: '20%', height: '40px' }} onClick={() => {this.deleteVan() }}> Eliminar Van</Button>
                                     
                                 </Col>
 
                                 <Col md={4}>
-                                    <Glide height={450} width={450}>
-                                        <img src={van.image} alt={van.name} style={{ width: '100%' }} />
-                                    </Glide>
+                                    {/* <VanGallery img={van.image} alt={van.name} /> */}
                                 </Col>
 
 
