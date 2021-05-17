@@ -81,7 +81,7 @@ class NewVan extends Component {
         return (
             < Container >
 
-                <Form onSubmit={e => this.handleSubmit(e)}>
+                <Form onSubmit={e => this.handleSubmit(e)} className='margin-to-nav'>
 
                     <Row className="justify-content">
                         <Col md={6}>

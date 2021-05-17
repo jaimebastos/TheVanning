@@ -60,7 +60,7 @@ class ExtrasDetails extends Component {
                 this.deleteExtra();
               }}
               variant="outline-secondary"
-              className="btn btn-outline-dark boton"
+              className="btn btn-outline-dark botonDel"
             >
               Eliminar
             </Button>

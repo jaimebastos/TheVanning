@@ -11,6 +11,10 @@ const LandingPage = () => {
     <div className="landing">
       <figure className="cover">
         <img src={cover}></img>
+        <div className="innertext">
+          <h1>THE VANNING</h1>
+          <p>CAMPER VANS & ADVENTURE TRUCKS BUILT IN MADRID, SPAIN</p>
+        </div>
       </figure>
       <section className="functionalities">
         <h1>Descubre todos nuestros sevicios</h1>

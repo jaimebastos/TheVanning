@@ -2,21 +2,18 @@
     object-fit: cover;
     height: 300px;
 }
-.boton {
+.botonExtras {
     margin: 5px;
     margin-bottom: 7px;
 }
-.boton-listado{
+.botonExtras-listado{
     margin: 5px;
     margin-bottom: 40px;
 }
-.card-info {
+.cardExtra-info {
     font-size: .9em;
 }
-.card-name {
+.cardExtra-name {
     font-size: 2em;
     margin-bottom: 10px;
-}
-.van-list-title {
-    text-align: center;
 }

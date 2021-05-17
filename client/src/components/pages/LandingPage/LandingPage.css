@@ -8,36 +8,35 @@
 }
 .landing .functionalities {
     margin: 60px 20px;
-  
 }
 .landing .functionalities img {
 width: 100%;
 object-fit: cover;
 height: 500px;
 }
-.landing h1 {
+.functionalities h1{
     padding-bottom: 30px;
     text-align: center;
     font-family: pattaya;
 }
-.landing .innertext {
+.functionalities .innertext{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -40px);
     color: white;
 }
-.landing .build-cover {
+.functionalities .build-cover{
     position: relative;
 }
-.landing .upgrade-cover {
+.functionalities .upgrade-cover{
     position: relative;
 }
- .landing .shop-cover {
+.functionalities .shop-cover{
     position: relative;
 }
 
-.landing p {
+.functionalities p{
     color: white;
 }
 .landing .build-cover h3 {
@@ -46,17 +45,31 @@ height: 500px;
    width: 100%;
    border-radius: 5px;
 }
-.landing .upgrade-cover h3 {
+
+.upgrade-cover h3{
     color: white;
    background-color: rgb(34, 32, 32);
    width: 100%;
    border-radius: 5px;
 }
-.landing .shop-cover h3 {
+
+.shop-cover h3{
     color: white;
    background-color: rgb(34, 32, 32);
    width: 100%;
    border-radius: 5px;
+}
+
+.cover{
+    position: relative;
+}
+
+.innertext{
+     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40px);
+    color: white;
 }
 
 
