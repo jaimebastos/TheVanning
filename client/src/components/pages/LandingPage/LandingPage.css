@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
+
+.cover img{
+    width: 100%;
+    margin: 0;
+    object-fit: cover;
+    height: 720px;
+}
+.functionalities{
+    margin: 60px 20px;
+  
+}
+.functionalities img{
+width: 100%;
+object-fit: cover;
+height: 500px;
+}
+h1{
+    padding-bottom: 30px;
+    text-align: center;
+    font-family: pattaya;
+}
+.innertext{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40px);
+    color: white;
+}
+.build-cover{
+    position: relative;
+}
+.upgrade-cover{
+    position: relative;
+}
+.shop-cover{
+    position: relative;
+}
+
+p{
+    color: white;
+}
+.build-cover h3{
+     color: white;
+   background-color: rgb(34, 32, 32);
+   width: 100%;
+   border-radius: 5px;
+}
+.upgrade-cover h3{
+    color: white;
+   background-color: rgb(34, 32, 32);
+   width: 100%;
+   border-radius: 5px;
+}
+.shop-cover h3{
+    color: white;
+   background-color: rgb(34, 32, 32);
+   width: 100%;
+   border-radius: 5px;
+}
+
+
