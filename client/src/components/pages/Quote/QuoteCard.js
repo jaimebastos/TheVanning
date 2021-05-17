@@ -58,8 +58,8 @@ class QuoteCard extends Component {
   }
 
   dimensionOnChange(dimension) {
-    
-    this.setState({ vans: { dimension} });
+    const copySpec = { ...this.state.van.specifications }
+    this.setState({ vans: { dimension, specifications: copySpec } });
   }
 
   specificationsOnChange(specifications) {

@@ -4,7 +4,7 @@ import VansService from '../../../service/vans.service'
 import DesignerVan from '../VansForm/DesignerVan'
 import DimensionVan from '../VansForm/DimensionVan'
 import SpecificationsVan from '../VansForm/SpecificationsVan'
-
+import UploadsService from "../../../service/upload.service";
 
 class EditVan extends Component {
     constructor(props) {
@@ -35,6 +35,8 @@ class EditVan extends Component {
             price: 0,
         }
         this.VansService = new VansService()
+        this.copyVans = undefined
+        this.uploadsService = new UploadsService()
 
     }
 
@@ -80,6 +82,23 @@ class EditVan extends Component {
             .catch(err => console.log('ERROR, YA VEREMOS QUE HASCEMOS', err))
     }
 
+    handleFileUpload(e) {
+
+        const uploadData = new FormData();
+        //hacer append de varias images
+        uploadData.append("imageData", e.target.files[0]);
+
+        //en el backend lo mismo, adaptar a varias
+        this.uploadsService
+            .uploadimage(uploadData)
+            .then(response => {
+                console.log(response.data.secure_url, "la iamgen para la van")
+                this.setState({ image: response.data.secure_url })
+            })
+            .catch(err => console.log('errooooor', err))
+  }
+
+
     render() {
         return (
             !this.state._id
@@ -123,7 +142,7 @@ class EditVan extends Component {
 
                                 <Form.Group controlId="image">
                                     <Form.Label>Imagen</Form.Label>
-                                    <Form.Control type="text" value={this.state.image} onChange={e => this.handleInputChange(e)} name="image" />
+                                    <Form.Control type="file" className="image-van" value={this.state.imageData} onChange={e => this.handleInputChange(e)} name="image" />
                                 </Form.Group>
                             </Col>
                         </Row>
