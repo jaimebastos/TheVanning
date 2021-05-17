@@ -9,9 +9,9 @@ const ExtrasCard = ({name, description, price, _id, category, displayModal, save
       <Card className="extrasCard">
         <Card.Img variant="top" src={image} />
         <Card.Body>
-          <Card.Title className="card-name">{name}</Card.Title>
-          <Card.Title className="card-info">{caption}</Card.Title>
-          <Card.Title className="card-info">{price} €</Card.Title>
+          <Card.Title className="cardExtra-name">{name}</Card.Title>
+          <Card.Title className="cardExtra-info">{caption}</Card.Title>
+          <Card.Title className="cardExtra-info">{price} €</Card.Title>
           <Button
             onClick={() => {
               showEditModal(false);
@@ -20,7 +20,7 @@ const ExtrasCard = ({name, description, price, _id, category, displayModal, save
             }}
             size="sm"
             className="btn btn-outline-dark boton"
-            style={{ marginBottom: "20px" }}
+            style={{ height: "40px", width: "35%", marginBottom: "20px" }}
             variant="outline-secondary"
           >
             Detalles
@@ -35,7 +35,7 @@ const ExtrasCard = ({name, description, price, _id, category, displayModal, save
             className="btn btn-outline-dark boton"
             variant="outline-secondary"
             size="sm"
-            style={{ marginBottom: "20px" }}
+            style={{ height: "40px", width: "35%", marginBottom: "20px" }}
           >
             Editar
           </Button>
@@ -47,20 +47,3 @@ const ExtrasCard = ({name, description, price, _id, category, displayModal, save
 
 export default ExtrasCard;
 
-// const VanCard = ({ name, caption, image, price, _id }) => {
-//     return (
-//         <Col md={4}>
-//             <Card className="van-card">
-//                     <Card.Img variant="top" src={image} />
-//                 <Card.Body>
-//                     <Card.Title className="card-name">{name}</Card.Title>
-//                     <Card.Title className="card-info">{caption}</Card.Title>
-//                     <Card.Title className="card-info">{price} €</Card.Title>
-//                     <Link to={`/vans/details/${_id}`} className="btn btn-outline-dark boton" >Detalles</Link>
-//                     <Link to={`/vans/edit/${_id}`} className="btn btn-outline-dark boton"> Editar</Link>
-//                 </Card.Body>
-//             </Card>
-//         </Col>
-//     )
-// }
-// export default VanCard
