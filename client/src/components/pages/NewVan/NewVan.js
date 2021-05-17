@@ -4,6 +4,9 @@ import VansService from '../../../service/vans.service'
 import DesignerVan from '../VansForm/DesignerVan'
 import DimensionVan from '../VansForm/DimensionVan'
 import SpecificationsVan from '../VansForm/SpecificationsVan'
+import UploadsService from "../../../service/upload.service";
+
+import './NewVan.css'
 
 class NewVan extends Component {
     constructor() {
@@ -34,6 +37,7 @@ class NewVan extends Component {
             price: 0,
         }
         this.VansService = new VansService()
+        this.uploadsService = new UploadsService()
     }
 
     handleInputChange(e) {
@@ -53,9 +57,24 @@ class NewVan extends Component {
 
     designerOnChange(designer) { this.setState({ designer }) }
 
-    dimensionOnChange(dimension) { this.setState({ dimension })}
+    dimensionOnChange(dimension) { this.setState({ dimension }) }
 
-    specificationsOnChange(specifications) { this.setState({ specifications })}
+    specificationsOnChange(specifications) { this.setState({ specifications }) }
+
+    handleFileUpload(e) {
+
+        const uploadData = new FormData();
+        uploadData.append("imageData", e.target.files[0]);
+
+        this.uploadsService
+            .uploadimage(uploadData)
+            .then(response => {
+                const vanCopy = { ...this.state.van };
+                vanCopy.image = response.data.secure_url
+                this.setState({ van: vanCopy })
+            })
+            .catch(err => console.log('errooooor', err))
+    }
 
     render() {
         return (
@@ -95,9 +114,10 @@ class NewVan extends Component {
 
                             <Form.Group controlId="image">
                                 <Form.Label>Imagen</Form.Label>
-                                <Form.Control type="text" value={this.state.image} onChange={e => this.handleInputChange(e)} name="image" />
+                                <Form.Control type="file" className="image-van" value={this.state.imageData} onChange={(e) => this.handleFileUpload(e)} name="image" />
                             </Form.Group>
                         </Col>
+
                     </Row>
 
                     <Col lg={12}>
@@ -108,6 +128,7 @@ class NewVan extends Component {
                     </Col>
 
                     <Button variant="dark" style={{ width: '100%', margin: '50px auto' }} type="submit">Crear furgoneta</Button>
+
                 </Form>
 
             </Container >
