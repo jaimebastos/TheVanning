@@ -12,3 +12,4 @@ router.post("/image", uploader.single("imageData"), (req, res) => {
 });
 
 module.exports = router;
+
