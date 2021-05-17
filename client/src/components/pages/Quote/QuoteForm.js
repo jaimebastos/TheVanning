@@ -8,7 +8,8 @@ class QuoteForm extends Component {
         super(props)
         this.state = {
             selectedVan: undefined,
-            price: undefined
+            price: undefined,
+            extras: this.props.extras
         }
     }
 
@@ -24,7 +25,7 @@ class QuoteForm extends Component {
         const data = this.findElm(elm)
         this.setState({
             selectedVan: data,
-            price: data.price
+            price: data.price + 50
         })
     }
 
@@ -38,8 +39,13 @@ class QuoteForm extends Component {
                         <VanBaseQuote vans={this.props.baseVans} onSelectChange={elm => this.selectedVanChange(elm)} />
                     </Row>
 
-                    <AutoCompletedForm selectedVan={this.state.selectedVan} price={this.state.price} />
+                    <AutoCompletedForm selectedVan={this.state.selectedVan} />
 
+
+
+                    <Col md={10}>
+                        <h2>{this.state.price}</h2>
+                    </Col>
 
                     <Button variant="dark" style={{ width: "100%", margin: "50px auto" }} type="submit">
                         Pedir presupuesto

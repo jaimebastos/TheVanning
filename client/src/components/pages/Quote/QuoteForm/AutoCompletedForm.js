@@ -49,10 +49,6 @@ class AutoCompletedForm extends Component {
                                 </Form.Group>
                             </Col>
 
-                            <Col md={10}>
-                                <h2>Hola</h2>
-                                <h2>{this.props.price}</h2>
-                            </Col>
                         </Row>
                 }
             </>

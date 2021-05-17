@@ -62,10 +62,10 @@ class QuoteCard extends Component {
 
 
   render() {
-    const { extras } = this.state;
+
     return (
       <Container>
-        <QuoteForm baseVans={this.state.optionVans} />
+        <QuoteForm baseVans={this.state.optionVans} extras={this.state.extras} />
       </Container>
     );
   }
