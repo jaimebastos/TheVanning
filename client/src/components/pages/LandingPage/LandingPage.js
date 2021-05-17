@@ -8,7 +8,7 @@ import upgrade from "./upgrade.png";
 
 const LandingPage = () => {
   return (
-    <>
+    <div className="landing">
       <figure className="cover">
         <img src={cover}></img>
       </figure>
@@ -58,7 +58,7 @@ const LandingPage = () => {
           </Col>
         </Row>
       </section>
-    </>
+    </div>
   );
 };
 

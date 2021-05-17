@@ -74,7 +74,7 @@ class VanDetails extends Component {
                                 </Col>
 
                                 <Col md={4}>
-                                    <VanGallery img={van.image} alt={van.name} />
+                                    <VanGallery img={van.image[0]} alt={van.name} />
                                 </Col>
 
                             </Row>
