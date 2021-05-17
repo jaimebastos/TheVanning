@@ -2,6 +2,8 @@ import { Component } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import VanBaseQuote from "./QuoteForm/VanBaseQuote";
 import AutoCompletedForm from "./QuoteForm/AutoCompletedForm"
+import QuoteExtras from "./QuoteForm/QuoteExtrasCard";
+import './QuoteForm.css'
 
 class QuoteForm extends Component {
     constructor(props) {
@@ -9,7 +11,7 @@ class QuoteForm extends Component {
         this.state = {
             selectedVan: undefined,
             price: undefined,
-            extras: this.props.extras
+            checkedExtras: undefined
         }
     }
 
@@ -25,7 +27,17 @@ class QuoteForm extends Component {
         const data = this.findElm(elm)
         this.setState({
             selectedVan: data,
-            price: data.price + 50
+            price: data.price,
+            basePrice: data.price
+        })
+    }
+
+    checkedExtras(arr) {
+        const initAcc = this.state.basePrice
+        const finalPrice = arr.reduce((acc, elm) => acc + elm.price, initAcc)
+
+        this.setState({
+            price: finalPrice
         })
     }
 
@@ -41,12 +53,12 @@ class QuoteForm extends Component {
 
                     <AutoCompletedForm selectedVan={this.state.selectedVan} />
 
+                    {(!this.state.selectedVan) ? <></> : <><QuoteExtras extras={this.props.extras} onChecked={arr => this.checkedExtras(arr)} />
 
-
-                    <Col md={10}>
-                        <h2>{this.state.price}</h2>
-                    </Col>
-
+                        <Col md={12} className="justify-content-center">
+                            <h1 className="prices-item">Coste total de la furgoneta: </h1><h2 className="prices-item">{this.state.price} €</h2>
+                        </Col></>
+                    }
                     <Button variant="dark" style={{ width: "100%", margin: "50px auto" }} type="submit">
                         Pedir presupuesto
           </Button>

@@ -46,6 +46,8 @@ class QuoteCard extends Component {
         this.setState({
           optionVans: response.data
         })
+        console.log(response.data)
+
       })
       .catch((err) => console.log("error", err));
   }
@@ -55,6 +57,7 @@ class QuoteCard extends Component {
       .getAllExtras()
       .then((response) => {
         this.setState({ extras: response.data });
+        console.log(response.data)
       })
       .catch((err) => console.log("error", err));
   }
