@@ -43,11 +43,12 @@ class VansList extends Component {
                 <h1>CARGANDO</h1>
                 :
                 <>
-                    <Link to="/vans/create" className="btn btn-dark boton" > Crear Van</Link>
+                    
+                    
                  
-
                     <Row>
                         {vans.map(elm => <VanCard key={elm._id} {...elm} />)}
+                        <hr />
                     </Row>
 
                 </>

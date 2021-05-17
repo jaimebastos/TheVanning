@@ -3,17 +3,21 @@
 }
 
 .vans-page .van-card img {
-    height: 170px;
+    height: 200px;
     object-fit: cover;
 }
 
 .boton {
-    margin: 10px;
-    margin-bottom: 30px;
+    margin: 5px;
+    margin-bottom: 7px;
+}
+.boton-listado{
+    margin: 5px;
+    margin-bottom: 40px;
 }
 
 .card-info {
-    font-size: 1em;
+    font-size: .9em;
 }
 
 .card-name {
