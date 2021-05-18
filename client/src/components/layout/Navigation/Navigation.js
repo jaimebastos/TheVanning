@@ -18,28 +18,32 @@ const Navigation = () => {
           </Link>
         </Navbar.Brand>
         <Nav className="mr-auto navWebFather ">
-          <Nav.Link href="/vans" className="nav-link navWeb">
+          <Nav.Link as={Link} to="/vans" className="nav-link navWeb">
             Furgonetas
           </Nav.Link>
-          <Nav.Link href="/extras" className="nav-link navWeb">
+          <Nav.Link as={Link} to="/extras" className="nav-link navWeb">
             Instalaciones
           </Nav.Link>
-          <Nav.Link href="/instalaciones" className="nav-link navWeb">
+          <Nav.Link as={Link} to="/instalaciones" className="nav-link navWeb">
             Camperizar
           </Nav.Link>
           <NavDropdown title="Usuario" id="basic-nav-dropdown" className="nav-link navWebDropDown">
-            <NavDropdown.Item href="/auth/login">Registro</NavDropdown.Item>
-            <NavDropdown.Item href="/auth/signup">Inicio Sesión</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/auth/login">
+              Registro
+            </NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/auth/signup">
+              Inicio Sesión
+            </NavDropdown.Item>
           </NavDropdown>
         </Nav>
         <Nav className="mr-auto nav-mobile ">
           <Nav.Link as={Link} to="/" className="navMob1">
             <img src={Home}></img>
           </Nav.Link>
-          <Nav.Link href="/vans" className="navMob1">
+          <Nav.Link as={Link} to="/vans" className="navMob1">
             <img src={Van}></img>
           </Nav.Link>
-          <Nav.Link href="/extras" className="navMob">
+          <Nav.Link as={Link} to="/extras" className="navMob">
             <img src={Mecanic}></img>
           </Nav.Link>
         </Nav>

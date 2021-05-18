@@ -62,7 +62,7 @@ class VanDetails extends Component {
                                     <h3>Especificaciones:</h3>
                                     <p><strong>Diseñador: </strong> {van.designer.brand}, {van.designer.model}</p>
                                     <p><strong>Dimensiones: </strong> {van.dimension.length}, {van.dimension.height},  {van.dimension.weight} kg</p>
-                                    <p><strong>Consumo: </strong> {van.specifications.fuelSpecifications.fuelType}, {van.specifications.fuelSpecifications.fuelConsume} l /100</p>
+                                    <p><strong>Consumo: </strong> {van.specifications.fuelSpecifications.fuelType} {van.specifications.fuelSpecifications.fuelConsume} l /100</p>
                                     <p><strong>Año: </strong> {van.specifications.year}</p>
                                     <p><strong>Kilometros: </strong> {van.specifications.kilometers}</p>
                                     <p><strong>CV: </strong> {van.specifications.cv}</p>
@@ -73,7 +73,7 @@ class VanDetails extends Component {
                                     
                                 </Col>
 
-                                <Col md={4}>
+                                <Col md={5}>
                                     <VanGallery img={van.image} alt={van.name} />
                                 </Col>
 

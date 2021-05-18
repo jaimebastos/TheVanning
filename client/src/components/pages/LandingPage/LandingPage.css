@@ -29,36 +29,38 @@
 .functionalities .build-cover {
   position: relative;
 }
-.functionalities .upgrade-cover {
-  position: relative;
-}
-.functionalities .shop-cover {
-  position: relative;
-}
-
-.functionalities p {
-  color: white;
-}
-.build-cover h3 {
-  color: white;
-  background-color: rgb(34, 32, 32);
-  width: 100%;
-  border-radius: 5px;
+.landing .build-cover h3 {
+    
+    color: white;
+   width: 100%;
+   border-radius: 5px;
+   border-color: white;
 }
 
-.upgrade-cover h3 {
-  color: white;
-  background-color: rgb(34, 32, 32);
-  width: 100%;
-  border-radius: 5px;
+.upgrade-cover h3{
+    position: relative;
+    color: white;
+   width: 100%;
+   border-radius: 5px;
 }
 
-.shop-cover h3 {
-  color: white;
-  background-color: rgb(34, 32, 32);
-  width: 100%;
-  border-radius: 5px;
+.relative {
+    position: relative;
 }
+
+.shop-cover h3{
+    position: relative;
+    color: white;
+   width: 100%;
+   border-radius: 5px;
+}
+
+
+.btn-outline-dark-landing {
+    border-color: white;
+    height: 50px;
+}
+
 
 .cover {
   position: relative;

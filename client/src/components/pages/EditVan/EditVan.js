@@ -86,13 +86,16 @@ class EditVan extends Component {
 
         const uploadData = new FormData();
         //hacer append de varias images
-        uploadData.append("imageData", e.target.files[0]);
+
+         for(let i = 0; i < e.target.files.length; i++) {
+            uploadData.append("imageData", e.target.files[i]);
+        }
+        // uploadData.append("imageData", e.target.files[0]);
 
         //en el backend lo mismo, adaptar a varias
         this.uploadsService
             .uploadimage(uploadData)
             .then(response => {
-                console.log(response.data.secure_url, "la iamgen para la van")
                 this.setState({ image: response.data.secure_url })
             })
             .catch(err => console.log('errooooor', err))
@@ -142,7 +145,7 @@ class EditVan extends Component {
 
                                 <Form.Group controlId="image">
                                     <Form.Label>Imagen</Form.Label>
-                                    <Form.Control type="file" className="image-van" value={this.state.imageData} onChange={e => this.handleInputChange(e)} name="image" />
+                                    <Form.Control multiple={true} type="file" className="image-van" value={this.state.imageData} onChange={e => this.handleFileUpload(e)} name="image" />
                                 </Form.Group>
                             </Col>
                         </Row>
