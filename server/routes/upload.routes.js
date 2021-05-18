@@ -19,8 +19,7 @@ router.post("/image", uploader.array("imageData"), (req, res) => {
     res.status(500).json({ code: 500, message: "Error loading the file" });
     return;
   }
-  res.json({ secure_url: req.files.map(elm => elm.path) });
+  res.json({ secure_url: req.file.path });
 });
 
 module.exports = router;
-

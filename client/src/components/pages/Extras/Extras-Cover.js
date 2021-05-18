@@ -5,27 +5,27 @@ import center from "./center.png";
 import after from "./after.png";
 
 const ExtrasCover = () => {
-  return (
-    <div className="Extrascover">
-      <Row>
-        <Col xs={6} md={4}>
-          <figure className="before-cover">
-            <img src={before}></img>
-          </figure>
-        </Col>
-        <Col xs={6} md={4}>
-          <figure className="center-cover">
-            <img src={center}></img>
-          </figure>
-        </Col>
-        <Col xs={6} md={4}>
-          <figure className="after-cover">
-            <img src={after}></img>
-          </figure>
-        </Col>
-      </Row>
-    </div>
-  );
+    return (
+        <div className="Extrascover">
+            <Row>
+                <Col xs={6} md={4}>
+                    <figure className="before-cover">
+                        <img src={before}></img>
+                    </figure>
+                </Col>
+                <Col xs={6} md={4}>
+                    <figure className="center-cover">
+                        <img src={center}></img>
+                    </figure>
+                </Col>
+                <Col xs={6} md={4}>
+                    <figure className="after-cover">
+                        <img src={after}></img>
+                    </figure>
+                </Col>
+            </Row>
+        </div>
+    );
 };
 
 export default ExtrasCover;
