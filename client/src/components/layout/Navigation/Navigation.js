@@ -18,8 +18,12 @@ const Navigation = () => {
           Furgonetas
         </Link>
 
+        <Link to="/vans/create" className="nav-link">
+          Camperizar
+        </Link>
+
         <Link to="/extras" className="nav-link">
-          Extras
+          Instalaciones
         </Link>
 
         <Link to="/auth/signup" className="nav-link">
@@ -28,9 +32,7 @@ const Navigation = () => {
         <Link to="/auth/login" className="nav-link">
           Iniciar sesión
         </Link>
-        <Link to="/vans" className="nav-link">
-          Furgonetas
-        </Link>
+      
       </Nav>
     </Navbar>
   );

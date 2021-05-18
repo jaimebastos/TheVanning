@@ -10,7 +10,7 @@ const LandingPage = () => {
   return (
     <div className="landing">
       <figure className="cover">
-        <img src={cover}></img>
+        <img src={cover} alt="cover"></img>
         <div className="innertext">
           <h1>THE VANNING</h1>
           <p>CAMPER VANS & ADVENTURE TRUCKS BUILT IN MADRID, SPAIN</p>
@@ -22,10 +22,10 @@ const LandingPage = () => {
           <Col md={4}>
             <figure className="build-cover">
               {" "}
-              <img src={build}></img>
+              <img src={build} alt="build"></img>
               <div className="innertext">
                 {" "}
-                <Link to="/vans" className="nav-link">
+                <Link to="/vans" className="nav-link btn btn-outline-dark-landing buttonLink">
                   <h3>CUSTOMIZAR</h3>
                 </Link>
                 <Link to="/vans" className="nav-link">
@@ -36,9 +36,9 @@ const LandingPage = () => {
           </Col>
           <Col md={4}>
             <figure className="shop-cover">
-              <img src={shop}></img>
+              <img src={shop} alt="shop"></img>
               <div className="innertext">
-                <Link to="/vans" className="nav-link">
+                <Link to="/vans" className="nav-link btn btn-outline-dark-landing buttonLink">
                   <h3>COMPRAR</h3>
                 </Link>
                 <Link to="/vans" className="nav-link">
@@ -49,9 +49,9 @@ const LandingPage = () => {
           </Col>
           <Col md={4}>
             <figure className="upgrade-cover">
-              <img src={upgrade}></img>
+              <img src={upgrade} alt="upgrade"></img>
               <div className="innertext">
-                <Link to="/vans" className="nav-link">
+                <Link to="/vans" className="nav-link btn btn-outline-dark-landing buttonLink">
                   <h3>CREAR</h3>
                 </Link>
                 <Link to="/vans" className="nav-link">
