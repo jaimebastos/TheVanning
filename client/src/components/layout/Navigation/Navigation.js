@@ -6,6 +6,7 @@ import "./Navigation.css";
 import Home from "./Home.png";
 import Mecanic from "./Mecanic.png";
 import Van from "./Van.png";
+import User from "./User.png";
 
 const Navigation = () => {
   return (
@@ -24,14 +25,14 @@ const Navigation = () => {
           <Nav.Link as={Link} to="/extras" className="nav-link navWeb">
             Instalaciones
           </Nav.Link>
-          <Nav.Link as={Link} to="/instalaciones" className="nav-link navWeb">
+          <Nav.Link as={Link} to="/quote/list-vans" className="nav-link navWeb">
             Camperizar
           </Nav.Link>
           <NavDropdown title="Usuario" id="basic-nav-dropdown" className="nav-link navWebDropDown">
-            <NavDropdown.Item as={Link} to="/auth/login">
+            <NavDropdown.Item as={Link} to="/auth/signup">
               Registro
             </NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="/auth/signup">
+            <NavDropdown.Item as={Link} to="/auth/login">
               Inicio Sesión
             </NavDropdown.Item>
           </NavDropdown>
@@ -45,6 +46,9 @@ const Navigation = () => {
           </Nav.Link>
           <Nav.Link as={Link} to="/extras" className="navMob">
             <img src={Mecanic}></img>
+          </Nav.Link>
+          <Nav.Link as={Link} to="/auth/signup" className="navMob">
+            <img src={User}></img>
           </Nav.Link>
         </Nav>
       </Navbar>

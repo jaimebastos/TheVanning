@@ -6,30 +6,23 @@ import './signup.css'
 const Signup = ({ history }) => {
 
     return (
+      <Container>
+        <Row className="justify-content-center auth">
+          <Col md={6}>
+            <h1>Registro de usuario</h1>
+            <hr />
+            <p>¿Ya tienes un perfil personal?<Link to='/auth/login'>Iniciar Sesión</Link></p>
 
-        <Container>
+            <hr />
 
-            <Row className="justify-content-center auth">
+            <SignupForm history={history} />
 
-                <Col md={6}>
+            <hr />
 
-                    <h1>Registro de usuario</h1>
-
-                    <hr />
-
-                    <SignupForm history={history} />
-
-                    <hr />
-
-                    <Link to="/auth/login" className="btn btn-dark">Iniciar sesión</Link>
-
-                </Col>
-
-            </Row>
-
-        </Container>
-
-    )
+          </Col>
+        </Row>
+      </Container>
+    );
 }
 
 export default Signup

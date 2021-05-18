@@ -16,7 +16,7 @@ const Login = ({ storeUser, history }) => {
 
             <hr />
 
-            <Link to="/registro" className="btn btn-dark">
+            <Link to="/auth/signup" className="btn btn-dark">
               Registrarse
             </Link>
           </Col>

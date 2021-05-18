@@ -8,6 +8,7 @@ class UploadsService {
   }
 
   uploadimage = (imageForm) => this.app.post("/image", imageForm);
+  uploadSingleImage = (imageForm) => this.app.post("/singleImage", imageForm);
 }
 
 export default UploadsService;

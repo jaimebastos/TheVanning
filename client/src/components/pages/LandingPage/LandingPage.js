@@ -1,4 +1,4 @@
-import { Row, Col, Carousel } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./LandingPage.css";
 import cover from "./cover.png";
@@ -25,10 +25,10 @@ const LandingPage = () => {
               <img src={build} alt="build"></img>
               <div className="innertext">
                 {" "}
-                <Link to="/vans" className="nav-link btn btn-outline-dark-landing buttonLink">
+                <Link to="/extras" className="nav-link btn btn-outline-dark-landing buttonLink">
                   <h3>CUSTOMIZAR</h3>
                 </Link>
-                <Link to="/vans" className="nav-link">
+                <Link to="/extras" className="nav-link">
                   <p>¿TIENES YA UNA FURGONETA? EMPIEZA AQUI</p>
                 </Link>
               </div>
@@ -51,10 +51,10 @@ const LandingPage = () => {
             <figure className="upgrade-cover relative">
               <img src={upgrade} alt="upgrade"></img>
               <div className="innertext">
-                <Link to="/vans" className="nav-link btn btn-outline-dark-landing buttonLink">
+                <Link to="/quote/list-vans" className="nav-link btn btn-outline-dark-landing buttonLink">
                   <h3>CREAR</h3>
                 </Link>
-                <Link to="/vans" className="nav-link">
+                <Link to="/quote/list-vans" className="nav-link">
                   <p>DISEÑA LA FURGONETA DE TUS SUEÑOS</p>
                 </Link>
               </div>

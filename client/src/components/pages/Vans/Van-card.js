@@ -11,7 +11,7 @@ const VanCard = ({ name, caption, image, price, _id }) => {
  
     return (
         <Col md={4}>
-            <Card className="van-card">
+            <Card className="van-card" >
                 
                 <Card.Img variant="top" src={image[0]} />
                 

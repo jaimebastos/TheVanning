@@ -1,0 +1,22 @@
+.quoteList{
+    padding-top: 150px;
+}
+.quoteList h1{
+  margin-bottom: 50px;
+}
+.quoteList h2{
+  width: 50px;
+  background-color: #ffbf40;
+  border-radius: 20px;
+  text-align: center;
+}
+@media screen and (max-width: 765px) {
+  
+  .quoteList {
+    text-align: center;
+   padding-top: 10px;
+  }
+  .quoteList h2 {
+    margin-left: 45%;
+  }
+}
