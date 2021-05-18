@@ -78,7 +78,7 @@ const vanSchema = new Schema(
       //required: [true, "La imagen es obligatoria"],
     }],
     price: {
-      type: Number,
+      type: String,
       //required: [true, "El precio es obligatorio"],
     },
     owner: {
