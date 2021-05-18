@@ -4,6 +4,10 @@ import VanBaseQuote from "./QuoteForm/VanBaseQuote";
 import AutoCompletedForm from "./QuoteForm/AutoCompletedForm"
 import QuoteExtras from "./QuoteForm/QuoteExtrasCard";
 import './QuoteForm.css'
+import QuoteService from "../../../service/Quote.service";
+import VansService from "../../../service/vans.service"
+
+
 
 class QuoteForm extends Component {
     constructor(props) {
@@ -13,10 +17,20 @@ class QuoteForm extends Component {
             price: undefined,
             checkedExtras: undefined
         }
+        this.quoteService = new QuoteService();
+        this.vansService = new VansService();
+
     }
+
+
 
     handleOnSubmit(e) {
         e.preventDefault();
+
+        console.log(this.state.selectedVan._id)
+        console.log(this.props)
+
+
     }
 
     findElm(elm) {
@@ -46,7 +60,7 @@ class QuoteForm extends Component {
             (this.props.baseVans.length == 0) ?
                 <h1>CARGANDO</h1>
                 :
-                <Form onSubmit={(e) => this.handleSubmit(e)}>
+                <Form onSubmit={(e) => this.handleOnSubmit(e)}>
                     <Row className="justify-content">
                         <VanBaseQuote vans={this.props.baseVans} onSelectChange={elm => this.selectedVanChange(elm)} />
                     </Row>

@@ -2,7 +2,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import LoginForm from './LoginForm'
 
-const Login = ({ history }) => {
+const Login = ({ storeUser, history }) => {
 
     return (
 
@@ -16,7 +16,7 @@ const Login = ({ history }) => {
 
                     <hr />
 
-                    <LoginForm history={history} />
+                    <LoginForm history={history} storeUser={storeUser} />
 
                     <hr />
 

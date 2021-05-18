@@ -8,11 +8,11 @@ import NewExtra from '../pages/NewExtra/NewExtra';
 import Login from '../pages/Login/Login'
 import Signup from '../pages/Signup/Signup'
 import FilteredExtras from '../pages/ExtrasFilter/ExtrasFilter'
-import Quote from '../pages/Quote/Quote'
+import QuoteCard from '../pages/Quote/QuoteBaseCard'
 
 
 
-const Routes = () => {
+const Routes = ({ storeUser, loggedUser }) => {
     return (
         <Switch>
             <Route path="/" exact render={() => <Vans />} />
@@ -21,8 +21,8 @@ const Routes = () => {
             <Route path="/vans/create" render={props => <NewVan history={props.history} />} />
             <Route path="/vans/edit/:vans_id" render={props => <EditVan {...props} history={props.history} />} />
             <Route path="/auth/signup" render={props => <Signup history={props.history} />} />
-            <Route path="/auth/login" render={props => <Login history={props.history} />} />
-            <Route path="/quote/create" render={() => <Quote />} />
+            <Route path="/auth/login" render={props => <Login storeUser={storeUser} history={props.history} />} />
+            <Route path="/quote/create" render={() => <QuoteCard loggedUser={loggedUser} />} />
             <Route path="/extras/:category" render={(props) => <FilteredExtras {...props} />} />
             <Route path="/extras/create" render={(props) => <NewExtra history={props.history} />} />
             <Route path="/extras" exact render={() => <Extras />} />

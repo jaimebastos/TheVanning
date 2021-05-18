@@ -2,7 +2,6 @@ import { Container } from "react-bootstrap";
 import { Component } from "react";
 
 import ExtrasService from "../../../service/extras.service";
-import QuoteService from "../../../service/Quote.service";
 import VansService from "../../../service/vans.service"
 import QuoteForm from "./QuoteForm";
 
@@ -10,28 +9,12 @@ class QuoteCard extends Component {
   constructor() {
     super();
     this.state = {
-      vans: {
-        owner: "",
-        designer: {
-          brand: "",
-          model: "",
-        },
-        dimension: {
-          length: "",
-          height: "",
-        },
-        specifications: {
-          kilometers: 0,
-          year: 0,
-        },
-      },
       optionVans: [],
       extras: [],
       price: 0,
     };
     this.extrasService = new ExtrasService();
     this.vansService = new VansService();
-    this.quoteService = new QuoteService();
   }
 
   componentDidMount() {
@@ -68,7 +51,7 @@ class QuoteCard extends Component {
 
     return (
       <Container>
-        <QuoteForm baseVans={this.state.optionVans} extras={this.state.extras} />
+        <QuoteForm baseVans={this.state.optionVans} loggedUser={this.props.loggedUser} extras={this.state.extras} />
       </Container>
     );
   }

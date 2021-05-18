@@ -25,6 +25,7 @@ class LoginForm extends Component {
         this.authService
             .login(this.state)
             .then(response => {
+                this.props.storeUser(response.data)
                 this.props.history.push('/vans')
 
             })
