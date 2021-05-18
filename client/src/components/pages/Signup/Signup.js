@@ -1,7 +1,6 @@
 import { Container, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import SignupForm from './SignupForm'
-import './signup.css'
 
 const Signup = ({ history }) => {
 
@@ -9,7 +8,7 @@ const Signup = ({ history }) => {
 
         <Container>
 
-            <Row className="justify-content-center auth">
+            <Row className="justify-content-center">
 
                 <Col md={6}>
 

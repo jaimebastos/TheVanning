@@ -5,24 +5,30 @@ import LoginForm from './LoginForm'
 const Login = ({ storeUser, history }) => {
 
     return (
-      <Container>
-        <Row className="justify-content-center auth">
-          <Col md={6}>
-            <h1>Inicio de sesión</h1>
 
-            <hr />
+        <Container>
 
-            <LoginForm history={history} />
+            <Row className="justify-content-center">
 
-            <hr />
+                <Col md={6}>
 
-            <Link to="/registro" className="btn btn-dark">
-              Registrarse
-            </Link>
-          </Col>
-        </Row>
-      </Container>
-    );
+                    <h1>Inicio de sesión</h1>
+
+                    <hr />
+
+                    <LoginForm history={history} storeUser={storeUser} />
+
+                    <hr />
+
+                    <Link to="/registro" className="btn btn-dark">Registrarse</Link>
+
+                </Col>
+
+            </Row>
+
+        </Container>
+
+    )
 }
 
 export default Login

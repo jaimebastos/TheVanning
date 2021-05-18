@@ -1,8 +1,7 @@
 import { Component } from "react";
 import ExtrasService from "../../../service/extras.service";
-import { Container,Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import './ExtrasDetails.css'
 
 class ExtrasDetails extends Component {
   constructor(props) {
@@ -44,26 +43,12 @@ class ExtrasDetails extends Component {
         ) : (
           <>
             <h1>{extra.name}</h1>
-
-            <Row>
-              <Col sm={12} lg={6}>
-                <img className="detailsimg" src={extra.image}></img>
-              </Col>
-              <Col sm={12} lg={6}>
-                <p>{extra.description}</p>
-                <span>{extra.price}€</span>
-              </Col>
-            </Row>
-
+            <img src={extra.image}></img>
             <Button
               onClick={() => {
-                this.deleteExtra();
+                this.deleteExtra()
               }}
-              variant="outline-secondary"
-              className="btn btn-outline-dark botonDel"
-            >
-              Eliminar
-            </Button>
+            ></Button>
           </>
         )}
       </Container>
