@@ -64,15 +64,16 @@ class NewVan extends Component {
     handleFileUpload(e) {
 
         const uploadData = new FormData();
-        uploadData.append("imageData", e.target.files[0]);
+        //hacer append de varias images
+        for(let i = 0; i < e.target.files.length; i++) {
+            uploadData.append("imageData", e.target.files[i]);
+        }
 
+        //en el backend lo mismo, adaptar a varias
         this.uploadsService
             .uploadimage(uploadData)
-            .then(response => {
-                const vanCopy = { ...this.state.van };
-                vanCopy.image = response.data.secure_url
-                this.setState({ van: vanCopy })
-            })
+            .then(response => 
+                this.setState({ image: response.data.secure_url }))
             .catch(err => console.log('errooooor', err))
     }
 
@@ -80,7 +81,7 @@ class NewVan extends Component {
         return (
             < Container >
 
-                <Form onSubmit={e => this.handleSubmit(e)}>
+                <Form onSubmit={e => this.handleSubmit(e)} className='margin-to-nav'>
 
                     <Row className="justify-content form-crear-van">
                         <Col md={6}>
@@ -114,7 +115,7 @@ class NewVan extends Component {
 
                             <Form.Group controlId="image">
                                 <Form.Label>Imagen</Form.Label>
-                                <Form.Control type="file" className="image-van" value={this.state.imageData} onChange={(e) => this.handleFileUpload(e)} name="image" />
+                                <Form.Control  multiple={true} type="file" className="image-van" value={this.state.imageData} onChange={(e) => this.handleFileUpload(e)} name="image" />
                             </Form.Group>
                         </Col>
 

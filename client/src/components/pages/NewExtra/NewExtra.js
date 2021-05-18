@@ -64,7 +64,7 @@ class NewExtra extends Component {
     return (
       <>
         <Container>
-          <div className="extrasForm">
+          <div className="extrasForm margin-to-nav">
             <Form onSubmit={(e) => this.handleSubmit(e)}>
               <Form.Group controlId="name">
                 <Form.Label>Nombre</Form.Label>

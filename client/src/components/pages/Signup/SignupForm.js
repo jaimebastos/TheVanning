@@ -35,7 +35,7 @@ class SignupForm extends Component {
     render() {
         return (
 
-            <Form onSubmit={e => this.handleSubmit(e)}>
+            <Form onSubmit={e => this.handleSubmit(e)} >
 
                 <Form.Group controlId="username">
                     <Form.Label>Nombre de usuario</Form.Label>

@@ -2,6 +2,8 @@ import { Component } from 'react'
 import VansService from '../../../service/vans.service'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col, Button } from 'react-bootstrap'
+import './VanDetails.css'
+import VanGallery from './VanGallery'
 
 
 class VanDetails extends Component {
@@ -57,24 +59,23 @@ class VanDetails extends Component {
                                     <h3 className="Informacion">Información:</h3>
                                     <p className="p-description">{van.description}</p>
                                     <hr />
-                                    <h3>Especificaciones</h3>
-                                    <p><strong>Diseñador:</strong> {van.designer.brand}, {van.designer.model}</p>
-                                    <p><strong>Dimensiones:</strong> {van.dimension.length}, {van.dimension.weight}, {van.dimension.height}</p>
-                                    <p><strong>Consumo:</strong> {van.specifications.fuelSpecifications.fuelType}, {van.specifications.fuelSpecifications.fuelConsume} </p>
-                                    <p><strong>Año:</strong> {van.year}</p>
-                                    <p><strong>Kilometros:</strong> {van.kilometers}</p>
-                                    <p><strong>CV:</strong> {van.cv}</p>
-                                    <p><strong>Precio:</strong> {van.price}</p> */}
+                                    <h3>Especificaciones:</h3>
+                                    <p><strong>Diseñador: </strong> {van.designer.brand}, {van.designer.model}</p>
+                                    <p><strong>Dimensiones: </strong> {van.dimension.length}, {van.dimension.height},  {van.dimension.weight} kg</p>
+                                    <p><strong>Consumo: </strong> {van.specifications.fuelSpecifications.fuelType} {van.specifications.fuelSpecifications.fuelConsume} l /100</p>
+                                    <p><strong>Año: </strong> {van.specifications.year}</p>
+                                    <p><strong>Kilometros: </strong> {van.specifications.kilometers}</p>
+                                    <p><strong>CV: </strong> {van.specifications.cv}</p>
+                                    <p><strong>Precio: </strong>{van.price} €</p>
                                     <hr />
-                                    <Link to="/vans" className="btn btn-dark">Volver al listado</Link>
-                                    <Button className="btn btn-dark btn-block" style={{ width: '20%', height: '40px' }} onClick={() => {this.deleteVan() }}> Eliminar Van</Button>
+                                    <Link to="/vans" className="btn btn-outline-dark boton-listado">Volver al listado</Link>
+                                    <Button variant="outline-secondary" className="btn btn-outline-dark boton-listado" style={{ width: '20%', height: '40px' }} onClick={() => {this.deleteVan() }}> Eliminar</Button>
                                     
                                 </Col>
 
-                                <Col md={4}>
-                                    <img src={van.image} alt={van.name} style={{ width: '100%' }} />
+                                <Col md={5}>
+                                    <VanGallery img={van.image} alt={van.name} />
                                 </Col>
-
 
                             </Row>
                         </>
@@ -88,3 +89,4 @@ class VanDetails extends Component {
 }
 
 export default VanDetails
+
