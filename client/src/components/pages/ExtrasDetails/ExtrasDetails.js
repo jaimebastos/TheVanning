@@ -43,7 +43,18 @@ class ExtrasDetails extends Component {
         ) : (
           <>
             <h1>{extra.name}</h1>
-            <img src={extra.image}></img>
+
+            <Row>
+              <Col sm={12} lg={6}>
+                <img className="detailsimg" src={extra.image}></img>
+              </Col>
+              <Col sm={12} lg={6}>
+                <h4>Informacion:</h4>
+                <p>{extra.description}</p>
+                <span className="precioModal">Precio: {extra.price}€</span>
+              </Col>
+            </Row>
+
             <Button
               onClick={() => {
                 this.deleteExtra()

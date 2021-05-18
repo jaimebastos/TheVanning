@@ -8,6 +8,7 @@ import Navigation from './layout/Navigation/Navigation'
 
 import Routes from './routes/Routes'
 
+
 class App extends Component {
   constructor() {
     super()
@@ -44,7 +45,6 @@ class App extends Component {
         <main>
           <Routes storeUser={user => this.storeUser(user)} loggedUser={this.state.loggedUser} />
         </main>
-
         <Footer />
       </>
     )

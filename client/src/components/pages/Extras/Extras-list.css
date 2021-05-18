@@ -1,0 +1,9 @@
+
+.checkboxx{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+.boton-crear-extra {
+    margin-bottom: 20px;
+}

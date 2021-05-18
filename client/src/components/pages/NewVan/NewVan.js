@@ -82,7 +82,7 @@ class NewVan extends Component {
 
                 <Form onSubmit={e => this.handleSubmit(e)}>
 
-                    <Row className="justify-content">
+                    <Row className="justify-content form-crear-van">
                         <Col md={6}>
                             <Form.Group controlId="name">
                                 <Form.Label>Nombre</Form.Label>

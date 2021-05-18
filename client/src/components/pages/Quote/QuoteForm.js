@@ -86,7 +86,7 @@ class QuoteForm extends Component {
 
     render() {
         return (
-            (this.props.baseVans.length == 0) ?
+            (this.props.baseVans.length === 0) ?
                 <h1>CARGANDO</h1>
                 :
                 <Form onSubmit={(e) => this.handleOnSubmit(e)}>

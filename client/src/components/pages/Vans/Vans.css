@@ -6,3 +6,36 @@
     height: 140px;
     object-fit: cover;
 }
+
+.boton {
+    margin: 5px;
+    margin-bottom: 7px;
+}
+.boton-listado{
+    margin: 5px;
+    margin-bottom: 40px;
+}
+
+.card-info {
+    font-size: .9em;
+}
+
+.card-name {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+.van-list-title {
+    text-align: center;
+    padding-top: 150px;
+   
+}
+
+@media screen and (max-width: 991px) {
+
+   .van-list-title {
+       padding-top: 20px;
+   }
+}
+/* .van-card{
+    margin-top: 100px;
+} */

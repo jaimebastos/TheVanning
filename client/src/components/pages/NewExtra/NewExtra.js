@@ -50,7 +50,7 @@ class NewExtra extends Component {
     uploadData.append("imageData", e.target.files[0]);
 
     this.uploadsService
-      .uploadimage(uploadData)
+      .uploadSingleImage(uploadData)
       .then(response => {
         const extraCopy = { ...this.state.extra };
         extraCopy.image = response.data.secure_url

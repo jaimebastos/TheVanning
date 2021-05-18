@@ -1,0 +1,23 @@
+.Extrascover img {
+  margin-top: 150px;
+  margin-bottom: 50px;
+  width: 100%;
+}
+@media screen and (max-width: 991px) {
+  .Extrascover img {
+    margin-top: 10px;
+    text-align: center;
+  }
+  .Extrascover .after-cover img {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 765px) {
+  
+  .Extrascover .after-cover img {
+    display: flex;
+    width: 215%;
+    justify-content: center;
+  }
+}

@@ -54,8 +54,8 @@ class VanDetails extends Component {
                             <hr />
                             <Row className="justify-content-between">
                                 <Col md={6}>
-                                    <h3>Información</h3>
-                                    {/* <p>{van.description}</p>
+                                    <h3 className="Informacion">Información:</h3>
+                                    <p className="p-description">{van.description}</p>
                                     <hr />
                                     <h3>Especificaciones</h3>
                                     <p><strong>Diseñador:</strong> {van.designer.brand}, {van.designer.model}</p>

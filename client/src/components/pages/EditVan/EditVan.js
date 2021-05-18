@@ -33,6 +33,7 @@ class EditVan extends Component {
             },
             image: '',
             price: 0,
+            disabled: false
         }
         this.VansService = new VansService()
 
@@ -79,6 +80,26 @@ class EditVan extends Component {
             })
             .catch(err => console.log('ERROR, YA VEREMOS QUE HASCEMOS', err))
     }
+
+    handleFileUpload(e) {
+        this.setState({disabled: true})
+        const uploadData = new FormData();
+        //hacer append de varias images
+
+         for(let i = 0; i < e.target.files.length; i++) {
+            uploadData.append("imageData", e.target.files[i]);
+        }
+        // uploadData.append("imageData", e.target.files[0]);
+
+        //en el backend lo mismo, adaptar a varias
+        this.uploadsService
+            .uploadimage(uploadData)
+            .then(response => {
+                this.setState({ image: response.data.secure_url, disabled: false })
+            })
+            .catch(err => console.log('errooooor', err))
+  }
+
 
     render() {
         return (
@@ -135,7 +156,7 @@ class EditVan extends Component {
                             </Form.Group>
                         </Col>
 
-                        <Button variant="dark" style={{ width: '100%', margin: '50px auto' }} type="submit">Editar furgoneta</Button>
+                        <Button disabled={this.state.disabled} variant="dark" style={{ width: '100%', margin: '50px auto' }} type="submit">Editar furgoneta</Button>
                     </Form>
 
                 </Container >

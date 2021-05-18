@@ -6,8 +6,10 @@ const VanCard = ({ name, caption, image, price, _id }) => {
 
     return (
         <Col md={4}>
-            <Card className="van-card">
-                <Card.Img variant="top" src={image} />
+            <Card className="van-card" >
+                
+                <Card.Img variant="top" src={image[0]} />
+                
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <Card.Title>{caption}</Card.Title>

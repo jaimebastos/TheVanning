@@ -8,11 +8,9 @@ const ExtrasCard = ({name, description, price, _id, category, displayModal, save
     <Col md={4}>
       <Card className="extras-card">
         <Card.Body>
-          <Card.Title>{name}</Card.Title>
-          <p>{description}</p>
-          <p>{price}</p>
-          <p>{category}</p>
-
+          <Card.Title className="cardExtra-name">{name}</Card.Title>
+          <Card.Title className="cardExtra-info">{caption}</Card.Title>
+          <Card.Title className="cardExtra-info"> <strong>{price} €</strong></Card.Title>
           <Button
             onClick={() => {
               showEditModal(false);
