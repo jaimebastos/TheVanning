@@ -12,7 +12,7 @@ const Login = ({ storeUser, history }) => {
 
             <hr />
 
-            <LoginForm history={history} />
+            <LoginForm history={history} storeUser={storeUser}/>
 
             <hr />
 
