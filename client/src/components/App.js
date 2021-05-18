@@ -8,6 +8,7 @@ import Navigation from './layout/Navigation/Navigation'
 
 import Routes from './routes/Routes'
 
+
 class App extends Component {
   render() {
 
@@ -18,7 +19,6 @@ class App extends Component {
         <main>
           <Routes />
         </main>
-
         <Footer />
       </>
     )

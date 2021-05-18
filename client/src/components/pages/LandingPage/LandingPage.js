@@ -1,4 +1,4 @@
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./LandingPage.css";
 import cover from "./cover.png";
@@ -62,6 +62,7 @@ const LandingPage = () => {
           </Col>
         </Row>
       </section>
+
     </>
   );
 };

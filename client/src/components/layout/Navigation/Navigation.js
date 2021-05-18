@@ -1,38 +1,50 @@
 import React from "react";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Dropdown, DropdownButton, ButtonGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "./logo.png";
 import "./Navigation.css";
+import Home from "./Home.png";
+import Mecanic from "./Mecanic.png";
+import Van from "./Van.png";
 
 const Navigation = () => {
   return (
-    <Navbar bg="dark" variant="dark" className="justify-content-around nav">
-      <Navbar.Brand>
-        <Link to="/" className="nav-link">
-          <img alt="" src={logo} className="d-inline-block align-top logo" />{" "}
-        </Link>
-      </Navbar.Brand>
-
-      <Nav className="mr-auto">
-        <Link to="/vans" className="nav-link">
-          Furgonetas
-        </Link>
-
-        <Link to="/extras" className="nav-link">
-          Extras
-        </Link>
-
-        <Link to="/auth/signup" className="nav-link">
-          Registro
-        </Link>
-        <Link to="/auth/login" className="nav-link">
-          Iniciar sesión
-        </Link>
-        <Link to="/vans" className="nav-link">
-          Furgonetas
-        </Link>
-      </Nav>
-    </Navbar>
+    <>
+      <Navbar bg="light" expand="lg" className="justify-content-around nav">
+        <Navbar.Collapse id="basic-navbar-nav"></Navbar.Collapse>
+        <Navbar.Brand>
+          <Link to="/" className="nav-link brand ">
+            <img alt="" src={logo} className="d-inline-block align-top logo" />{" "}
+          </Link>
+        </Navbar.Brand>
+        <Nav className="mr-auto navWebFather ">
+          <Nav.Link href="/vans" className="nav-link navWeb">
+            Furgonetas
+          </Nav.Link>
+          <Nav.Link href="/extras" className="nav-link navWeb">
+            Instalaciones
+          </Nav.Link>
+          <Nav.Link href="/instalaciones" className="nav-link navWeb">
+            Camperizar
+          </Nav.Link>
+          <NavDropdown title="Usuario" id="basic-nav-dropdown" className="nav-link navWebDropDown">
+            <NavDropdown.Item href="/auth/login">Registro</NavDropdown.Item>
+            <NavDropdown.Item href="/auth/signup">Inicio Sesión</NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
+        <Nav className="mr-auto nav-mobile ">
+          <Nav.Link as={Link} to="/" className="navMob1">
+            <img src={Home}></img>
+          </Nav.Link>
+          <Nav.Link href="/vans" className="navMob1">
+            <img src={Van}></img>
+          </Nav.Link>
+          <Nav.Link href="/extras" className="navMob">
+            <img src={Mecanic}></img>
+          </Nav.Link>
+        </Nav>
+      </Navbar>
+    </>
   );
 };
 
