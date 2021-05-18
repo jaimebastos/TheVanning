@@ -81,9 +81,7 @@
 .innertext p {
   text-align: center;
 }
-.nav-link {
-  display: block;
-  padding: .5rem 1rem;
+.functionalities p{
   color: white;
   text-decoration: none;
 }
