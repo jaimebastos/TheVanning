@@ -1,6 +1,26 @@
-.navbar {
-    margin-bottom: 40px;
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #ffbf40;
+    font: 22px "open sans condensed", sans-serif;
+    font-weight: bold;
+    padding-top: 60px;
+    
 }
-.extras-dropdown .dropdown-menu {
-    min-width: 21rem;
+.bg-dark {
+    background-color: #ffffff!important;
+}
+.logo{
+    width: 150px; 
+    height: 30px;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+    color: rgb(0 0 0 / 75%);
+}
+.nav{
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
 }

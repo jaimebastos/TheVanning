@@ -1,9 +1,8 @@
-import { Container } from "react-bootstrap";
+import { Container} from "react-bootstrap";
 import { Component } from "react";
 import ExtrasService from "./../../../service/extras.service";
-
 import ExtrasList from "../Extras/Extras-list";
-
+import './ExtrasFilter.css'
 class ExtrasFilter extends Component {
   constructor(props) {
     super(props);
@@ -18,10 +17,9 @@ class ExtrasFilter extends Component {
   }
 
   componentDidUpdate(previousProps, prevState) {
-   if(previousProps.match.params.category !== this.props.match.params.category){
-     this.loadExtras()
-   }
-  
+    if (previousProps.match.params.category !== this.props.match.params.category) {
+      this.loadExtras();
+    }
   }
 
   loadExtras() {
@@ -30,7 +28,7 @@ class ExtrasFilter extends Component {
     this.extrasService
       .filterByCategory(category)
       .then((response) => {
-        this.setState({ extras: response.data })
+        this.setState({ extras: response.data });
       })
       .catch((err) => console.log("ERROR, YA VEREMOS QUE HACEMOS", err));
   }
@@ -39,6 +37,7 @@ class ExtrasFilter extends Component {
     return (
       <Container>
         <hr />
+      
         <ExtrasList extras={this.state.extras} />
       </Container>
     );

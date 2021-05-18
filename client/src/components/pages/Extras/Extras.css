@@ -1,0 +1,19 @@
+.extrasCard img{
+    object-fit: cover;
+    height: 300px;
+}
+.botonExtras {
+    margin: 5px;
+    margin-bottom: 7px;
+}
+.botonExtras-listado{
+    margin: 5px;
+    margin-bottom: 40px;
+}
+.cardExtra-info {
+    font-size: .9em;
+}
+.cardExtra-name {
+    font-size: 2em;
+    margin-bottom: 10px;
+}

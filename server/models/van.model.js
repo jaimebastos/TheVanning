@@ -73,12 +73,12 @@ const vanSchema = new Schema(
       },
     },
 
-    image: {
+    image: [{
       type: String,
       //required: [true, "La imagen es obligatoria"],
-    },
+    }],
     price: {
-      type: Number,
+      type: String,
       //required: [true, "El precio es obligatorio"],
     },
     isCustomized: {

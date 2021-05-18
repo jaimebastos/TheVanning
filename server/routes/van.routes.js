@@ -26,7 +26,9 @@ router.get("/list/:boolean", (req, res) => {
 router.get("/:van_id", (req, res) => {
 
   Van.findById(req.params.van_id)
-    .then((response) => res.json(response))
+    .then((response) => {
+      console.log("respuesta", response)
+      res.json(response)})
     .catch((err) => res.status(500).json({ code: 500, message: "Error fetching vans", err }));
 });
 

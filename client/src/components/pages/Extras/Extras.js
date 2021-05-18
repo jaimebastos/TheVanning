@@ -31,7 +31,7 @@ class Extras extends Component{
   render() {
   return (
     <Container >
-      <hr />
+      
       <ExtrasList extras={this.state.extras} loadExtras={() => this.loadExtras()}/>
     </Container>
   );}
