@@ -50,8 +50,9 @@ class ExtrasDetails extends Component {
                 <img className="detailsimg" src={extra.image}></img>
               </Col>
               <Col sm={12} lg={6}>
+                <h4>Informacion:</h4>
                 <p>{extra.description}</p>
-                <span>{extra.price}€</span>
+                <span className="precioModal">Precio: {extra.price}€</span>
               </Col>
             </Row>
 

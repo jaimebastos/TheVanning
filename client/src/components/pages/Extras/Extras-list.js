@@ -53,8 +53,8 @@ class ExtrasList extends Component {
             <ExtrasCheckbox />
           </div>
           <div className="list">
-            <Link to="/extras/create" className="btn btn-dark">
-              Crear Van
+            <Link to="/extras/create" className="btn btn-outline-dark boton-crear-extra">
+              Crear extra
             </Link>
 
             <Row>

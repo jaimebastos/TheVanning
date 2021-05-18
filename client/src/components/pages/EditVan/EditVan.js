@@ -33,6 +33,7 @@ class EditVan extends Component {
             },
             image: '',
             price: 0,
+            disabled: false
         }
         this.VansService = new VansService()
         this.copyVans = undefined
@@ -83,7 +84,7 @@ class EditVan extends Component {
     }
 
     handleFileUpload(e) {
-
+        this.setState({disabled: true})
         const uploadData = new FormData();
         //hacer append de varias images
 
@@ -96,7 +97,7 @@ class EditVan extends Component {
         this.uploadsService
             .uploadimage(uploadData)
             .then(response => {
-                this.setState({ image: response.data.secure_url })
+                this.setState({ image: response.data.secure_url, disabled: false })
             })
             .catch(err => console.log('errooooor', err))
   }
@@ -157,7 +158,7 @@ class EditVan extends Component {
                             </Form.Group>
                         </Col>
 
-                        <Button variant="dark" style={{ width: '100%', margin: '50px auto' }} type="submit">Editar furgoneta</Button>
+                        <Button disabled={this.state.disabled} variant="dark" style={{ width: '100%', margin: '50px auto' }} type="submit">Editar furgoneta</Button>
                     </Form>
 
                 </Container >

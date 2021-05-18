@@ -6,6 +6,8 @@ import build from "./build.png";
 import shop from "./shop.png";
 import upgrade from "./upgrade.png";
 
+
+
 const LandingPage = () => {
   return (
     <div className="landing">
