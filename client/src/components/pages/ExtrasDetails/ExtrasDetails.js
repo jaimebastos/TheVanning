@@ -1,8 +1,7 @@
 import { Component } from "react";
 import ExtrasService from "../../../service/extras.service";
-import { Container,Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import './ExtrasDetails.css'
 
 class ExtrasDetails extends Component {
   constructor(props) {
@@ -58,13 +57,9 @@ class ExtrasDetails extends Component {
 
             <Button
               onClick={() => {
-                this.deleteExtra();
+                this.deleteExtra()
               }}
-              variant="outline-secondary"
-              className="btn btn-outline-dark botonDel"
-            >
-              Eliminar
-            </Button>
+            ></Button>
           </>
         )}
       </Container>

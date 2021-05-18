@@ -1,7 +1,6 @@
 import { Container, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import SignupForm from './SignupForm'
-import './signup.css'
 
 const Signup = ({ history }) => {
 

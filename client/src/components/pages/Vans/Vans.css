@@ -1,9 +1,9 @@
 .vans-page .van-card {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 .vans-page .van-card img {
-    height: 200px;
+    height: 140px;
     object-fit: cover;
 }
 

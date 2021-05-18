@@ -1,4 +1,5 @@
 import axios from "axios";
+
 class UploadsService {
   constructor() {
     this.app = axios.create({
