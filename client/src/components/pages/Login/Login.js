@@ -4,21 +4,21 @@ import LoginForm from './LoginForm'
 
 const Login = ({ storeUser, history }) => {
 
-    return (
+  return (
 
-        <Container>
+    <Container>
+      <Row>
+        <LoginForm history={history} storeUser={storeUser} />
 
-            <LoginForm history={history} storeUser={storeUser}/>
+        <Col md={6}>
 
-                <Col md={6}>
-
-            <Link to="/auth/signup" className="btn btn-dark">
-              Registrarse
+          <Link to="/auth/signup" className="btn btn-dark">
+            Registrarse
             </Link>
-          </Col>
-        </Row>
-      </Container>
-    );
+        </Col>
+      </Row>
+    </Container>
+  );
 }
 
 export default Login
