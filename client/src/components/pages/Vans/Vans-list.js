@@ -43,8 +43,7 @@ class VansList extends Component {
                 <h1>CARGANDO</h1>
                 :
                 <>
-                    
-                    
+
                  
                     <Row>
                         {vans.map(elm => <VanCard key={elm._id} {...elm} />)}

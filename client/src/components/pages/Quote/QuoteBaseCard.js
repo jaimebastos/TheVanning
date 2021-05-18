@@ -28,8 +28,8 @@ class QuoteCard extends Component {
       .then(response => {
         this.setState({
           optionVans: response.data
-        })
-        console.log(response.data)
+        }, 
+        console.log(response.data))
 
       })
       .catch((err) => console.log("error", err));

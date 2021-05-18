@@ -81,6 +81,13 @@
 .innertext p {
   text-align: center;
 }
+.nav-link {
+  display: block;
+  padding: .5rem 1rem;
+  color: white;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 611px) {
   .innertext h1 {
     font-size: 50px;
