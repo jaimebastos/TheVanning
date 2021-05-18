@@ -81,6 +81,9 @@ const vanSchema = new Schema(
       type: String,
       //required: [true, "El precio es obligatorio"],
     },
+    isCustomized: {
+      type: Boolean
+    },
     owner: {
       type: Schema.Types.ObjectId,
       ref: "User",
