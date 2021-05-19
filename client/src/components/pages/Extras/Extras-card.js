@@ -1,12 +1,13 @@
 import { Card, Col, Button } from "react-bootstrap";
+import './Extras.css'
 
-
-const ExtrasCard = ({name, description, price, _id, category, displayModal, saveID, showEditModal}) => {
+const ExtrasCard = ({name, description, price, _id, category, displayModal, saveID, showEditModal, image, caption}) => {
 
   
   return (
     <Col md={4}>
-      <Card className="extras-card">
+      <Card className="extrasCard">
+        <Card.Img variant="top" src={image} />
         <Card.Body>
           <Card.Title className="cardExtra-name">{name}</Card.Title>
           <Card.Title className="cardExtra-info">{caption}</Card.Title>
@@ -17,9 +18,10 @@ const ExtrasCard = ({name, description, price, _id, category, displayModal, save
               displayModal(true);
               saveID(_id);
             }}
-            variant="dark"
             size="sm"
-            style={{ marginBottom: "20px" }}
+            className="btn btn-outline-dark boton"
+            style={{ height: "40px", width: "35%", marginBottom: "20px" }}
+            variant="outline-secondary"
           >
             Detalles
           </Button>
@@ -30,11 +32,12 @@ const ExtrasCard = ({name, description, price, _id, category, displayModal, save
               displayModal(true);
               saveID(_id);
             }}
-            variant="dark"
+            className="btn btn-outline-dark boton"
+            variant="outline-secondary"
             size="sm"
-            style={{ marginBottom: "20px" }}
+            style={{ height: "40px", width: "35%", marginBottom: "20px" }}
           >
-            edit
+            Editar
           </Button>
         </Card.Body>
       </Card>
@@ -43,3 +46,4 @@ const ExtrasCard = ({name, description, price, _id, category, displayModal, save
 };
 
 export default ExtrasCard;
+

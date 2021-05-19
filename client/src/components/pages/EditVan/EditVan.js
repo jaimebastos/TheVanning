@@ -4,7 +4,7 @@ import VansService from '../../../service/vans.service'
 import DesignerVan from '../VansForm/DesignerVan'
 import DimensionVan from '../VansForm/DimensionVan'
 import SpecificationsVan from '../VansForm/SpecificationsVan'
-
+import UploadsService from "../../../service/upload.service";
 
 class EditVan extends Component {
     constructor(props) {
@@ -36,6 +36,8 @@ class EditVan extends Component {
             disabled: false
         }
         this.VansService = new VansService()
+        this.copyVans = undefined
+        this.uploadsService = new UploadsService()
 
     }
 
@@ -144,7 +146,7 @@ class EditVan extends Component {
 
                                 <Form.Group controlId="image">
                                     <Form.Label>Imagen</Form.Label>
-                                    <Form.Control type="text" value={this.state.image} onChange={e => this.handleInputChange(e)} name="image" />
+                                    <Form.Control multiple={true} type="file" className="image-van" value={this.state.imageData} onChange={e => this.handleFileUpload(e)} name="image" />
                                 </Form.Group>
                             </Col>
                         </Row>

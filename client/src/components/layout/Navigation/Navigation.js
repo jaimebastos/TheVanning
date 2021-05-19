@@ -1,8 +1,7 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown, Dropdown, DropdownButton, ButtonGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import FilteredExtras from "../../pages/ExtrasFilter/ExtrasFilter";
-import logo from "./logo.jpeg";
+import logo from "./logo.png";
 import "./Navigation.css";
 import Home from "./Home.png";
 import Mecanic from "./Mecanic.png";
