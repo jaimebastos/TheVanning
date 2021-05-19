@@ -1,7 +1,5 @@
 import { Component } from 'react'
-import { Form } from 'react-bootstrap'
-
-
+import { Form, Row, Col } from 'react-bootstrap'
 class DimensionVan extends Component {
     constructor(props) {
         super(props)
@@ -20,29 +18,36 @@ class DimensionVan extends Component {
     }
 
     render() {
-
         return (
             <>
-                <Form.Group controlId="length">
-                    <Form.Label>Elige la longitud</Form.Label>
-                    <Form.Control as="select" value={this.state.length} onChange={(e) => this.handleInputChange(e)} name="length">
-                        <option>L1</option>
-                        <option>L2</option>
-                        <option>L3</option>
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group controlId="height">
-                    <Form.Label>Elige la altura</Form.Label>
-                    <Form.Control as="select" value={this.state.height} onChange={(e) => this.handleInputChange(e)} name="height">
-                        <option>H1</option>
-                        <option>H2</option>
-                        <option>H3</option>
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group controlId="weight">
-                    <Form.Label>Peso</Form.Label>
-                    <Form.Control type="number" value={this.state.weight} onChange={e => this.handleInputChange(e)} name="weight" />
-                </Form.Group>
+            <Row>
+                <Col sm={4}>
+                    <Form.Group className="newForm" controlId="length">
+                        <Form.Label>Elige la longitud</Form.Label>
+                        <Form.Control as="select" value={this.state.length} onChange={(e) => this.handleInputChange(e)} name="length">
+                            <option>L1</option>
+                            <option>L2</option>
+                            <option>L3</option>
+                        </Form.Control>
+                    </Form.Group>
+                </Col>
+                <Col sm={4}>
+                    <Form.Group className="newForm" controlId="height">
+                        <Form.Label>Elige la altura</Form.Label>
+                            <Form.Control as="select" value={this.state.height} onChange={(e) => this.handleInputChange(e)} name="height">
+                                <option>H1</option>
+                                <option>H2</option>
+                                <option>H3</option>
+                            </Form.Control>
+                    </Form.Group>
+                </Col>
+                <Col sm={4}>
+                    <Form.Group className="newForm" controlId="weight">
+                        <Form.Label>Peso</Form.Label>
+                        <Form.Control type="number" value={this.state.weight} onChange={e => this.handleInputChange(e)} name="weight" />
+                    </Form.Group>
+                </Col>
+            </Row>
             </>
         )
     }
