@@ -1,4 +1,5 @@
 import { Row, Col, Container } from "react-bootstrap";
+import BaseVans from "./BaseVans";
 import "./QuotePage.css";
 
 const QuotePage = () => {
@@ -39,6 +40,11 @@ const QuotePage = () => {
               </Row>
             </Col>
           </Row>
+        </Container>
+      </section>
+      <section>
+        <Container>
+          <BaseVans />
         </Container>
       </section>
     </>
