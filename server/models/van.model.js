@@ -6,7 +6,7 @@ const vanSchema = new Schema(
     name: {
       type: String,
       //required: [true, "El nombre es obligatoria"],
-      unique: true,
+     
     },
 
     designer: {
