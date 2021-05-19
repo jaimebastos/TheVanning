@@ -16,7 +16,6 @@ const BaseVanCard = ({ name, caption, image, price, _id }) => {
             Detalles
           </Link>
           <Link to={`/vans/edit/${_id}`} className="btn btn-outline-dark boton">
-            {" "}
             Editar
           </Link>
         </Card.Body>
