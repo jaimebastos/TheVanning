@@ -3,6 +3,8 @@ const Extra = require("../models/extra.model");
 const router = express.Router();
 const uploader = require("../config/cloudinary.config");
 const { isLoggedIn, checkRoles } = require('./../middlewares')
+const mongoose = require("mongoose");
+const { checkMongoooseError } = require("./../utils");
 
 router.get("/list", (req, res) => {
 
@@ -36,7 +38,7 @@ router.post("/create", isLoggedIn, checkRoles('ADMIN'), (req, res) => {
   Extra
     .create(extra)
     .then((response) => res.json(response))
-    .catch((err) => res.status(500).json({ code: 500, message: "Error saving extras", err }));
+    .catch((err) => res.status(500).json({errorMessage: checkMongoooseError(err)} ));
 });
 
 router.put("/edit/:extras_id", isLoggedIn, checkRoles('ADMIN'), (req, res) => {

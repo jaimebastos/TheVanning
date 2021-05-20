@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import SignupForm from './SignupForm'
 import './signup.css'
 
-const Signup = ({ history }) => {
+const Signup = ({ history, handleAlert }) => {
 
     return (
       <Container>
@@ -15,7 +15,7 @@ const Signup = ({ history }) => {
 
             <hr />
 
-            <SignupForm history={history} />
+            <SignupForm history={history} handleAlert={handleAlert} />
 
             <hr />
 

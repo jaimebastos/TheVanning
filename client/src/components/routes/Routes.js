@@ -33,6 +33,26 @@ const Routes = ({ storeUser, loggedUser }) => {
       <Route path="/extras/:category" render={(props) => <FilteredExtras {...props} />} />
     </Switch>
   );
+const Routes = ({ storeUser, loggedUser, handleAlert }) => {
+    return (
+      <Switch>
+        <Route path="/" exact render={() => <LandingPage />} />
+        <Route path="/vans" exact render={() => <Vans />} />
+        <Route path="/vans/details/:id" render={(props) => <VanDetails {...props} />} />
+        <Route path="/vans/create" render={(props) => <NewVan history={props.history} />} />
+        <Route path="/vans/edit/:vans_id" render={(props) => <EditVan {...props} history={props.history} />} />
+        <Route path="/auth/signup" render={(props) => <Signup history={props.history} handleAlert={handleAlert} />} />
+        <Route path="/extras" exact render={() => <Extras />} />
+        <Route
+          path="/extras/create"
+          render={(props) => <NewExtra history={props.history} loggedUser={loggedUser} handleAlert={handleAlert} />}
+        />
+        <Route path="/auth/login" render={(props) => <Login storeUser={storeUser} history={props.history} handleAlert={handleAlert} />} />
+        <Route path="/quote" extact render={() => <QuotePage />} />
+        <Route path="/quote/create" render={() => <QuoteCard loggedUser={loggedUser} />} />
+        <Route path="/extras/:category" render={(props) => <FilteredExtras {...props} />} />
+      </Switch>
+    );
 }
 
 export default Routes

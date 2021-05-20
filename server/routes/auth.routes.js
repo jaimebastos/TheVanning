@@ -12,12 +12,23 @@ router.post('/signup', (req, res) => {
 
     username = username.toLowerCase()
 
+    if (username.length === 0 || pwd.length === 0) {
+      res.status(400).json({ message: "Rellena los campos"});
+      return;
+    }
+
+    if (pwd.length < 2) {
+      res.status(400).json({ message: "Elige una contraseña mas larga" });
+      return;
+    }
+
+
     User
         .findOne({ username })
         .then(user => {
 
             if (user) {
-                res.status(400).json({ code: 400, message: 'Username already exixts' })
+                res.status(400).json({ code: 400, message: 'Este nombre de usuario ya existe' })
                 return
             }
 
@@ -29,7 +40,7 @@ router.post('/signup', (req, res) => {
                 .then(() => res.json({ code: 200, message: 'User created' }))
                 .catch(err => res.status(500).json({ code: 500, message: 'DB error while creating user', err }))
         })
-        .catch(err => res.status(500).json({ code: 500, message: 'DB error while fetching user', err }))
+        .catch(err => res.status(500).json({ code: 500, message: 'username or password wrong', err }))
 })
 
 
