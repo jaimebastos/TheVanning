@@ -30,10 +30,12 @@
    
 }
 .baseVan-card img{
-    height: 300px;
+    height: 290px;
 }
 .baseVan-card{
-    align-items: center;
+    margin: 20px 10px;
+    height: 500px;
+    
 }
 @media screen and (max-width: 991px) {
 

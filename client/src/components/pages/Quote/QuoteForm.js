@@ -6,8 +6,7 @@ import './QuoteForm.css'
 import QuoteService from "../../../service/Quote.service";
 import VansService from "../../../service/vans.service"
 import QuoteExtras from "./QuoteForm/QuoteExtrasCard"
-
-
+import SpinnerGif from './../common/Spinner'
 
 class QuoteForm extends Component {
     constructor(props) {
@@ -64,7 +63,7 @@ class QuoteForm extends Component {
         console.log(this.props.extras);
         return (
             (this.props.baseVans.length === 0) ?
-                <h1>CARGANDO</h1>
+                <h1><SpinnerGif /></h1>
                 :
                 <Form onSubmit={(e) => this.handleOnSubmit(e)}>
                     <Row className="justify-content-center quoteForm">

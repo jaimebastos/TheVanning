@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import BaseVanCard from "./BaseVansCard";
-
+import SpinnerGif from './../../common/Spinner'
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -34,7 +34,6 @@ const settings = {
           }
         }
         ]
-   
 };
 
 class BaseVans extends Component {
@@ -62,13 +61,11 @@ class BaseVans extends Component {
     const { vans } = this.state;
 
     return !vans ? (
-      <h1>CARGANDO</h1>
+      <h1><SpinnerGif /></h1>
     ) : (
       <>
         <Slider {...settings} >
-          {vans.map((elm) => (
-            <BaseVanCard key={elm._id} {...elm} />
-          ))}
+          {vans.map((elm) => (<BaseVanCard key={elm._id} {...elm} />))}
         </Slider>
       </>
     );

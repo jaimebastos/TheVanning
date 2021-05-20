@@ -5,6 +5,7 @@ import DesignerVan from '../VansForm/DesignerVan'
 import DimensionVan from '../VansForm/DimensionVan'
 import SpecificationsVan from '../VansForm/SpecificationsVan'
 import UploadsService from "../../../service/upload.service";
+import SpinnerGif from './../common/Spinner'
 
 class EditVan extends Component {
     constructor(props) {
@@ -97,7 +98,7 @@ class EditVan extends Component {
         return (
             !this.state._id
                 ?
-                <h1>CARGANDO</h1>
+                <h1><SpinnerGif /></h1>
                 :
                 < Container >
                     <Form onSubmit={e => this.handleSubmit(e)} className='margin-to-nav'>

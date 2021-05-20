@@ -4,6 +4,7 @@ import VansService from './../../../service/vans.service'
 import VanCard from './Van-card'
 import './Vans.css'
 import { Row } from 'react-bootstrap'
+import SpinnerGif from './../common/Spinner'
 class VansList extends Component {
     constructor() {
         super()
@@ -30,7 +31,7 @@ class VansList extends Component {
         return (
             !vans
                 ?
-                <h1>CARGANDO</h1>
+                <h1> <SpinnerGif /></h1>
                 :
                 <>
                     <Row>
@@ -40,7 +41,6 @@ class VansList extends Component {
                 </>
         )
     }
-
 }
 
 export default VansList

@@ -1,10 +1,8 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-
 import VansList from './Vans-list'
 import './Vans.css'
-
 
 const Vans = ({ loggedUser }) => {
     return (
@@ -18,7 +16,6 @@ const Vans = ({ loggedUser }) => {
                     :
                     <></>}
             <VansList loggedUser={loggedUser} />
-
         </Container>
     )
 }
