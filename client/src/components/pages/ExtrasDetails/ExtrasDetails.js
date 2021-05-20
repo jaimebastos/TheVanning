@@ -3,14 +3,14 @@ import ExtrasService from "../../../service/extras.service";
 import { Container,Row, Col } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import './ExtrasDetails.css'
-
+import SpinnerGif from './../common/Spinner'
 class ExtrasDetails extends Component {
   constructor(props) {
     super(props)
     this.state = {
       extra: undefined
     }
-    this.extrasService = new ExtrasService
+    this.extrasService = new ExtrasService()
   }
   componentDidMount() {
     const { id } = this.props
@@ -40,14 +40,14 @@ class ExtrasDetails extends Component {
     return (
       <Container>
         {!this.state.extra ? (
-          <h1>cargando...</h1>
+          <h1><SpinnerGif /></h1>
         ) : (
           <>
             <h1>{extra.name}</h1>
 
             <Row>
               <Col sm={12} lg={6}>
-                <img className="detailsimg" src={extra.image}></img>
+                <img className="detailsimg" src={extra.image} alt='details'></img>
               </Col>
               <Col sm={12} lg={6}>
                 <h4>Informacion:</h4>

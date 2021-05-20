@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import './VanDetails.css'
 import VanGallery from './VanGallery'
-
+import SpinnerGif from './../common/Spinner'
 class VanDetails extends Component {
     constructor(props) {
         super(props)
@@ -40,7 +40,7 @@ class VanDetails extends Component {
                     {
                         !this.state.van
                             ?
-                            <h1>Cargando...</h1>
+                            <h1> <SpinnerGif /></h1>
                             :
                             <>
                                 <h1>{van.name}</h1>
