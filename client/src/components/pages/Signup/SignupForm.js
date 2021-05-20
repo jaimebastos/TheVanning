@@ -31,10 +31,8 @@ class SignupForm extends Component {
                 this.props.history.push('/auth/login')
             })
             .catch(err =>{
-                console.log({err})
                 const errorMessage = err.response.data.message
                 this.props.handleAlert(true, errorMessage);
-                console.log(errorMessage)
             })
     }
 

@@ -29,7 +29,7 @@ var settings = {
 };
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
-  return <div className={className} style={{ ...style, display: "block", background: "#ffbf40", marginLeft: "200px" }} onClick={onClick} />;
+  return <div className={className} style={{ ...style, display: "block", background: "#ffbf40"}} onClick={onClick} />;
 }
 
 function SamplePrevArrow(props) {

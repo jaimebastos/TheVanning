@@ -30,9 +30,14 @@
    
 }
 
+
 @media screen and (max-width: 991px) {
 
    .van-list-title {
        padding-top: 20px;
+   }
+   .van-card{
+       margin-left: 5%;
+       margin-right: 5%;
    }
 }

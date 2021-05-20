@@ -1,26 +1,52 @@
-.quoteList{
-    padding-top: 150px;
+.quoteList {
+  padding-top: 150px;
 }
-.quoteList h1{
+.quoteList h1 {
   margin-bottom: 50px;
 }
-.quoteList h2{
+.quoteList h2 {
   width: 50px;
   background-color: #ffbf40;
   border-radius: 20px;
   text-align: center;
 }
-.carausel{
+.carausel {
   padding-top: 150px;
 }
 .slick-next:before {
-    content: '→';
+  content: "→";
 }
-@media screen and (max-width: 765px) {
-  
+.margin-to-footer {
+  padding-bottom: 100px;
+}
+.quoteButton {
+  text-transform: uppercase;
+  color: black;
+  border: 1px solid;
+  font-family: sans-serif;
+  letter-spacing: 2px;
+  margin-top: 50px;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+  text-align: center;
+  width: 250px;
+  border-radius: 20px;
+  margin: 50px auto;
+  transition: all 0.5s;
+}
+
+.quoteButton:hover {
+  background-color: #ffbf40;
+  color: #fff;
+}
+
+
+
+@media screen and (max-width: 991px) {
   .quoteList {
     text-align: center;
-   padding-top: 10px;
+    padding-top: 10px;
   }
   .quoteList h2 {
     margin-left: 45%;

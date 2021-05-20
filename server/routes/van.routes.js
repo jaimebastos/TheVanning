@@ -1,6 +1,8 @@
 const express = require("express");
 const Van = require("../models/van.model");
 const router = express.Router();
+const mongoose = require("mongoose");
+const { checkMongoooseError } = require("./../utils");
 
 // Endpoints
 router.get("/", (req, res) => res.json("message: inicio"));
@@ -38,7 +40,7 @@ router.post("/create", (req, res) => {
 
   Van.create(van)
     .then((response) => res.json(response))
-    .catch((err) => res.status(500).json({ code: 500, message: "Error saving vans", err }));
+    .catch((err) => res.status(500).json({ errorMessage: checkMongoooseError(err) }));
 });
 
 router.put("/edit/:vans_id", (req, res) => {

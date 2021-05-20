@@ -22,8 +22,6 @@ class QuoteForm extends Component {
 
     }
 
-
-
     handleOnSubmit(e) {
         e.preventDefault();
 
@@ -73,7 +71,7 @@ class QuoteForm extends Component {
                             <h1 className="prices-item">Coste total de la furgoneta: </h1><h2 className="prices-item">{this.state.price} €</h2>
                         </Col></>
                     }
-                    <Button variant="dark" style={{ width: "100%", margin: "50px auto" }} type="submit">
+                    <Button className='quoteform' variant="dark" style={{ width: "100%", margin: "50px auto" }} type="submit">
                         Pedir presupuesto
           </Button>
                 </Form>

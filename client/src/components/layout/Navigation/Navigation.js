@@ -7,6 +7,7 @@ import Home from "./Home.png";
 import Mecanic from "./Mecanic.png";
 import Van from "./Van.png";
 import User from "./User.png";
+import Quote from "./Quote.png";
 
 const Navigation = () => {
   return (
@@ -25,7 +26,7 @@ const Navigation = () => {
           <Nav.Link as={Link} to="/extras" className="nav-link navWeb">
             Instalaciones
           </Nav.Link>
-          <Nav.Link as={Link} to="/quote/list-vans" className="nav-link navWeb">
+          <Nav.Link as={Link} to="/quote" className="nav-link navWeb">
             Camperizar
           </Nav.Link>
           <NavDropdown title="Usuario" id="basic-nav-dropdown" className="nav-link navWebDropDown">
@@ -43,6 +44,9 @@ const Navigation = () => {
           </Nav.Link>
           <Nav.Link as={Link} to="/vans" className="navMob1">
             <img src={Van}></img>
+          </Nav.Link>
+          <Nav.Link as={Link} to="/quote" className="navMob">
+            <img src={Quote}></img>
           </Nav.Link>
           <Nav.Link as={Link} to="/extras" className="navMob">
             <img src={Mecanic}></img>
