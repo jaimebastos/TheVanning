@@ -10,11 +10,8 @@ import User from "./User.png";
 import AuthService from "../../../service/auth.service";
 
 const Navigation = ({ loggedUser, storeUser }) => {
-
   const logout = () => {
-
     const authService = new AuthService()
-
     authService
       .logout()
       .then(() => {
@@ -39,7 +36,7 @@ const Navigation = ({ loggedUser, storeUser }) => {
           <Nav.Link as={Link} to="/extras" className="nav-link navWeb">
             Instalaciones
           </Nav.Link>
-          <Nav.Link as={Link} to="/quote/list-vans" className="nav-link navWeb">
+          <Nav.Link as={Link} to="/quote" className="nav-link navWeb">
             Camperizar
           </Nav.Link>
           <NavDropdown title={!loggedUser ? "Usuario" : loggedUser.username} id="basic-nav-dropdown" className="nav-link navWebDropDown">
@@ -65,16 +62,16 @@ const Navigation = ({ loggedUser, storeUser }) => {
         </Nav>
         <Nav className="mr-auto nav-mobile ">
           <Nav.Link as={Link} to="/" className="navMob1">
-            <img src={Home}></img>
+            <img src={Home} alt="home"></img>
           </Nav.Link>
           <Nav.Link as={Link} to="/vans" className="navMob1">
-            <img src={Van}></img>
+            <img src={Van} alt="van"></img>
           </Nav.Link>
           <Nav.Link as={Link} to="/extras" className="navMob">
-            <img src={Mecanic}></img>
+            <img src={Mecanic} alt="mecanic"></img>
           </Nav.Link>
           <Nav.Link as={Link} to="/auth/signup" className="navMob">
-            <img src={User}></img>
+            <img src={User} alt="user"></img>
           </Nav.Link>
         </Nav>
       </Navbar>

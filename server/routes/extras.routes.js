@@ -6,7 +6,8 @@ const { isLoggedIn, checkRoles } = require('./../middlewares')
 
 router.get("/list", (req, res) => {
 
-  Extra.find()
+  Extra
+    .find()
     .then((response) => res.json(response))
     .catch((err) => res.status(500).json({ code: 500, message: "Error fetching extras", err }));
 });
@@ -14,8 +15,8 @@ router.get("/list", (req, res) => {
 router.get("/list/:category", (req, res) => {
   const { category } = req.params
 
-
-  Extra.find({ category: category })
+  Extra
+    .find({ category: category })
     .then((response) => res.json(response))
     .catch((err) => res.status(500).json({ code: 500, message: "Error fetching extras filtered category", err }));
 
@@ -23,7 +24,8 @@ router.get("/list/:category", (req, res) => {
 
 router.get("/:extras_id", (req, res) => {
 
-  Extra.findById(req.params.extras_id)
+  Extra
+    .findById(req.params.extras_id)
     .then((response) => res.json(response))
     .catch((err) => res.status(500).json({ code: 500, message: "Error fetching extras", err }));
 });
@@ -31,7 +33,8 @@ router.get("/:extras_id", (req, res) => {
 router.post("/create", isLoggedIn, checkRoles('ADMIN'), (req, res) => {
   const extra = req.body;
 
-  Extra.create(extra)
+  Extra
+    .create(extra)
     .then((response) => res.json(response))
     .catch((err) => res.status(500).json({ code: 500, message: "Error saving extras", err }));
 });
@@ -40,7 +43,8 @@ router.put("/edit/:extras_id", isLoggedIn, checkRoles('ADMIN'), (req, res) => {
 
   const { name, price, description, caption, category } = req.body
 
-  Extra.findByIdAndUpdate(req.params.extras_id, { name, price, description, caption, category })
+  Extra
+    .findByIdAndUpdate(req.params.extras_id, { name, price, description, caption, category })
     .then((response) => res.json(response))
     .catch((err) => res.status(500).json({ code: 500, message: "Error editing extras", err }));
 });

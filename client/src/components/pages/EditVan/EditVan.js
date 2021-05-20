@@ -101,7 +101,7 @@ class EditVan extends Component {
                 :
                 < Container >
                     <Form onSubmit={e => this.handleSubmit(e)} className='margin-to-nav'>
-                        <Row className="justify-content-center ">
+                        <Row className="justify-content-center crearVanButton">
                             <Col md={6}>
                                 <Form.Group className="newForm" controlId="name">
                                     <Form.Label>Nombre</Form.Label>

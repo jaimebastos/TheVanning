@@ -15,7 +15,8 @@ class NewExtra extends Component {
         caption: '',
         category: '',
         price: 0,
-        image: ''
+        image: '',
+        disabled: false
       }
     }
 
@@ -45,7 +46,7 @@ class NewExtra extends Component {
   }
 
   handleFileUpload(e) {
-
+    this.setState({disabled: true})
     const uploadData = new FormData();
     uploadData.append("imageData", e.target.files[0]);
 
@@ -54,8 +55,7 @@ class NewExtra extends Component {
       .then(response => {
         const extraCopy = { ...this.state.extra };
         extraCopy.image = response.data.secure_url
-
-        this.setState({ extra: extraCopy })
+        this.setState({ extra: extraCopy, disabled: false  })
       })
       .catch(err => console.log('errooooor', err))
   }
@@ -64,7 +64,7 @@ class NewExtra extends Component {
     return (
       <>
         <Container>
-      <Row className="justify-content-center">
+      <Row className="justify-content-center crearExtraButton">
         <Col md={6}>
           <div className="extrasForm margin-to-nav">
             <Form onSubmit={(e) => this.handleSubmit(e)}>
@@ -134,7 +134,7 @@ class NewExtra extends Component {
                 <Form.Control type="file" onChange={(e) => this.handleFileUpload(e)} />
               </Form.Group>
 
-              <Button variant="outline-dark" style={{ width: "100%", marginBottom: '50px'}} type="submit">
+              <Button disabled={this.state.disabled} variant="outline-dark" style={{ width: "100%", marginBottom: '50px'}} type="submit">
                 crear extra
               </Button>
             </Form>

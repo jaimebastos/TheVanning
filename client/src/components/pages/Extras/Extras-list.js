@@ -59,7 +59,6 @@ class ExtrasList extends Component {
                 : <></>
             }
 
-                {extras.map((elm) => (
             <Row>
               {extras.map((elm) => (
                 <ExtrasCard

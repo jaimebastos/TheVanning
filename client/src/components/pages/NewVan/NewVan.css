@@ -9,3 +9,11 @@
 .newForm {
     padding-bottom: 10px;
 }
+
+@media screen and (max-width: 991px) {
+
+    .crearVanButton {
+        padding-bottom: 70px;
+
+    }
+}

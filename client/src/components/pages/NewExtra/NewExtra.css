@@ -4,3 +4,11 @@
 .newExtraForm {
     padding-bottom: 10px;
 }
+
+@media screen and (max-width: 991px) {
+
+    .crearExtraButton {
+        padding-bottom: 70px;
+
+    }
+}

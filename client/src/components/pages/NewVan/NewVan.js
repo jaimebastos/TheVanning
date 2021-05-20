@@ -33,6 +33,7 @@ class NewVan extends Component {
             },
             image: '',
             price: 0,
+            disabled: false
         }
         this.VansService = new VansService()
         this.uploadsService = new UploadsService()
@@ -47,7 +48,7 @@ class NewVan extends Component {
         e.preventDefault()
         this.VansService
             .createVan(this.state)
-            .then(() => { this.props.history.push('/vans'); console.log(this.state) })
+            .then(() => { this.props.history.push('/vans')})
             .catch(err => console.log(err))
     }
 
@@ -58,6 +59,7 @@ class NewVan extends Component {
     specificationsOnChange(specifications) { this.setState({ specifications }) }
 
     handleFileUpload(e) {
+        this.setState({disabled: true})
         const uploadData = new FormData();
         for(let i = 0; i < e.target.files.length; i++) {
             uploadData.append("imageData", e.target.files[i]);
@@ -66,7 +68,7 @@ class NewVan extends Component {
         this.uploadsService
             .uploadimage(uploadData)
             .then(response => 
-                this.setState({ image: response.data.secure_url }))
+                this.setState({ image: response.data.secure_url, disabled: false }))
             .catch(err => console.log('errooooor', err))
     }
 
@@ -74,7 +76,7 @@ class NewVan extends Component {
         return (
             < Container  >
                 <Form onSubmit={e => this.handleSubmit(e)} className='margin-to-nav'>
-                    <Row className="justify-content-center">
+                    <Row className="justify-content-center crearVanButton">
                         <Col md={6}>
                             <Form.Group className="newForm" controlId="name">
                                 <Form.Label>Nombre</Form.Label>
@@ -107,7 +109,7 @@ class NewVan extends Component {
                                 <Form.Control  multiple={true} type="file" className="image-van" value={this.state.imageData} onChange={(e) => this.handleFileUpload(e)} name="image" />
                             </Form.Group>
                         
-                            <Button variant="outline-dark" style={{ width: '100%', marginBottom: '50px' }} type="submit">Crear furgoneta</Button>
+                            <Button  disabled={this.state.disabled} variant="outline-dark" style={{ width: '100%', marginBottom: '50px' }} type="submit">Crear furgoneta</Button>
                         </Col>
                     </Row>
                 </Form>
