@@ -2,7 +2,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import BaseVans from "./BaseVans";
 import "./QuotePage.css";
 
-const QuotePage = () => {
+const QuotePage = ({ loggedUser }) => {
   return (
     <>
       <section className="quoteList">
@@ -45,7 +45,7 @@ const QuotePage = () => {
       <section>
         <Container>
           <div className='baseVans'>
-            <BaseVans />
+            <BaseVans loggedUser={loggedUser} />
           </div>
         </Container>
       </section>

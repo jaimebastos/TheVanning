@@ -27,8 +27,9 @@ class App extends Component {
       .then((response) => this.setState({ loggedUser: response.data }))
       .catch(() => this.setState({ loggedUser: undefined }));
   };
+
   handleAlert(showAlert, alertText) {
-    this.setState({showAlert, alertText});
+    this.setState({ showAlert, alertText });
   }
 
 
@@ -39,8 +40,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <Navigation handleAlert={(alertText) => this.handleAlert(alertText)} />
-        <Navigation loggedUser={this.state.loggedUser} storeUser={user => this.storeUser(user)} />
+        <Navigation loggedUser={this.state.loggedUser} storeUser={user => this.storeUser(user)} handleAlert={(alertText) => this.handleAlert(alertText)} />
 
         <main>
           <Routes

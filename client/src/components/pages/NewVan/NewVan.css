@@ -8,11 +8,6 @@
 
 .newForm {
     padding-bottom: 10px;
-@media screen and (max-width: 991px) {
-  
-  .margin-to-nav {
-   padding-top: 20px;
-  }
 }
 
 @media screen and (max-width: 991px) {
@@ -21,4 +16,7 @@
         padding-bottom: 70px;
 
     }
+    .margin-to-nav {
+        padding-top: 20px;
+    } 
 }

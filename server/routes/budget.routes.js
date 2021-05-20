@@ -8,7 +8,6 @@ router.post("/create", isLoggedIn, (req, res) => {
   const quote = req.body
 
   Quote.create(quote)
-    .populate('extras', 'owner')
     .then((response) => res.json(response))
     .catch((err) => res.status(500).json({ code: 500, message: "Error saving budget", err }));
 });
