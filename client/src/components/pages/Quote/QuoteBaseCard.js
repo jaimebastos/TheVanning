@@ -26,8 +26,8 @@ class QuoteCard extends Component {
       .then(response => {
         this.setState({
           optionVans: response.data
-        }, 
-        console.log(response.data))
+        },
+          console.log(response.data))
 
       })
       .catch((err) => console.log("error", err));
@@ -46,7 +46,7 @@ class QuoteCard extends Component {
   render() {
     return (
       <Container>
-        <QuoteForm baseVans={this.state.optionVans} loggedUser={this.props.loggedUser} extras={this.state.extras} />
+        <QuoteForm baseVans={this.state.optionVans} {...this.props} loggedUser={this.props.loggedUser} extras={this.state.extras} />
       </Container>
     );
   }

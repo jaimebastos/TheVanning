@@ -31,11 +31,10 @@ class QuoteForm extends Component {
         copy.extras = [...extras]
         copy.isCustomized = true
 
-        console.log(this.props.loggedUser._id)
-
         this.vansService
             .createVan(copy)
             .then(res => this.quoteService.createQuote({ van: res.data._id, owner: this.props.loggedUser._id, status: "Confirmed" }))
+            .then(() => this.props.handleAlert(true, 'Tu factura ha sido creada'))
             .catch(err => console.log({ err }))
     }
 
