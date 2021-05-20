@@ -10,17 +10,17 @@ const ExtrasCover = () => {
       <Row>
         <Col xs={6} md={4}>
           <figure className="before-cover">
-            <img src={before}></img>
+            <img src={before} alt="before"></img>
           </figure>
         </Col>
         <Col xs={6} md={4}>
           <figure className="center-cover">
-            <img src={center}></img>
+            <img src={center} alt="center"></img>
           </figure>
         </Col>
         <Col xs={6} md={4}>
           <figure className="after-cover">
-            <img src={after}></img>
+            <img src={after} alt="after"></img>
           </figure>
         </Col>
       </Row>

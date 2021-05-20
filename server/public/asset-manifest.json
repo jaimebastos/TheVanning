@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c7eac43e.chunk.css",
+    "main.js": "/static/js/main.4b78847a.chunk.js",
+    "main.js.map": "/static/js/main.4b78847a.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.1567c7e6.js",
+    "runtime-main.js.map": "/static/js/runtime-main.1567c7e6.js.map",
+    "static/css/2.12215e75.chunk.css": "/static/css/2.12215e75.chunk.css",
+    "static/js/2.ef4e6f8a.chunk.js": "/static/js/2.ef4e6f8a.chunk.js",
+    "static/js/2.ef4e6f8a.chunk.js.map": "/static/js/2.ef4e6f8a.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.12215e75.chunk.css.map": "/static/css/2.12215e75.chunk.css.map",
+    "static/css/main.c7eac43e.chunk.css.map": "/static/css/main.c7eac43e.chunk.css.map",
+    "static/js/2.ef4e6f8a.chunk.js.LICENSE.txt": "/static/js/2.ef4e6f8a.chunk.js.LICENSE.txt",
+    "static/media/Kitchen.c485cc57.png": "/static/media/Kitchen.c485cc57.png",
+    "static/media/Mecanic.ab96973b.png": "/static/media/Mecanic.ab96973b.png",
+    "static/media/Van.d1b0cc42.png": "/static/media/Van.d1b0cc42.png",
+    "static/media/after.f33ab21b.png": "/static/media/after.f33ab21b.png",
+    "static/media/before.1570289a.png": "/static/media/before.1570289a.png",
+    "static/media/build.65191043.png": "/static/media/build.65191043.png",
+    "static/media/center.a4fd3350.png": "/static/media/center.a4fd3350.png",
+    "static/media/cover.6ef68334.png": "/static/media/cover.6ef68334.png",
+    "static/media/lateral.981811e0.png": "/static/media/lateral.981811e0.png",
+    "static/media/shop.1c9f5dd8.png": "/static/media/shop.1c9f5dd8.png",
+    "static/media/slick-theme.css": "/static/media/slick.c94f7671.ttf",
+    "static/media/upgrade.28bf7e3b.png": "/static/media/upgrade.28bf7e3b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1567c7e6.js",
+    "static/css/2.12215e75.chunk.css",
+    "static/js/2.ef4e6f8a.chunk.js",
+    "static/css/main.c7eac43e.chunk.css",
+    "static/js/main.4b78847a.chunk.js"
+  ]
+}

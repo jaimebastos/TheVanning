@@ -38,7 +38,6 @@ class EditVan extends Component {
         this.VansService = new VansService()
         this.copyVans = undefined
         this.uploadsService = new UploadsService()
-
     }
 
     handleInputChange(e) {
@@ -58,15 +57,11 @@ class EditVan extends Component {
             .catch(err => console.log(err))
     }
 
-    componentDidMount() {
-        this.loadVan()
-    }
+    componentDidMount() { this.loadVan() }
 
     designerOnChange(designer) { this.setState({ designer }) }
 
-    dimensionOnChange(dimension) {
-        this.setState({ dimension })
-    }
+    dimensionOnChange(dimension) { this.setState({ dimension })}
 
     specificationsOnChange(specifications) {
         console.log(specifications)
@@ -77,7 +72,6 @@ class EditVan extends Component {
         this.VansService
             .getOneVan(this.props.match.params.vans_id)
             .then(response => {
-                // const vans  = response.data
                 this.setState(response.data)
             })
             .catch(err => console.log('ERROR, YA VEREMOS QUE HASCEMOS', err))
@@ -86,14 +80,11 @@ class EditVan extends Component {
     handleFileUpload(e) {
         this.setState({disabled: true})
         const uploadData = new FormData();
-        //hacer append de varias images
 
          for(let i = 0; i < e.target.files.length; i++) {
             uploadData.append("imageData", e.target.files[i]);
         }
-        // uploadData.append("imageData", e.target.files[0]);
 
-        //en el backend lo mismo, adaptar a varias
         this.uploadsService
             .uploadimage(uploadData)
             .then(response => {
@@ -102,69 +93,54 @@ class EditVan extends Component {
             .catch(err => console.log('errooooor', err))
   }
 
-
     render() {
         return (
             !this.state._id
                 ?
                 <h1>CARGANDO</h1>
                 :
-
                 < Container >
-
-                    <Form onSubmit={e => this.handleSubmit(e)}>
-
-                        <Row className="justify-content">
+                    <Form onSubmit={e => this.handleSubmit(e)} className='margin-to-nav'>
+                        <Row className="justify-content-center ">
                             <Col md={6}>
-                                <Form.Group controlId="name">
+                                <Form.Group className="newForm" controlId="name">
                                     <Form.Label>Nombre</Form.Label>
                                     <Form.Control type="text" value={this.state.name} onChange={e => this.handleInputChange(e)} name="name" />
                                 </Form.Group>
 
-
                                 <DesignerVan info={this.state.designer} onInputChange={(e) => this.designerOnChange(e)} />
 
-
-                                <Form.Group controlId="caption">
+                                <Form.Group className="newForm" controlId="caption">
                                     <Form.Label>Caption</Form.Label>
                                     <Form.Control type="text" value={this.state.caption} onChange={e => this.handleInputChange(e)} name="caption" />
                                 </Form.Group>
 
                                 <DimensionVan info={this.state.dimension} onInputChange={(e) => this.dimensionOnChange(e)} />
 
-                            </Col>
-
-                            <Col md={6}>
-
                                 <SpecificationsVan info={this.state.specifications} onInputChange={(e) => this.specificationsOnChange(e)} />
 
-
-                                <Form.Group controlId="price">
+                                <Form.Group className="newForm" controlId="price">
                                     <Form.Label>Precio</Form.Label>
                                     <Form.Control type="number" value={this.state.price} onChange={e => this.handleInputChange(e)} name="price" />
                                 </Form.Group>
-
-                                <Form.Group controlId="image">
-                                    <Form.Label>Imagen</Form.Label>
-                                    <Form.Control multiple={true} type="file" className="image-van" value={this.state.imageData} onChange={e => this.handleFileUpload(e)} name="image" />
+                        
+                                <Form.Group className="newForm" controlId="description">
+                                    <Form.Label>Descripción</Form.Label>
+                                    <Form.Control type="text" value={this.state.description} onChange={e => this.handleInputChange(e)} name="description" />
                                 </Form.Group>
+
+                                <Form.Group className="newForm" controlId="image">
+                                        <Form.Label>Imagen</Form.Label>
+                                        <Form.Control multiple={true} type="file" className="image-van" value={this.state.imageData} onChange={e => this.handleFileUpload(e)} name="image" />
+                                </Form.Group>
+
+                                <Button disabled={this.state.disabled} variant="outline-dark" style={{ width: '100%', marginBottom: '50px'}} type="submit">Editar furgoneta</Button>
                             </Col>
                         </Row>
-
-                        <Col lg={12}>
-                            <Form.Group controlId="description">
-                                <Form.Label>Descripción</Form.Label>
-                                <Form.Control type="text" value={this.state.description} onChange={e => this.handleInputChange(e)} name="description" />
-                            </Form.Group>
-                        </Col>
-
-                        <Button disabled={this.state.disabled} variant="dark" style={{ width: '100%', margin: '50px auto' }} type="submit">Editar furgoneta</Button>
                     </Form>
-
                 </Container >
         )
     }
-
 }
 
 export default EditVan

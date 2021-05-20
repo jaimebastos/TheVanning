@@ -1,7 +1,5 @@
 import { Component } from 'react'
-import { Form } from 'react-bootstrap'
-
-
+import { Form, Row, Col } from 'react-bootstrap'
 class DesignerVan extends Component {
     constructor(props) {
         super(props)
@@ -21,22 +19,27 @@ class DesignerVan extends Component {
     render() {
         return (
             <>
-                <Form.Group controlId="brand">
-                    <Form.Label>Elige una marca</Form.Label>
-                    <Form.Control as="select" value={this.state.brand} onChange={(e) => this.handleInputChange(e)} name="brand">
-                        <option>Mercedes</option>
-                        <option>Citroen</option>
-                        <option>Peugot</option>
-                        <option>Renault</option>
-                        <option>Fiat</option>
-                        <option>Mitsubishi</option>
-                    </Form.Control>
-                </Form.Group>
-
-                <Form.Group controlId="model">
-                    <Form.Label>Modelo</Form.Label>
-                    <Form.Control type="text" value={this.state.model} onChange={e => this.handleInputChange(e)} name="model" />
-                </Form.Group>
+                <Row>
+                    <Col sm={6}>
+                        <Form.Group className="newForm" controlId="brand">
+                            <Form.Label>Elige una marca</Form.Label>
+                                <Form.Control as="select" value={this.state.brand} onChange={(e) => this.handleInputChange(e)} name="brand">
+                                    <option>Mercedes</option>
+                                    <option>Citroen</option>
+                                    <option>Peugot</option>
+                                    <option>Renault</option>
+                                    <option>Fiat</option>
+                                    <option>Mitsubishi</option>
+                                </Form.Control>
+                        </Form.Group>
+                    </Col>
+                    <Col sm={6}>
+                        <Form.Group className="newForm" controlId="model">
+                            <Form.Label>Modelo</Form.Label>
+                            <Form.Control type="text" value={this.state.model} onChange={e => this.handleInputChange(e)} name="model" />
+                        </Form.Group>
+                    </Col>
+                </Row>
             </>
         )
     }

@@ -8,9 +8,7 @@ import './Vans.css'
 
 const Vans = ({ loggedUser }) => {
     return (
-
         <Container className="vans-page">
-
             <h1 className="van-list-title"> Listado de furgonetas </h1>
             <hr />
             {
@@ -22,7 +20,6 @@ const Vans = ({ loggedUser }) => {
             <VansList loggedUser={loggedUser} />
 
         </Container>
-
     )
 }
 

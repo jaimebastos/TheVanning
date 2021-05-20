@@ -1,7 +1,5 @@
 import { Component } from 'react'
-import { Form } from 'react-bootstrap'
-
-
+import { Form, Row, Col } from 'react-bootstrap'
 class FuelSpecificationsVan extends Component {
     constructor(props) {
         super(props)
@@ -19,18 +17,22 @@ class FuelSpecificationsVan extends Component {
     }
 
     render() {
-
-
         return (
             <>
-                <Form.Group controlId="fuelType">
-                    <Form.Label>Combustible</Form.Label>
-                    <Form.Control type="text" value={this.state.fuelType} onChange={e => this.handleInputChange(e)} name="fuelType" />
-                </Form.Group>
-                <Form.Group controlId="fuelConsume">
-                    <Form.Label>Consumo</Form.Label>
-                    <Form.Control type="number" value={this.state.fuelConsume} onChange={e => this.handleInputChange(e)} name="fuelConsume" />
-                </Form.Group>
+                <Row>
+                    <Col sm={6}>
+                        <Form.Group className="newForm" controlId="fuelType">
+                            <Form.Label>Combustible</Form.Label>
+                            <Form.Control type="text" value={this.state.fuelType} onChange={e => this.handleInputChange(e)} name="fuelType" />
+                        </Form.Group>
+                    </Col>
+                    <Col sm={6}>
+                        <Form.Group className="newForm" controlId="fuelConsume">
+                            <Form.Label>Consumo l/100</Form.Label>
+                            <Form.Control type="number" value={this.state.fuelConsume} onChange={e => this.handleInputChange(e)} name="fuelConsume" />
+                        </Form.Group>
+                    </Col>
+                </Row>
             </>
         )
     }

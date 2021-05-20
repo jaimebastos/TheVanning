@@ -22,15 +22,11 @@ class QuoteForm extends Component {
 
     }
 
-
-
     handleOnSubmit(e) {
         e.preventDefault();
 
         console.log(this.state.selectedVan._id)
         console.log(this.props)
-
-
     }
 
     findElm(elm) {
@@ -70,7 +66,7 @@ class QuoteForm extends Component {
                 <h1>CARGANDO</h1>
                 :
                 <Form onSubmit={(e) => this.handleOnSubmit(e)}>
-                    <Row className="justify-content">
+                    <Row className="justify-content-center quoteForm">
                         <VanBaseQuote vans={this.props.baseVans} onSelectChange={elm => this.selectedVanChange(elm)} />
                     </Row>
 
@@ -79,15 +75,17 @@ class QuoteForm extends Component {
                     {(!this.state.selectedVan) ? <></> : <><QuoteExtras extras={this.props.extras} onChecked={arr => this.checkedExtras(arr)} />
 
                         <Col md={12} className="justify-content-center">
-                            <h1 className="prices-item">Coste total de la furgoneta: </h1><h2 className="prices-item">{this.state.price} €</h2>
+                            <h1 className="prices-item">Coste total de la furgoneta: </h1><h2 className="prices-item pricesItem">{this.state.price} €</h2>
                         </Col></>
                     }
-                    <Button variant="dark" style={{ width: "100%", margin: "50px auto" }} type="submit">
+                    <Row className="justify-content-center">
+                    <Button className="buttonBudget" variant="outline-dark" style={{ width: "50%"}} type="submit">
                         Pedir presupuesto
-          </Button>
-                </Form>
-        )
-    }
+                    </Button>
+                    </Row>
+                  </Form>
+                )
+             }
 }
 
 export default QuoteForm;

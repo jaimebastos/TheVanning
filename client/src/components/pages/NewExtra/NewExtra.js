@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Form, Button, Container } from "react-bootstrap";
+import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import ExtrasService from "../../../service/extras.service";
 import UploadsService from "../../../service/upload.service";
 
@@ -64,9 +64,11 @@ class NewExtra extends Component {
     return (
       <>
         <Container>
+      <Row className="justify-content-center">
+        <Col md={6}>
           <div className="extrasForm margin-to-nav">
             <Form onSubmit={(e) => this.handleSubmit(e)}>
-              <Form.Group controlId="name">
+              <Form.Group className="newExtraForm" controlId="name">
                 <Form.Label>Nombre</Form.Label>
                 <Form.Control
                   type="text"
@@ -76,7 +78,7 @@ class NewExtra extends Component {
                 />
               </Form.Group>
 
-              <Form.Group controlId="caption">
+              <Form.Group className="newExtraForm" controlId="caption">
                 <Form.Label>Descripcion corta</Form.Label>
                 <Form.Control
                   type="text"
@@ -86,7 +88,7 @@ class NewExtra extends Component {
                 />
               </Form.Group>
 
-              <Form.Group controlId="description">
+              <Form.Group className="newExtraForm" controlId="description">
                 <Form.Label>Descripción</Form.Label>
                 <Form.Control
                   type="text"
@@ -95,7 +97,7 @@ class NewExtra extends Component {
                   name="description"
                 />
               </Form.Group>
-              <Form.Group controlId="category">
+              <Form.Group className="newExtraForm" controlId="category">
                 <Form.Label>Categorias</Form.Label>
                 <Form.Control
                   as="select"
@@ -117,7 +119,7 @@ class NewExtra extends Component {
                 </Form.Control>
               </Form.Group>
 
-              <Form.Group controlId="price">
+              <Form.Group className="newExtraForm" controlId="price">
                 <Form.Label>Precio</Form.Label>
                 <Form.Control
                   type="number"
@@ -127,16 +129,18 @@ class NewExtra extends Component {
                 />
               </Form.Group>
 
-              <Form.Group controlId="imageUrl">
+              <Form.Group className="newExtraForm" controlId="imageUrl">
                 <Form.Label>Imagen</Form.Label>
                 <Form.Control type="file" onChange={(e) => this.handleFileUpload(e)} />
               </Form.Group>
 
-              <Button variant="dark" style={{ width: "100%" }} type="submit">
+              <Button variant="outline-dark" style={{ width: "100%", marginBottom: '50px'}} type="submit">
                 crear extra
               </Button>
             </Form>
           </div>
+          </Col>
+          </Row>
         </Container>
       </>
     );

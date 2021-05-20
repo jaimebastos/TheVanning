@@ -18,7 +18,7 @@ const VanCard = ({ name, caption, image, price, _id, loggedUser }) => {
                 <Card.Body>
                     <Card.Title className="card-name">{name}</Card.Title>
                     <Card.Title className="card-info">{caption}</Card.Title>
-                    <Card.Title className="card-info">{price} €</Card.Title>
+                    <Card.Title className="card-info"> <strong>{price} €</strong></Card.Title>
                     <Link to={`/vans/details/${_id}`} className="btn btn-outline-dark boton" >Detalles</Link>
                     {
                         loggedUser && loggedUser.role === "ADMIN"

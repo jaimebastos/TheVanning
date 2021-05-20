@@ -2,12 +2,10 @@ import { Component } from "react";
 import { Row, Modal, Container } from "react-bootstrap";
 import EditExtra from "../EditExtra/EditExtra";
 import ExtrasDetails from "../ExtrasDetails/ExtrasDetails";
-
 import ExtrasCard from "./Extras-card";
 import { Link } from "react-router-dom";
 import FilteredExtras from "../ExtrasFilter/ExtrasFilter";
 import ExtrasCheckbox from "../ExtrasFilter/ExtrasCheckbox";
-
 import "./Extras-list.css";
 import ExtrasCover from "./Extras-Cover";
 
@@ -61,6 +59,7 @@ class ExtrasList extends Component {
                 : <></>
             }
 
+                {extras.map((elm) => (
             <Row>
               {extras.map((elm) => (
                 <ExtrasCard

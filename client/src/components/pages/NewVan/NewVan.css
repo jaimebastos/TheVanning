@@ -2,9 +2,10 @@
     width: 100%;
 }
 .margin-to-nav{
-    padding-top: 250px;
+    padding-top: 160px;
+    justify-content: center;
 }
 
-.form-crear-van {
-    margin-top: 150px;
+.newForm {
+    padding-bottom: 10px;
 }

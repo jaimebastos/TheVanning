@@ -22,3 +22,7 @@ h3 {
 .Informacion{
     padding-top: 50px;
 }
+
+.parrafos-detalles strong{
+    font-weight: 900;
+}
