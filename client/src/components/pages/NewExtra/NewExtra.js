@@ -6,18 +6,19 @@ import UploadsService from "../../../service/upload.service";
 import './NewExtra.css'
 
 class NewExtra extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       extra: {
-        name: '',
-        description: '',
-        caption: '',
-        category: '',
+        name: "",
+        description: "",
+        caption: "",
+        category: "",
         price: 0,
-        image: ''
-      }
-    }
+        image: "",
+        errorMessage: undefined
+      },
+    };
 
     this.extrasService = new ExtrasService()
     this.uploadsService = new UploadsService()
@@ -41,7 +42,10 @@ class NewExtra extends Component {
       .then(response => {
         this.props.history.push('/extras')
       })
-      .catch(err => console.log('eeeeeeeerror', err))
+      .catch(err =>{
+       this.setState({errorMessage: err.response.data})
+       console.log(this.state.errorMessage)
+      })
   }
 
   handleFileUpload(e) {

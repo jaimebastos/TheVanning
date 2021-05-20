@@ -6,47 +6,55 @@ import Footer from './layout/Footer/Footer'
 import Navigation from './layout/Navigation/Navigation'
 
 import Routes from './routes/Routes'
+import Alert from '../Shared/alert';
 
 
 class App extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       loggedUser: undefined,
-      showAlert: true,
-      alertText: ''
-    }
-    this.authService = new AuthServices()
+      showAlert: false,
+      alertText: "",
+    };
+    this.authService = new AuthServices();
   }
 
-  storeUser = loggedUser => this.setState({ loggedUser })
-
+  storeUser = (loggedUser) => this.setState({ loggedUser });
 
   fetchUser = () => {
     this.authService
       .isloggedin()
-      .then(response => this.setState({ loggedUser: response.data }))
-      .catch(() => this.setState({ loggedUser: undefined }))
+      .then((response) => this.setState({ loggedUser: response.data }))
+      .catch(() => this.setState({ loggedUser: undefined }));
+  };
+  handleAlert(showAlert, alertText) {
+    this.setState({showAlert, alertText});
   }
-
 
   componentDidMount() {
-    this.fetchUser()
+    this.fetchUser();
   }
 
-
   render() {
-
     return (
       <>
-        <Navigation />
-
+        <Navigation handleAlert={(alertText) => this.handleAlert(alertText)} />
         <main>
-          <Routes storeUser={user => this.storeUser(user)} loggedUser={this.state.loggedUser} />
+          <Routes
+            storeUser={(user) => this.storeUser(user)}
+            loggedUser={this.state.loggedUser}
+            handleAlert={(showAlert, alertText) => this.handleAlert(showAlert, alertText)}
+          />
         </main>
         <Footer />
+        <Alert
+          handleAlert={(alertText, showAlert) => this.handleAlert(alertText, showAlert)}
+          show={this.state.showAlert}
+          text={this.state.alertText}
+        />
       </>
-    )
+    );
   }
 }
 

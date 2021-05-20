@@ -2,9 +2,12 @@
     width: 100%;
 }
 .margin-to-nav{
-    padding-top: 250px;
+    padding-top: 150px;
 }
 
-.form-crear-van {
-    margin-top: 150px;
+@media screen and (max-width: 991px) {
+  
+  .margin-to-nav {
+   padding-top: 20px;
+  }
 }

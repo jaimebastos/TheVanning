@@ -2,6 +2,8 @@ const express = require("express");
 const Extra = require("../models/extra.model");
 const router = express.Router();
 const uploader = require("../config/cloudinary.config");
+const mongoose = require("mongoose");
+const { checkMongoooseError } = require("./../utils");
 
 router.get("/list", (req, res) => {
 
@@ -32,7 +34,7 @@ router.post("/create", (req, res) => {
   
   Extra.create(extra)
     .then((response) => res.json(response))
-    .catch((err) => res.status(500).json({ code: 500, message: "Error saving extras", err }));
+    .catch((err) => res.status(500).json({errorMessage: checkMongoooseError(err)} ));
 });
 
 router.put("/edit/:extras_id", (req, res) => {

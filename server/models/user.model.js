@@ -19,6 +19,7 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: [true, "La contraseña es obligatoria"],
+      min: [4, 'la contraseña debe tener mas de cuatro caracteres']
     },
     role: {
       type: String,

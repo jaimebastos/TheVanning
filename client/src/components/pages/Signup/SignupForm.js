@@ -4,8 +4,8 @@ import AuthService from './../../../service/auth.service'
 
 class SignupForm extends Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             username: '',
             name: '',
@@ -27,9 +27,15 @@ class SignupForm extends Component {
         this.authService
             .signup(this.state)
             .then(response => {
+                this.props.handleAlert(true, 'te has registrado')
                 this.props.history.push('/auth/login')
             })
-            .catch(err => console.log(err))
+            .catch(err =>{
+                console.log({err})
+                const errorMessage = err.response.data.message
+                this.props.handleAlert(true, errorMessage);
+                console.log(errorMessage)
+            })
     }
 
     render() {
