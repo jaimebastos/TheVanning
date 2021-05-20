@@ -1,14 +1,14 @@
 import { Container } from "react-bootstrap";
 import ExtrasList from "./Extras-list";
-import {Component} from 'react'
+import { Component } from 'react'
 import ExtrasService from "./../../../service/extras.service";
 import "./Extras.css";
 
-class Extras extends Component{
-  
+class Extras extends Component {
+
   constructor() {
     super()
-    this.state= {
+    this.state = {
       extras: []
     }
     this.extrasService = new ExtrasService();
@@ -17,9 +17,9 @@ class Extras extends Component{
   componentDidMount() {
     this.loadExtras()
   }
-  
+
   loadExtras() {
-  
+
     this.extrasService
       .getAllExtras()
       .then(response => {
@@ -29,12 +29,12 @@ class Extras extends Component{
   }
 
   render() {
-  return (
-    <Container >
-      
-      <ExtrasList extras={this.state.extras} loadExtras={() => this.loadExtras()}/>
-    </Container>
-  );}
+    return (
+      <Container >
+        <ExtrasList user={this.props.loggedUser} extras={this.state.extras} loadExtras={() => this.loadExtras()} />
+      </Container>
+    );
+  }
 };
 
 export default Extras;

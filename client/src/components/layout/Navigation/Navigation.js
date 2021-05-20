@@ -7,8 +7,22 @@ import Home from "./Home.png";
 import Mecanic from "./Mecanic.png";
 import Van from "./Van.png";
 import User from "./User.png";
+import AuthService from "../../../service/auth.service";
 
-const Navigation = () => {
+const Navigation = ({ loggedUser, storeUser }) => {
+
+  const logout = () => {
+
+    const authService = new AuthService()
+
+    authService
+      .logout()
+      .then(() => {
+        storeUser(undefined)
+      })
+      .catch(err => console.log(err))
+  }
+
   return (
     <>
       <Navbar bg="light" expand="lg" className="justify-content-around nav">
@@ -28,13 +42,25 @@ const Navigation = () => {
           <Nav.Link as={Link} to="/quote/list-vans" className="nav-link navWeb">
             Camperizar
           </Nav.Link>
-          <NavDropdown title="Usuario" id="basic-nav-dropdown" className="nav-link navWebDropDown">
-            <NavDropdown.Item as={Link} to="/auth/signup">
-              Registro
-            </NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="/auth/login">
-              Inicio Sesión
-            </NavDropdown.Item>
+          <NavDropdown title={!loggedUser ? "Usuario" : loggedUser.username} id="basic-nav-dropdown" className="nav-link navWebDropDown">
+            {
+              !loggedUser ?
+                <>
+                  <NavDropdown.Item as={Link} to="/auth/signup">
+                    Registro
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/auth/login">
+                    Inicio Sesión
+                  </NavDropdown.Item>
+                </>
+                :
+                <>
+                  <span>Mis facturas</span>
+                  <NavDropdown.Item as={ButtonGroup} onClick={() => logout()}>
+                    Cerrar Sesión
+                  </NavDropdown.Item>
+                </>
+            }
           </NavDropdown>
         </Nav>
         <Nav className="mr-auto nav-mobile ">

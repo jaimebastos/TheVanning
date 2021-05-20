@@ -2,6 +2,7 @@ const express = require("express");
 const Extra = require("../models/extra.model");
 const router = express.Router();
 const uploader = require("../config/cloudinary.config");
+const { isLoggedIn, checkRoles } = require('./../middlewares')
 
 router.get("/list", (req, res) => {
 
@@ -10,9 +11,9 @@ router.get("/list", (req, res) => {
     .catch((err) => res.status(500).json({ code: 500, message: "Error fetching extras", err }));
 });
 
-router.get("/list/:category", (req, res) =>{
-  const {category} = req.params
-    
+router.get("/list/:category", (req, res) => {
+  const { category } = req.params
+
 
   Extra.find({ category: category })
     .then((response) => res.json(response))
@@ -27,15 +28,15 @@ router.get("/:extras_id", (req, res) => {
     .catch((err) => res.status(500).json({ code: 500, message: "Error fetching extras", err }));
 });
 
-router.post("/create", (req, res) => {
+router.post("/create", isLoggedIn, checkRoles('ADMIN'), (req, res) => {
   const extra = req.body;
-  
+
   Extra.create(extra)
     .then((response) => res.json(response))
     .catch((err) => res.status(500).json({ code: 500, message: "Error saving extras", err }));
 });
 
-router.put("/edit/:extras_id", (req, res) => {
+router.put("/edit/:extras_id", isLoggedIn, checkRoles('ADMIN'), (req, res) => {
 
   const { name, price, description, caption, category } = req.body
 
@@ -44,7 +45,7 @@ router.put("/edit/:extras_id", (req, res) => {
     .catch((err) => res.status(500).json({ code: 500, message: "Error editing extras", err }));
 });
 
-router.get("/delete/:extras_id", (req, res) => {
+router.get("/delete/:extras_id", isLoggedIn, checkRoles('ADMIN'), (req, res) => {
 
   Extra.findByIdAndRemove(req.params.extras_id)
     .then((response) => res.json(response))

@@ -2,9 +2,10 @@ const express = require("express");
 const Quote = require("../models/quote.model");
 const router = express.Router();
 const Van = require("../models/van.model");
+const { isLoggedIn, checkRoles } = require('./../middlewares')
 
-router.post("/create", (req, res) => {
-  const quote  = req.body
+router.post("/create", isLoggedIn, (req, res) => {
+  const quote = req.body
 
   Quote.create(quote)
     .populate('extras', 'owner')

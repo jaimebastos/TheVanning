@@ -8,7 +8,9 @@ const bcryptSalt = 10
 // Signup (post)
 router.post('/signup', (req, res) => {
 
-    const { name, email, username, pwd } = req.body
+    let { name, email, username, pwd } = req.body
+
+    username = username.toLowerCase()
 
     User
         .findOne({ username })
@@ -31,10 +33,12 @@ router.post('/signup', (req, res) => {
 })
 
 
-// Login (post)
+
 router.post('/login', (req, res) => {
 
-    const { username, pwd } = req.body
+    let { username, pwd } = req.body
+
+    username = username.toLowerCase()
 
     User
         .findOne({ username })
