@@ -7,8 +7,8 @@ import SpecificationsVan from '../VansForm/SpecificationsVan'
 import UploadsService from "../../../service/upload.service";
 import './NewVan.css'
 class NewVan extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             name: '',
             designer: {
@@ -48,8 +48,14 @@ class NewVan extends Component {
         e.preventDefault()
         this.VansService
             .createVan(this.state)
-            .then(() => { this.props.history.push('/vans')})
-            .catch(err => console.log(err))
+            .then(() => { 
+                this.props.handleAlert(true, "FurgoCamper creada con exito");
+                this.props.history.push('/vans'); 
+            })
+            .catch(err =>{
+                const errorMessage = err.response.data.errorMessage;
+                this.props.handleAlert(true, errorMessage);
+            })
     }
 
     designerOnChange(designer) { this.setState({ designer }) }

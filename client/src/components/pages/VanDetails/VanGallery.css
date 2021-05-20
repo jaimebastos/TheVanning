@@ -4,5 +4,7 @@
 .glide-img img {
     border-radius: 2%;
     margin-top: 50px;
+    width: 100%;
+    padding-bottom: 100px;
 }
 

@@ -93,6 +93,9 @@ class QuoteForm extends Component {
                     </Row>
                         </>
                     }
+                    <Button className='quoteform' variant="dark" style={{ width: "100%", margin: "50px auto" }} type="submit">
+                        Pedir presupuesto
+          </Button>
                 </Form>
         )
     }
