@@ -33,8 +33,7 @@ class QuoteForm extends Component {
 
         this.vansService
             .createVan(copy)
-            .then(res => this.quoteService.createQuote({ van: res.data._id, owner: this.props.loggedUser._id, status: "Confirmed" }))
-            .then(() => this.props.handleAlert(true, 'Tu factura ha sido creada'))
+            .then(res => console.log("lol"))
             .catch(err => console.log({ err }))
     }
 
