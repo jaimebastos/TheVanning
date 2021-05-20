@@ -1,9 +1,7 @@
 import { Component } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import AuthService from './../../../service/auth.service'
-
 class LoginForm extends Component {
-
     constructor() {
         super()
         this.state = {
@@ -13,12 +11,10 @@ class LoginForm extends Component {
         this.authService = new AuthService()
     }
 
-
     handleInputChange(e) {
         const { name, value } = e.target
         this.setState({ [name]: value })
     }
-
 
     handleSubmit(e) {
         e.preventDefault()
@@ -38,7 +34,6 @@ class LoginForm extends Component {
 
     render() {
         return (
-
             <Form onSubmit={e => this.handleSubmit(e)}>
 
                 <Form.Group controlId="username">

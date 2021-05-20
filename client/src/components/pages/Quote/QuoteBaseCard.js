@@ -1,10 +1,8 @@
 import { Container } from "react-bootstrap";
 import { Component } from "react";
-
 import ExtrasService from "../../../service/extras.service";
 import VansService from "../../../service/vans.service"
 import QuoteForm from "./QuoteForm";
-
 class QuoteCard extends Component {
   constructor() {
     super();
@@ -45,10 +43,7 @@ class QuoteCard extends Component {
       .catch((err) => console.log("error", err));
   }
 
-
-
   render() {
-
     return (
       <Container>
         <QuoteForm baseVans={this.state.optionVans} loggedUser={this.props.loggedUser} extras={this.state.extras} />

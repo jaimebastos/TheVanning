@@ -38,7 +38,6 @@ function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return <div className={className} style={{ ...style, display: "block", background: "#ffbf40" }} onClick={onClick} />;
 }
-
 class BaseVans extends Component {
   constructor() {
     super();

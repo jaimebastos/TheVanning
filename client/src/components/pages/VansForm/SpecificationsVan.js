@@ -68,7 +68,6 @@ class SpecificationsVan extends Component {
                             </Form.Control>
                         </Form.Group>
                     </Col>
-
                     <FuelSpecificationsVan info={this.props.info.fuelSpecifications} onInputChange={(e) => this.fuelSpecificationsOnChange(e)} />
                 </Row>
 

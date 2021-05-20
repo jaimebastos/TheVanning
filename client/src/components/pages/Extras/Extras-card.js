@@ -23,13 +23,9 @@ const ExtrasCard = ({ name, description, price, _id, category, displayModal, sav
             className="btn btn-outline-dark boton"
             style={{ height: "40px", width: "35%", marginBottom: "20px" }}
             variant="outline-secondary"
-          >
-            Detalles
-          </Button>
-
+          > Detalles </Button>
 
           {
-
             user && user.role === "ADMIN" ?
               <Button
                 onClick={() => {

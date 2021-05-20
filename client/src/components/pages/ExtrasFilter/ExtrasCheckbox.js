@@ -9,9 +9,7 @@ const ExtrasCheckbox = () => {
     <>
       <Accordion defaultActiveKey="0">
         <Card>
-          <Accordion.Toggle as={Card.Header} eventKey="0">
-             Filtros      
-          </Accordion.Toggle>
+          <Accordion.Toggle as={Card.Header} eventKey="0">Filtros </Accordion.Toggle>
           <Accordion.Collapse eventKey="0">
             <Card.Body>
                 <Row>
