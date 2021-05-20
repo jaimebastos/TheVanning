@@ -11,6 +11,23 @@
     padding-top: 150px;
 }
 .buttonBudget {
-    margin-bottom: 50px;
-    margin-top: 10px;
+    margin-bottom: 40px;
+    margin-top: 5px;
+}
+.presupuesto {
+    padding-top: 150px;
+}
+
+.furgoneta {
+    padding-top: 220px;
+}
+@media screen and (max-width: 991px) {
+.buttonBudget {
+    margin-bottom: 125px;
+}
+.furgoneta {
+    padding-top: 400px;
+    
+}
+    
 }

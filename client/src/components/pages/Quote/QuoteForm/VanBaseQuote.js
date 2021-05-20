@@ -28,7 +28,6 @@ class VanBaseQuote extends Component {
                     </Form.Control>
                 </Form.Group>
             </Col>
-
         )
     }
 }

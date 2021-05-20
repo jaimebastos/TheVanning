@@ -69,17 +69,18 @@ class QuoteForm extends Component {
 
                     <AutoCompletedForm selectedVan={this.state.selectedVan} />
 
-                    {(!this.state.selectedVan) ? <></> : <><QuoteExtras extras={this.props.extras} onChecked={arr => this.checkedExtras(arr)} />
-
+                    {(!this.state.selectedVan) ? <></> : <>
+                   
+                    <QuoteExtras extras={this.props.extras} onChecked={arr => this.checkedExtras(arr)} />
+                   
+                    <Row className="justify-content-center furgoneta">
                         <Col md={12} className="justify-content-center">
                             <h1 className="prices-item">Coste total de la furgoneta: </h1><h2 className="prices-item pricesItem">{this.state.price} €</h2>
-                        </Col></>
-                    }
-                    <Row className="justify-content-center">
-                        <Button className="buttonBudget" variant="outline-dark" style={{ width: "50%" }} type="submit">
-                            Pedir presupuesto
-                    </Button>
+                        </Col>
+                        <Button className="buttonBudget" variant="outline-dark" style={{ width: "50%" }} type="submit">Pedir presupuesto </Button>
                     </Row>
+                        </>
+                    }
                 </Form>
         )
     }

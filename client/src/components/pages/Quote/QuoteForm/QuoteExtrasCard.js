@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Form } from "react-bootstrap";
+import { Form, Row, Col } from "react-bootstrap";
 import ExtrasQuoteCard from "./ExtrasQuoteCard";
 
 class QuoteExtras extends Component {
@@ -31,11 +31,16 @@ class QuoteExtras extends Component {
 
   render() {
     return (
+     
       <div className="quoteExtras">
         <Form.Group controlId="formBasicCheckbox">
-          {this.state.extras.map((elm) => (
-            <ExtrasQuoteCard key={elm._id} handleChange={(e, cardData) => this.handleChangeChk(e, cardData)} data={elm} />
-          ))}
+          <Row>
+              {this.state.extras.map((elm) => (
+                <Col md={4} sm={12}>
+                <ExtrasQuoteCard key={elm._id} handleChange={(e, cardData) => this.handleChangeChk(e, cardData)} data={elm} />
+                </Col>
+              ))}
+          </Row>
         </Form.Group>
       </div>
       );

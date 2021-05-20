@@ -15,10 +15,11 @@ class NewExtra extends Component {
         caption: "",
         category: "",
         price: 0,
-        errorMessage: undefined
+        errorMessage: undefined,
+        disabled: false
       }
     }
-        disabled: false
+        
 
     this.extrasService = new ExtrasService()
     this.uploadsService = new UploadsService()

@@ -15,7 +15,7 @@ const ExtrasCheckbox = () => {
                 <Row>
                   <Col sm={4}>
                     <Form.Group controlId="formBasicCheckbox" className="formBasicCheckbox">
-                      <Form.Check type="checkbox" label="Gas" as={Link} to={`/extras/Gas`} />
+                      <Form.Check  type="checkbox" label="Gas" as={Link} to={`/extras/Gas`} />
                     </Form.Group>
                     <Form.Group controlId="formBasicCheckbox" className="formBasicCheckbox">
                       <Form.Check type="checkbox" label="Entretenimiento" as={Link} to={`/extras/Entretenimiento`} />
