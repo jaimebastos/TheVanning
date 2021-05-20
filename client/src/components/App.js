@@ -39,7 +39,7 @@ class App extends Component {
 
     return (
       <>
-        <Navigation />
+        <Navigation loggedUser={this.state.loggedUser} storeUser={user => this.storeUser(user)} />
 
         <main>
           <Routes storeUser={user => this.storeUser(user)} loggedUser={this.state.loggedUser} />

@@ -44,9 +44,9 @@ class VansList extends Component {
                 :
                 <>
 
-                 
+
                     <Row>
-                        {vans.map(elm => <VanCard key={elm._id} {...elm} />)}
+                        {vans.map(elm => <VanCard key={elm._id} loggedUser={this.props.loggedUser} {...elm} />)}
                         <hr />
                     </Row>
 

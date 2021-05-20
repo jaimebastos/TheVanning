@@ -53,9 +53,13 @@ class ExtrasList extends Component {
             <ExtrasCheckbox />
           </div>
           <div className="list">
-            <Link to="/extras/create" className="btn btn-outline-dark boton-crear-extra">
-              Crear extra
+            {
+              this.props.user && this.props.user.role === "ADMIN" ?
+                <Link to="/extras/create" className="btn btn-outline-dark boton-crear-extra">
+                  Crear extra
             </Link>
+                : <></>
+            }
 
             <Row>
               {extras.map((elm) => (
@@ -63,6 +67,7 @@ class ExtrasList extends Component {
                   key={elm._id}
                   {...elm}
                   saveID={(id) => this.setExtraID(id)}
+                  user={this.props.user}
                   displayModal={(bool) => this.showModal(bool)}
                   showEditModal={(bool) => this.isEditingModal(bool)}
                 />
