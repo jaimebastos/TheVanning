@@ -21,8 +21,20 @@ class QuoteForm extends Component {
 
     handleOnSubmit(e) {
         e.preventDefault();
-        console.log(this.state.selectedVan._id)
-        console.log(this.props)
+        const copy = { ...this.state.selectedVan }
+
+        const extras = this.state.checkedExtras.map(elm => elm._id)
+
+        delete copy._id
+        delete copy.createdAt
+        delete copy.updatedAt
+        copy.extras = [...extras]
+        copy.isCustomized = true
+
+        this.vansService
+            .createVan(copy)
+            .then(res => console.log("lol"))
+            .catch(err => console.log({ err }))
     }
 
     findElm(elm) {
@@ -52,12 +64,12 @@ class QuoteForm extends Component {
         const finalPrice = this.numberWithCommas(arr.reduce((acc, elm) => acc + parseInt(elm.price), initAcc))
 
         this.setState({
+            checkedExtras: [...arr],
             price: finalPrice
         })
     }
 
     render() {
-        console.log(this.props.extras);
         return (
             (this.props.baseVans.length === 0) ?
                 <h1><SpinnerGif /></h1>

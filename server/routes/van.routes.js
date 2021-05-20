@@ -35,7 +35,7 @@ router.get("/:van_id", (req, res) => {
     .catch((err) => res.status(500).json({ code: 500, message: "Error fetching vans", err }));
 });
 
-router.post("/create", isLoggedIn, checkRoles('ADMIN'), (req, res) => {
+router.post("/create", isLoggedIn, checkRoles('ADMIN', 'USER'), (req, res) => {
 
   const van = req.body;
 

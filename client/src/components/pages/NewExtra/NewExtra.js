@@ -43,14 +43,14 @@ class NewExtra extends Component {
       .then(response => {
         this.props.history.push('/extras')
       })
-      .catch(err =>{
-       this.setState({errorMessage: err.response.data})
-       console.log(this.state.errorMessage)
+      .catch(err => {
+        this.setState({ errorMessage: err.response.data })
+        console.log(this.state.errorMessage)
       })
   }
 
   handleFileUpload(e) {
-    this.setState({disabled: true})
+    this.setState({ disabled: true })
     const uploadData = new FormData();
     uploadData.append("imageData", e.target.files[0]);
 
@@ -59,7 +59,7 @@ class NewExtra extends Component {
       .then(response => {
         const extraCopy = { ...this.state.extra };
         extraCopy.image = response.data.secure_url
-        this.setState({ extra: extraCopy, disabled: false  })
+        this.setState({ extra: extraCopy, disabled: false })
       })
       .catch(err => console.log('errooooor', err))
   }
@@ -68,84 +68,84 @@ class NewExtra extends Component {
     return (
       <>
         <Container>
-           <Row className="justify-content-center crearExtraButton">
+          <Row className="justify-content-center crearExtraButton">
             <Col md={6}>
               <div className="extrasForm margin-to-nav">
-                  <Form onSubmit={(e) => this.handleSubmit(e)}>
-                    <Form.Group className="newExtraForm" controlId="name">
-                      <Form.Label>Nombre</Form.Label>
-                      <Form.Control
-                        type="text"
-                        value={this.state.extra.name}
-                        onChange={(e) => this.handleInputChange(e)}
-                        name="name"
-                      />
-                    </Form.Group>
+                <Form onSubmit={(e) => this.handleSubmit(e)}>
+                  <Form.Group className="newExtraForm" controlId="name">
+                    <Form.Label>Nombre</Form.Label>
+                    <Form.Control
+                      type="text"
+                      value={this.state.extra.name}
+                      onChange={(e) => this.handleInputChange(e)}
+                      name="name"
+                    />
+                  </Form.Group>
 
-                    <Form.Group className="newExtraForm" controlId="caption">
-                      <Form.Label>Descripcion corta</Form.Label>
-                      <Form.Control
-                        type="text"
-                        value={this.state.extra.caption}
-                        onChange={(e) => this.handleInputChange(e)}
-                        name="caption"
-                      />
-                    </Form.Group>
+                  <Form.Group className="newExtraForm" controlId="caption">
+                    <Form.Label>Descripcion corta</Form.Label>
+                    <Form.Control
+                      type="text"
+                      value={this.state.extra.caption}
+                      onChange={(e) => this.handleInputChange(e)}
+                      name="caption"
+                    />
+                  </Form.Group>
 
-                    <Form.Group className="newExtraForm" controlId="description">
-                      <Form.Label>Descripción</Form.Label>
-                      <Form.Control
-                        type="text"
-                        value={this.state.extra.description}
-                        onChange={(e) => this.handleInputChange(e)}
-                        name="description"
-                      />
-                    </Form.Group>
-                    
-                    <Form.Group className="newExtraForm" controlId="category">
-                      <Form.Label>Categorias</Form.Label>
-                      <Form.Control
-                        as="select"
-                        value={this.state.extra.category}
-                        onChange={(e) => this.handleInputChange(e)}
-                        name="category"
-                      >
-                        <option>Selecciona Uno</option>
-                        <option>Entretenimiento</option>
-                        <option>Revestimiento</option>
-                        <option>Climatización</option>
-                        <option>Electrodomesticos</option>
-                        <option>Electrónica</option>
-                        <option>Electricidad</option>
-                        <option>Gas</option>
-                        <option>Agua</option>
-                        <option>Confort</option>
-                        <option>Almacenamiento</option>
-                      </Form.Control>
-                    </Form.Group>
+                  <Form.Group className="newExtraForm" controlId="description">
+                    <Form.Label>Descripción</Form.Label>
+                    <Form.Control
+                      type="text"
+                      value={this.state.extra.description}
+                      onChange={(e) => this.handleInputChange(e)}
+                      name="description"
+                    />
+                  </Form.Group>
 
-                    <Form.Group className="newExtraForm" controlId="price">
-                      <Form.Label>Precio</Form.Label>
-                      <Form.Control
-                        type="number"
-                        value={this.state.extra.price}
-                        onChange={(e) => this.handleInputChange(e)}
-                        name="price"
-                      />
-                    </Form.Group>
+                  <Form.Group className="newExtraForm" controlId="category">
+                    <Form.Label>Categorias</Form.Label>
+                    <Form.Control
+                      as="select"
+                      value={this.state.extra.category}
+                      onChange={(e) => this.handleInputChange(e)}
+                      name="category"
+                    >
+                      <option>Selecciona Uno</option>
+                      <option>Entretenimiento</option>
+                      <option>Revestimiento</option>
+                      <option>Climatización</option>
+                      <option>Electrodomesticos</option>
+                      <option>Electrónica</option>
+                      <option>Electricidad</option>
+                      <option>Gas</option>
+                      <option>Agua</option>
+                      <option>Confort</option>
+                      <option>Almacenamiento</option>
+                    </Form.Control>
+                  </Form.Group>
 
-                    <Form.Group className="newExtraForm" controlId="imageUrl">
-                      <Form.Label>Imagen</Form.Label>
-                      <Form.Control type="file" onChange={(e) => this.handleFileUpload(e)} />
-                    </Form.Group>
+                  <Form.Group className="newExtraForm" controlId="price">
+                    <Form.Label>Precio</Form.Label>
+                    <Form.Control
+                      type="number"
+                      value={this.state.extra.price}
+                      onChange={(e) => this.handleInputChange(e)}
+                      name="price"
+                    />
+                  </Form.Group>
 
-                    <Button disabled={this.state.disabled} variant="outline-dark" style={{ width: "100%", marginBottom: '50px'}} type="submit">
-                      crear extra
+                  <Form.Group className="newExtraForm" controlId="imageUrl">
+                    <Form.Label>Imagen</Form.Label>
+                    <Form.Control type="file" onChange={(e) => this.handleFileUpload(e)} />
+                  </Form.Group>
+
+                  <Button disabled={this.state.disabled} variant="outline-dark" style={{ width: "100%", marginBottom: '50px' }} type="submit">
+                    crear extra
                     </Button>
-                  </Form>
+                </Form>
               </div>
-              </Col>
-         </Row>
+            </Col>
+          </Row>
         </Container>
       </>
     );

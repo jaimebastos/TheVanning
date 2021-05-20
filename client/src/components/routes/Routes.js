@@ -29,7 +29,7 @@ const Routes = ({ storeUser, loggedUser, handleAlert }) => {
       <ProtectedRoute path="/extras/create" condition={loggedUser && loggedUser.role === "ADMIN"} component={(props) => <NewExtra history={props.history} handleAlert={handleAlert} />} />
       <Route path="/auth/login" render={(props) => <Login storeUser={storeUser} history={props.history} handleAlert={handleAlert} />} />
       <Route path="/quote" exact render={() => <QuotePage loggedUser={loggedUser} />} />
-      <ProtectedRoute path="/quote/create" condition={loggedUser} component={() => <  QuoteCard loggedUser={loggedUser} />} />
+      <ProtectedRoute path="/quote/create" condition={loggedUser} component={(props) => <  QuoteCard loggedUser={loggedUser} history={props.history} handleAlert={handleAlert} />} />
       <Route path="/extras/:category" render={(props) => <FilteredExtras {...props} />} />
     </Switch>
   );
