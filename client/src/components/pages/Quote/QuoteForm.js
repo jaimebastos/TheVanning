@@ -37,6 +37,11 @@ class QuoteForm extends Component {
         return this.props.baseVans.find(elem => `${elem.designer.brand} ${elem.designer.model}` === elm)
     }
 
+    formatToNumber(n) {
+        let formated = n.split(".")
+        return parseInt(formated[0].concat(formated[1]))
+    }
+
     selectedVanChange(elm) {
         const data = this.findElm(elm)
         this.setState({
@@ -46,9 +51,13 @@ class QuoteForm extends Component {
         })
     }
 
+    numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
     checkedExtras(arr) {
-        const initAcc = this.state.basePrice
-        const finalPrice = arr.reduce((acc, elm) => acc + elm.price, initAcc)
+        const initAcc = this.formatToNumber(this.state.basePrice)
+        const finalPrice = this.numberWithCommas(arr.reduce((acc, elm) => acc + parseInt(elm.price), initAcc))
 
         this.setState({
             price: finalPrice

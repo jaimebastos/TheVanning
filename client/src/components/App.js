@@ -4,7 +4,6 @@ import AuthServices from './../service/auth.service'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Footer from './layout/Footer/Footer'
 import Navigation from './layout/Navigation/Navigation'
-
 import Routes from './routes/Routes'
 
 
@@ -28,6 +27,7 @@ class App extends Component {
       .then(response => this.setState({ loggedUser: response.data }))
       .catch(() => this.setState({ loggedUser: undefined }))
   }
+
 
 
   componentDidMount() {

@@ -30,12 +30,11 @@ class QuoteExtras extends Component {
 
 
   render() {
-    console.log(this.state.extras)
     return (
       <>
         <Form.Group controlId="formBasicCheckbox">
           {this.state.extras.map((elm) => (
-            <ExtrasQuoteCard key={elm._id} handleChange={(e, elm) => this.handleChangeChk(e, elm)} {...elm} />
+            <ExtrasQuoteCard key={elm._id} handleChange={(e, cardData) => this.handleChangeChk(e, cardData)} data={elm} />
           ))}
         </Form.Group>
       </>

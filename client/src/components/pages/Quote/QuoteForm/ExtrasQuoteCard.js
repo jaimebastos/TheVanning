@@ -2,15 +2,15 @@
 import { Card, Form } from "react-bootstrap";
 
 
-const ExtrasQuoteCard = ({ name, caption, price, id, handleChange}) => {
-
+const ExtrasQuoteCard = ({ data, handleChange }) => {
+  console.log(data)
   return (
     <Card className="baseVan-card">
       <Card.Body>
-        <Card.Title className="card-name">{name}</Card.Title>
-        <Card.Title className="card-info">{caption}</Card.Title>
-        <Card.Title className="card-info">{price} €</Card.Title>
-        <Form.Check onChange={(e, elm) => handleChange(e, elm)} type="checkbox" value={id} label={name} />;
+        <Card.Title className="card-name">{data.name}</Card.Title>
+        <Card.Title className="card-info">{data.caption}</Card.Title>
+        <Card.Title className="card-info">{data.price} €</Card.Title>
+        <Form.Check onChange={(e) => handleChange(e, data)} type="checkbox" />;
       </Card.Body>
     </Card>
   );
