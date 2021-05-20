@@ -11,7 +11,13 @@ class AuthService {
     login = userDetails => this.app.post('/login', userDetails)
     signup = userDetails => this.app.post('/signup', userDetails)
     logout = () => this.app.get('/logout')
-    isloggedin = () => this.app.post('/isloggedin')
+    isloggedin = () => {
+        console.log(this.app)
+        console.log(process.env)
+        return this.app.post('/isloggedin');
+
+    }
+
     isAdmin = () => this.app.post('/isAdmin')
 }
 
