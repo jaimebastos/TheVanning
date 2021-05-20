@@ -19,7 +19,7 @@ class VanBaseQuote extends Component {
 
     render() {
         return (
-            <Col md={12}>
+            <Col md={6}>
                 <Form.Group>
                     <Form.Label>Elige tu base</Form.Label>
                     <Form.Control as="select" value={this.state.selectedVan} onChange={(e) => this.handleInputChange(e)} name="van">

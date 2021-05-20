@@ -27,7 +27,7 @@ const Routes = ({ storeUser, loggedUser }) => {
         <Route path="/extras" exact render={() => <Extras />} />
         <Route path="/extras/create" render={(props) => <NewExtra history={props.history} />} />
         <Route path="/auth/login" render={(props) => <Login storeUser={storeUser} history={props.history} />} />
-        <Route path="/quote" extact render={() => <QuotePage />} />
+        <Route path="/quote" exact render={() => <QuotePage />} />
         <Route path="/quote/create" render={() => <QuoteCard loggedUser={loggedUser} />} />
         <Route path="/extras/:category" render={(props) => <FilteredExtras {...props} />} />
       </Switch>

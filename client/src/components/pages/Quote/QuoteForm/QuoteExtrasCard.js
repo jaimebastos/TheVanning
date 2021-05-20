@@ -1,5 +1,6 @@
 import { Component } from "react";
-import { Form } from "react-bootstrap";
+import { Form, Col } from "react-bootstrap";
+import './QuoteExtrasCard.css'
 
 class QuoteExtras extends Component {
   constructor(props) {
@@ -30,12 +31,15 @@ class QuoteExtras extends Component {
   render() {
 
     return (
-      <>
+      <div className="quoteExtras">
         <Form.Group controlId="formBasicCheckbox">
-          {this.state.extras.map(elm => <Form.Check inline onChange={(e) => this.handleChangeChk(e, elm)} type="checkbox" value={elm.id} label={elm.name} />)}
+          {this.state.extras.map(elm => 
+  
+        <Form.Check inline onChange={(e) => this.handleChangeChk(e, elm)} type="checkbox" value={elm.id} label={elm.name} />)}
+  
         </Form.Group>
-      </>
-    );
+      </div>
+      );
   }
 }
 

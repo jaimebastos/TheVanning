@@ -4,7 +4,7 @@ class VansService {
 
     constructor() {
         this.app = axios.create({
-            baseURL: 'http://localhost:5000/api/vans',
+            baseURL: `${process.env.REACT_APP_BASE_URL}/vans`,
             // withCredentials: true
         })
     }

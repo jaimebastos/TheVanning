@@ -2,12 +2,10 @@ import { Component } from "react";
 import { Row, Modal, Container } from "react-bootstrap";
 import EditExtra from "../EditExtra/EditExtra";
 import ExtrasDetails from "../ExtrasDetails/ExtrasDetails";
-
 import ExtrasCard from "./Extras-card";
 import { Link } from "react-router-dom";
 import FilteredExtras from "../ExtrasFilter/ExtrasFilter";
 import ExtrasCheckbox from "../ExtrasFilter/ExtrasCheckbox";
-
 import "./Extras-list.css";
 import ExtrasCover from "./Extras-Cover";
 
@@ -49,26 +47,24 @@ class ExtrasList extends Component {
       <>
         <Container>
           <ExtrasCover />
-          <div className="checkboxx">
-            <ExtrasCheckbox />
-          </div>
-          <div className="list">
-            <Link to="/extras/create" className="btn btn-outline-dark boton-crear-extra">
-              Crear extra
-            </Link>
+            <div className="checkboxx">
+              <ExtrasCheckbox />
+            </div>
+            <div className="list">
+              <Link to="/extras/create" className="btn btn-outline-dark boton-crear-extra">Crear extra</Link>
 
-            <Row>
-              {extras.map((elm) => (
-                <ExtrasCard
-                  key={elm._id}
-                  {...elm}
-                  saveID={(id) => this.setExtraID(id)}
-                  displayModal={(bool) => this.showModal(bool)}
-                  showEditModal={(bool) => this.isEditingModal(bool)}
-                />
-              ))}
-            </Row>
-          </div>
+              <Row>
+                {extras.map((elm) => (
+                  <ExtrasCard
+                    key={elm._id}
+                    {...elm}
+                    saveID={(id) => this.setExtraID(id)}
+                    displayModal={(bool) => this.showModal(bool)}
+                    showEditModal={(bool) => this.isEditingModal(bool)}
+                  />
+                ))}
+              </Row>
+            </div>
         </Container>
 
         <Modal size="lg" show={this.state.showModal} onHide={() => this.setState({ showModal: false })}>
