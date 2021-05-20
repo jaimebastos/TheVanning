@@ -2,10 +2,10 @@ import { Component } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import VanBaseQuote from "./QuoteForm/VanBaseQuote";
 import AutoCompletedForm from "./QuoteForm/AutoCompletedForm"
-import QuoteExtras from "./QuoteForm/QuoteExtrasCard";
 import './QuoteForm.css'
 import QuoteService from "../../../service/Quote.service";
 import VansService from "../../../service/vans.service"
+import QuoteExtras from "./QuoteForm/QuoteExtrasCard"
 
 
 
@@ -56,6 +56,7 @@ class QuoteForm extends Component {
     }
 
     render() {
+        console.log(this.props.extras);
         return (
             (this.props.baseVans.length === 0) ?
                 <h1>CARGANDO</h1>

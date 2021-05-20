@@ -44,7 +44,9 @@ const QuotePage = () => {
       </section>
       <section>
         <Container>
-          <BaseVans />
+          <div className='baseVans'>
+            <BaseVans />
+          </div>
         </Container>
       </section>
     </>

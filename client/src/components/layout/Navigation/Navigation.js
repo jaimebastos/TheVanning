@@ -25,7 +25,7 @@ const Navigation = () => {
           <Nav.Link as={Link} to="/extras" className="nav-link navWeb">
             Instalaciones
           </Nav.Link>
-          <Nav.Link as={Link} to="/quote/list-vans" className="nav-link navWeb">
+          <Nav.Link as={Link} to="/quote" className="nav-link navWeb">
             Camperizar
           </Nav.Link>
           <NavDropdown title="Usuario" id="basic-nav-dropdown" className="nav-link navWebDropDown">

@@ -29,10 +29,19 @@
     padding-top: 150px;
    
 }
-
+.baseVan-card img{
+    height: 300px;
+}
+.baseVan-card{
+    align-items: center;
+}
 @media screen and (max-width: 991px) {
 
    .van-list-title {
        padding-top: 20px;
    }
+   .baseVan-card{
+   width: 80%;
+   margin-left: 13%;
+}
 }

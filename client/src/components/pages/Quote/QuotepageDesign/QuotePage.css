@@ -16,6 +16,9 @@
 .slick-next:before {
     content: '→';
 }
+.baseVans{
+  align-items: center;
+}
 @media screen and (max-width: 765px) {
   
   .quoteList {

@@ -5,7 +5,7 @@ import "./BaseVans.css";
 
 const BaseVanCard = ({ name, caption, image, price, _id }) => {
   return (
-      <Card className="van-card">
+      <Card className="baseVan-card">
         <Card.Img variant="top" src={image[0]} />
 
         <Card.Body>
