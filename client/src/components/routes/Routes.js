@@ -16,7 +16,7 @@ import ProtectedRoute from './ProtectedRoute'
 
 
 
-const Routes = ({ storeUser, loggedUser }) => {
+const Routes = ({ storeUser, loggedUser, handleAlert }) => {
   return (
     <Switch>
       <Route path="/" exact render={() => <LandingPage />} />
@@ -24,15 +24,14 @@ const Routes = ({ storeUser, loggedUser }) => {
       <Route path="/vans/details/:id" render={(props) => <VanDetails {...props} />} />
       <ProtectedRoute path="/vans/create" condition={loggedUser && loggedUser.role === "ADMIN"} component={(props) => <NewVan history={props.history} />} />
       <ProtectedRoute path="/vans/edit/:vans_id" condition={loggedUser && loggedUser.role === "ADMIN"} component={(props) => <EditVan {...props} history={props.history} />} />
-      <Route path="/auth/signup" render={(props) => <Signup history={props.history} />} />
+      <Route path="/auth/signup" render={(props) => <Signup history={props.history} handleAlert={handleAlert} />} />
       <Route path="/extras" exact render={() => <Extras />} />
-      <ProtectedRoute path="/extras/create" condition={loggedUser && loggedUser.role === "ADMIN"} component={(props) => <NewExtra history={props.history} />} />
-      <Route path="/auth/login" render={(props) => <Login storeUser={storeUser} history={props.history} />} />
-      <Route path="/quote" exact render={() => <QuotePage />} />
-      <ProtectedRoute path="/quote/create" condition={loggedUser} component={<QuoteCard loggedUser={loggedUser} />} />
+      <ProtectedRoute path="/extras/create" condition={loggedUser && loggedUser.role === "ADMIN"} component={(props) => <NewExtra history={props.history} handleAlert={handleAlert} />} />
+      <Route path="/auth/login" render={(props) => <Login storeUser={storeUser} history={props.history} handleAlert={handleAlert} />} />
+      <Route path="/quote" exact render={() => <QuotePage loggedUser={loggedUser} />} />
+      <ProtectedRoute path="/quote/create" condition={loggedUser} component={() => <  QuoteCard loggedUser={loggedUser} />} />
       <Route path="/extras/:category" render={(props) => <FilteredExtras {...props} />} />
     </Switch>
   );
 }
-
 export default Routes

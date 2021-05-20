@@ -76,13 +76,13 @@ class QuoteForm extends Component {
                         </Col></>
                     }
                     <Row className="justify-content-center">
-                    <Button className="buttonBudget" variant="outline-dark" style={{ width: "50%"}} type="submit">
-                        Pedir presupuesto
+                        <Button className="buttonBudget" variant="outline-dark" style={{ width: "50%" }} type="submit">
+                            Pedir presupuesto
                     </Button>
                     </Row>
-                  </Form>
-                )
-             }
+                </Form>
+        )
+    }
 }
 
 export default QuoteForm;

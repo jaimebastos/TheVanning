@@ -22,10 +22,14 @@ class LoginForm extends Component {
             .login(this.state)
             .then(response => {
                 this.props.storeUser(response.data)
+                this.props.handleAlert(true, 'Bienvenido')
                 this.props.history.push('/vans')
 
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                const errorMessage = err.response.data.message;
+                this.props.handleAlert(true, errorMessage);
+            })
     }
 
     render() {
