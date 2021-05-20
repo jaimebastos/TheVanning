@@ -35,7 +35,6 @@ const settings = {
         }
         ]
 };
-
 class BaseVans extends Component {
   constructor() {
     super();

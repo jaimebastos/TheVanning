@@ -62,9 +62,8 @@ class ExtrasDetails extends Component {
               }}
               variant="outline-secondary"
               className="btn btn-outline-dark botonDel"
-            >
-              Eliminar
-            </Button>
+            >Eliminar </Button>
+            
           </>
         )}
       </Container>

@@ -32,7 +32,6 @@ class VanDetails extends Component {
             .catch((err) => console.log("eeerrrroorrr", err));
     }
 
-
     render() {
         const { van } = this.state
             return (

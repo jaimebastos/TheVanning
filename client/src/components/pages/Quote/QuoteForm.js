@@ -7,7 +7,6 @@ import QuoteService from "../../../service/Quote.service";
 import VansService from "../../../service/vans.service"
 import QuoteExtras from "./QuoteForm/QuoteExtrasCard"
 import SpinnerGif from './../common/Spinner'
-
 class QuoteForm extends Component {
     constructor(props) {
         super(props)
@@ -18,12 +17,10 @@ class QuoteForm extends Component {
         }
         this.quoteService = new QuoteService();
         this.vansService = new VansService();
-
     }
 
     handleOnSubmit(e) {
         e.preventDefault();
-
         console.log(this.state.selectedVan._id)
         console.log(this.props)
     }

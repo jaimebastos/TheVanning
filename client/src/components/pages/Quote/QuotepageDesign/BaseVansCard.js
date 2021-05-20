@@ -12,12 +12,8 @@ const BaseVanCard = ({ name, caption, image, price, _id }) => {
           <Card.Title className="card-name">{name}</Card.Title>
           <Card.Title className="card-info">{caption}</Card.Title>
           <Card.Title className="card-info">{price} €</Card.Title>
-          <Link to={`/vans/details/${_id}`} className="btn btn-outline-dark boton">
-            Detalles
-          </Link>
-          <Link to={`/vans/edit/${_id}`} className="btn btn-outline-dark boton">
-            Editar
-          </Link>
+          <Link to={`/vans/details/${_id}`} className="btn btn-outline-dark boton">Detalles</Link>
+          <Link to={`/vans/edit/${_id}`} className="btn btn-outline-dark boton"> Editar</Link>
         </Card.Body>
       </Card>
   );
