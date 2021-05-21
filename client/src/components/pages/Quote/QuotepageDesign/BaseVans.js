@@ -11,7 +11,7 @@ var settings = {
   dots: true,
   infinite: true,
   speed: 500,
-  slidesToShow: 2,
+  slidesToShow: 3,
   slidesToScroll: 1,
   nextArrow: <SampleNextArrow />,
   prevArrow: <SamplePrevArrow />,
@@ -52,7 +52,7 @@ class BaseVans extends Component {
   }
 
   loadVans() {
-    this.VansService.getAllVans()
+    this.VansService.findBaseVans(false)
       .then((response) => {
         this.setState({ vans: response.data });
       })
