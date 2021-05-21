@@ -13,7 +13,7 @@ class ExtrasService {
   };
   getOneExtra = (extras_id) => this.app.get(`/${extras_id}`);
   editOneExtra = (extras_id, extrasDetails) => this.app.put(`/edit/${extras_id}`, extrasDetails);
-  deleteOneExtra = (extras_id) => this.app.get(`/delete/${extras_id}`)
+  deleteOneExtra = (extras_id) => this.app.delete(`/delete/${extras_id}`)
   filterByCategory = (category) => this.app.get(`/list/${category}`)
 }
 

@@ -58,7 +58,7 @@ router.put("/edit/:vans_id", isLoggedIn, checkRoles('ADMIN'), (req, res) => {
     .catch((err) => res.status(500).json({ code: 500, message: "Error editing vans", err }))
 })
 
-router.get("/delete/:vans_id", isLoggedIn, checkRoles('ADMIN'), (req, res) => {
+router.delete("/delete/:vans_id", isLoggedIn, checkRoles('ADMIN'), (req, res) => {
 
   Van
     .findByIdAndRemove(req.params.vans_id)
