@@ -11,7 +11,7 @@ var settings = {
   dots: true,
   infinite: true,
   speed: 500,
-  slidesToShow: 2,
+  slidesToShow: 3,
   slidesToScroll: 1,
   nextArrow: <SampleNextArrow />,
   prevArrow: <SamplePrevArrow />,
@@ -66,9 +66,6 @@ class BaseVans extends Component {
       <h1><SpinnerGif /></h1>
     ) : (
       <>
-        <Link to={`/quote/create`} className="btn btn-outline-dark boton">
-          Detalles
-          </Link>
         <Slider {...settings} >
           {vans.map((elm) => (<BaseVanCard key={elm._id} {...elm} loggedUser={this.props.loggedUser} />))}
         </Slider>

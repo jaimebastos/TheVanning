@@ -12,7 +12,8 @@ const ExtrasQuoteCard = ({ data, handleChange }) => {
       </Col> 
       <Col xs={6}>
         <Card.Body>
-          <Card.Title className="card-information-name">{data.name}</Card.Title>
+          <Card.Title className="card-information-name">{data.brand
+          }</Card.Title>
           <Card.Title className="card-information">{data.caption}</Card.Title>
           <Card.Title className="card-information">{data.price} €</Card.Title>
           <Form.Check onChange={(e) => handleChange(e, data)} type="checkbox" /> Añadir

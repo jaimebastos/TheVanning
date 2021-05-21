@@ -19,15 +19,17 @@
 }
 
 .furgoneta {
-    padding-top: 220px;
+    padding-top: 20px;
 }
 @media screen and (max-width: 991px) {
 .buttonBudget {
     margin-bottom: 125px;
 }
 .furgoneta {
-    padding-top: 400px;
-    
+    padding-top: 80px;
+}
+.quoteForm {
+    padding-top: 20px;
 }
     
 }
