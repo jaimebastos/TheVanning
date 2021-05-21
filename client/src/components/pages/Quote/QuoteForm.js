@@ -33,7 +33,11 @@ class QuoteForm extends Component {
 
         this.vansService
             .createVan(copy)
-            .then(res => console.log("lol"))
+            .then(res => this.quoteService.createQuote({ van: res.data._id, owner: this.props.loggedUser._id, status: "Confirmed" }))
+            .then(() => {
+                this.props.handleAlert(true, "FurgoCamper creada con exito");
+                this.props.history.push(`/my-profile/${this.props.loggedUser._id}`);
+            })
             .catch(err => console.log({ err }))
     }
 
@@ -82,16 +86,16 @@ class QuoteForm extends Component {
                     <AutoCompletedForm selectedVan={this.state.selectedVan} />
 
                     {(!this.state.selectedVan) ? <></> : <>
-                   
-                    <QuoteExtras extras={this.props.extras} onChecked={arr => this.checkedExtras(arr)} />
-                   
-                    <Row className="justify-content-center furgoneta">
-                        <Col md={12} className="justify-content-center">
-                            <h1 className="prices-item">Coste total de la furgoneta: </h1><h2 className="prices-item pricesItem">{this.state.price} €</h2>
-                        </Col>
-                        <Button className="buttonBudget" variant="outline-dark" style={{ width: "50%" }} type="submit">Pedir presupuesto </Button>
-                    </Row>
-                        </>
+
+                        <QuoteExtras extras={this.props.extras} onChecked={arr => this.checkedExtras(arr)} />
+
+                        <Row className="justify-content-center furgoneta">
+                            <Col md={12} className="justify-content-center">
+                                <h1 className="prices-item">Coste total de la furgoneta: </h1><h2 className="prices-item pricesItem">{this.state.price} €</h2>
+                            </Col>
+                            <Button className="buttonBudget" variant="outline-dark" style={{ width: "50%" }} type="submit">Pedir presupuesto </Button>
+                        </Row>
+                    </>
                     }
                     <Button className='quoteform' variant="dark" style={{ width: "100%", margin: "50px auto" }} type="submit">
                         Pedir presupuesto

@@ -5,7 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Footer from './layout/Footer/Footer'
 import Navigation from './layout/Navigation/Navigation'
 import Routes from './routes/Routes'
-import Alert from '../Shared/alert';
+import Alert from './pages/Shared/alert';
+
 
 
 class App extends Component {

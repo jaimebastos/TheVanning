@@ -53,7 +53,9 @@ const Navigation = ({ loggedUser, storeUser }) => {
                 </>
                 :
                 <>
-                  <span>Mis facturas</span>
+                  <NavDropdown.Item as={Link} to={`/my-profile/${loggedUser._id}`}>
+                    Mis facturas
+                  </NavDropdown.Item>
                   <NavDropdown.Item as={ButtonGroup} onClick={() => logout()}>
                     Cerrar Sesión
                   </NavDropdown.Item>
