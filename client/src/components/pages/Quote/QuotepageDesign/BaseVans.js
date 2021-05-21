@@ -52,7 +52,7 @@ class BaseVans extends Component {
   }
 
   loadVans() {
-    this.VansService.getAllVans()
+    this.VansService.findBaseVans(false)
       .then((response) => {
         this.setState({ vans: response.data });
       })

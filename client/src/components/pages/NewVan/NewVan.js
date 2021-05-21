@@ -56,7 +56,7 @@ class NewVan extends Component {
                 this.props.history.push('/vans');
             })
             .catch(err => {
-                const errorMessage = err.response.data.errorMessage;
+                const errorMessage = err.response.data.message;
                 this.props.handleAlert(true, errorMessage);
             })
     }
