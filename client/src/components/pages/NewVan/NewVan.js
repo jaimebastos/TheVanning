@@ -45,14 +45,17 @@ class NewVan extends Component {
     }
 
     handleSubmit(e) {
+        this.setState({
+            isCustomized: false
+        })
         e.preventDefault()
         this.VansService
             .createVan(this.state)
-            .then(() => { 
+            .then(() => {
                 this.props.handleAlert(true, "FurgoCamper creada con exito");
-                this.props.history.push('/vans'); 
+                this.props.history.push('/vans');
             })
-            .catch(err =>{
+            .catch(err => {
                 const errorMessage = err.response.data.errorMessage;
                 this.props.handleAlert(true, errorMessage);
             })
@@ -65,15 +68,15 @@ class NewVan extends Component {
     specificationsOnChange(specifications) { this.setState({ specifications }) }
 
     handleFileUpload(e) {
-        this.setState({disabled: true})
+        this.setState({ disabled: true })
         const uploadData = new FormData();
-        for(let i = 0; i < e.target.files.length; i++) {
+        for (let i = 0; i < e.target.files.length; i++) {
             uploadData.append("imageData", e.target.files[i]);
         }
 
         this.uploadsService
             .uploadimage(uploadData)
-            .then(response => 
+            .then(response =>
                 this.setState({ image: response.data.secure_url, disabled: false }))
             .catch(err => console.log('errooooor', err))
     }
@@ -112,10 +115,10 @@ class NewVan extends Component {
 
                             <Form.Group className="newForm" controlId="image">
                                 <Form.Label>Imagen</Form.Label>
-                                <Form.Control  multiple={true} type="file" className="image-van" value={this.state.imageData} onChange={(e) => this.handleFileUpload(e)} name="image" />
+                                <Form.Control multiple={true} type="file" className="image-van" value={this.state.imageData} onChange={(e) => this.handleFileUpload(e)} name="image" />
                             </Form.Group>
-                        
-                            <Button  disabled={this.state.disabled} variant="outline-dark" style={{ width: '100%', marginBottom: '50px' }} type="submit">Crear furgoneta</Button>
+
+                            <Button disabled={this.state.disabled} variant="outline-dark" style={{ width: '100%', marginBottom: '50px' }} type="submit">Crear furgoneta</Button>
                         </Col>
                     </Row>
                 </Form>

@@ -38,7 +38,7 @@ router.post("/create", isLoggedIn, checkRoles('ADMIN'), (req, res) => {
   Extra
     .create(extra)
     .then((response) => res.json(response))
-    .catch((err) => res.status(500).json({errorMessage: checkMongoooseError(err)} ));
+    .catch((err) => res.status(500).json({ errorMessage: checkMongoooseError(err) }));
 });
 
 router.put("/edit/:extras_id", isLoggedIn, checkRoles('ADMIN'), (req, res) => {
@@ -51,7 +51,7 @@ router.put("/edit/:extras_id", isLoggedIn, checkRoles('ADMIN'), (req, res) => {
     .catch((err) => res.status(500).json({ code: 500, message: "Error editing extras", err }));
 });
 
-router.get("/delete/:extras_id", isLoggedIn, checkRoles('ADMIN'), (req, res) => {
+router.delete("/delete/:extras_id", isLoggedIn, checkRoles('ADMIN'), (req, res) => {
 
   Extra.findByIdAndRemove(req.params.extras_id)
     .then((response) => res.json(response))
