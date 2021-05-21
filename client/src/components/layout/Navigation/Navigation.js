@@ -7,6 +7,7 @@ import Home from "./Home.png";
 import Mecanic from "./Mecanic.png";
 import Van from "./Van.png";
 import User from "./User.png";
+import Quote from "./Quote.png";
 import AuthService from "../../../service/auth.service";
 
 const Navigation = ({ loggedUser, storeUser }) => {
@@ -52,7 +53,9 @@ const Navigation = ({ loggedUser, storeUser }) => {
                 </>
                 :
                 <>
-                  <span>Mis facturas</span>
+                  <NavDropdown.Item as={Link} to={`/my-profile/${loggedUser._id}`}>
+                    Mis facturas
+                  </NavDropdown.Item>
                   <NavDropdown.Item as={ButtonGroup} onClick={() => logout()}>
                     Cerrar Sesión
                   </NavDropdown.Item>
@@ -66,6 +69,9 @@ const Navigation = ({ loggedUser, storeUser }) => {
           </Nav.Link>
           <Nav.Link as={Link} to="/vans" className="navMob1">
             <img src={Van} alt="van"></img>
+          </Nav.Link>
+          <Nav.Link as={Link} to="/quote" className="navMob">
+            <img src={Quote}></img>
           </Nav.Link>
           <Nav.Link as={Link} to="/extras" className="navMob">
             <img src={Mecanic} alt="mecanic"></img>

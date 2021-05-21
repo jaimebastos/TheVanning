@@ -13,13 +13,13 @@ router.post('/signup', (req, res) => {
     username = username.toLowerCase()
 
     if (username.length === 0 || pwd.length === 0) {
-      res.status(400).json({ message: "Rellena los campos"});
-      return;
+        res.status(400).json({ message: "Rellena los campos" });
+        return;
     }
 
     if (pwd.length < 2) {
-      res.status(400).json({ message: "Elige una contraseña mas larga" });
-      return;
+        res.status(400).json({ message: "Elige una contraseña mas larga" });
+        return;
     }
 
 
@@ -68,7 +68,7 @@ router.post('/login', (req, res) => {
             req.session.currentUser = user
             res.json(req.session.currentUser)
         })
-        .catch(err => res.status(500).json({ code: 500, message: 'DB error while fetching user', err }))
+        .catch(err => res.status(500).json({ code: 500, message: 'Username or password wrong', err }))
 })
 
 

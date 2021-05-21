@@ -7,6 +7,7 @@ import shop from "./shop.png";
 import upgrade from "./upgrade.png";
 
 const LandingPage = () => {
+  console.log(process.env)
   return (
     <div className="landing">
       <figure className="cover">
@@ -26,12 +27,12 @@ const LandingPage = () => {
               <img src={build} alt="build"></img>
               <div className="innertext">
                 {" "}
-                  <Link to="/extras" className="nav-link btn btn-outline-dark-landing buttonLink">
-                    <h3>CUSTOMIZAR</h3>
-                  </Link>
-                  <Link to="/extras" className="nav-link">
-                    <p>¿TIENES YA UNA FURGONETA? EMPIEZA AQUI</p>
-                  </Link>
+                <Link to="/extras" className="nav-link btn btn-outline-dark-landing buttonLink">
+                  <h3>CUSTOMIZAR</h3>
+                </Link>
+                <Link to="/extras" className="nav-link">
+                  <p>¿TIENES YA UNA FURGONETA? EMPIEZA AQUI</p>
+                </Link>
               </div>
             </figure>
           </Col>

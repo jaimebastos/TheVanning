@@ -8,6 +8,7 @@ class QuoteService {
     });
   }
   createQuote = (quoteDetails) => this.app.post("/create", quoteDetails);
+  getClientsQuote = (id) => this.app.get(`/get-quotes/${id}`)
 }
 
 export default QuoteService;
